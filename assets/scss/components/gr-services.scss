@@ -1,0 +1,61 @@
+.gr-services {
+}
+.gr-service {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 634px);
+    justify-content: space-between;
+    margin-bottom: 160px;
+
+    &__description {
+        padding: 32px 154px 32px 32px;
+        min-height: 478px;
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        &--green {
+            color: $white;
+            background-color: $background_2;
+            background-image: url(@/assets/img/gr-services/cone.png);
+            background-repeat: no-repeat;
+            background-position: right 24px bottom 24px;
+        }
+        &--white {
+            border-left: 5px solid $background_2;
+        }
+    }
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        margin-bottom: 16px;
+    }
+    &__text {
+        margin-bottom: 16px;
+    }
+    &__images {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 308px);
+        row-gap: 16px;
+        justify-content: space-between;
+        align-self: stretch;
+        img {
+            width: 308px;
+            height: 231px;
+        }
+    }
+    &__link {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+
+        svg {
+            margin-right: 8px;
+        }
+        span {
+            text-decoration: underline;
+            font-weight: 700;
+            line-height: 17px;
+            letter-spacing: 0.02em;
+        }
+    }
+}

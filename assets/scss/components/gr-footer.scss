@@ -1,0 +1,83 @@
+.gr-footer {
+    padding: 66px 0 57px;
+    background-color: $primary_green;
+    background-image: url(@/assets/img/gr-footer/cone_left.png), url(@/assets/img/gr-footer/cone_right.png);
+    background-repeat: no-repeat;
+    background-position: left -49px bottom -153px, right -292px bottom -233px;
+    &__logo {
+        display: block;
+        margin-bottom: 32px;
+        height: auto;
+        path {
+            fill: $white;
+        }
+        svg {
+            width: 396px;
+        }
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__contacts {
+        width: 304px;
+        display: flex;
+        flex-direction: column;
+    }
+    &__contact {
+        display: flex;
+        align-items: baseline;
+        line-height: 17px;
+        letter-spacing: 0.02em;
+        color: $white;
+        svg {
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+    }
+    &__contact-link {
+        text-decoration: none;
+        color: inherit;
+        margin-bottom: 13px;
+    }
+    &__copyright {
+        display: flex;
+        align-items: center;
+        color: $white;
+        svg {
+            margin-right: 10px;
+        }
+    }
+    &__links {
+        width: 302px;
+        display: flex;
+        flex-direction: column;
+        color: $white;
+    }
+    &__link {
+        line-height: 17px;
+        letter-spacing: 0.02em;
+        margin-bottom: 10px;
+        text-decoration: underline;
+    }
+    &__subscribe {
+        margin-bottom: 30px;
+        font-family: Montserrat;
+
+        font-weight: 700;
+        line-height: 17px;
+        letter-spacing: 0.02em;
+        color: $white;
+        p {
+            margin-bottom: 13px;
+        }
+    }
+    &__subscribe-btn {
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px;
+        letter-spacing: 0.02em;
+    }
+    &__socials {
+    }
+}

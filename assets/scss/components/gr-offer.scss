@@ -1,0 +1,60 @@
+.gr-offer {
+    display: flex;
+    position: relative;
+    margin-bottom: 128px;
+    &__bg {
+        background-repeat: no-repeat;
+        background-color: $background_1;
+        position: absolute;
+        width: 100vw;
+        z-index: -1;
+        &--first {
+            left: 543px;
+            background-image: url(/_nuxt/assets/img/gr-offer/cone.png);
+            background-position: left 744px bottom 40px;
+            height: 613px;
+        }
+        &--second {
+            height: 403px;
+            right: 543px;
+        }
+        &--third {
+            height: 403px;
+            left: 543px;
+        }
+    }
+    &__image {
+        margin-top: 64px;
+        &--first {
+            margin-top: 234px;
+        }
+    }
+    &__content {
+        padding: 94px 17px 0px 23px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+    }
+    &__title {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 32px;
+        margin-bottom: 32px;
+    }
+    &__text {
+        border-left: 5px solid $background_2;
+        padding-left: 11px;
+        margin-left: 10px;
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        p {
+            margin-bottom: 24px;
+        }
+    }
+    &__link {
+        font-weight: 700;
+    }
+}

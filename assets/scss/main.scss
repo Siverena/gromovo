@@ -1,0 +1,56 @@
+/**********
+/* VARIABLES */
+@import "./variables.scss";
+/**********
+/* NORMALIZE */
+@import "./normalize.scss";
+
+/**********
+/* MIXINS */
+
+/**********
+
+/* BASE */
+@import "./base";
+
+/**********
+/* ELEMENTS */
+@import "./elements/gr-logo.scss";
+@import "./elements/gr-btn.scss";
+@import "./elements/gr-btn-slides.scss";
+@import "./elements/gr-link.scss";
+@import "./elements/gr-page-titles.scss";
+
+/**********
+/* COMPONENTS */
+@import "./components/gr-header.scss";
+@import "./components/gr-main-slider.scss";
+@import "./components/gr-nav.scss";
+@import "./components/gr-callback.scss";
+@import "./components/gr-weather.scss";
+@import "./components/gr-about-us.scss";
+@import "./components/gr-mob-menu.scss";
+@import "./components/gr-why-us.scss";
+@import "./components/gr-index-banner.scss";
+@import "./components/gr-footer.scss";
+@import "./components/gr-socials.scss";
+@import "./components/gr-index-gallery.scss";
+@import "./components/gr-nav-column.scss";
+@import "./components/gr-gallery-slider.scss";
+@import "./components/gr-contacts.scss";
+@import "./components/gr-partners.scss";
+@import "./components/gr-offer.scss";
+@import "./components/gr-specal.scss";
+@import "./components/gr-services.scss";
+@import "./components/gr-service-slider.scss";
+@import "./components/gr-breadcrumbs.scss";
+
+/**********
+/* PAGES */
+@import "./pages/rules.scss";
+@import "./pages/uslov.scss";
+@import "./pages/gallery.scss";
+@import "./pages/404.scss";
+/**********
+/* FONTS */
+@import "./fonts.scss";

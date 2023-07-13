@@ -1,0 +1,70 @@
+.gr-rules {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    line-height: 22px;
+    &__titles {
+        margin-bottom: 64px;
+    }
+    &__header {
+        margin-bottom: 30px;
+        p {
+            margin-bottom: 10px;
+            line-height: 40px;
+        }
+    }
+    &__introduction {
+        margin-bottom: 30px;
+        p {
+            margin-bottom: 10px;
+        }
+    }
+    &__list {
+        padding-left: 20px;
+
+        &--2 {
+            list-style-type: lower-alpha;
+        }
+        &--3 {
+            list-style-type: lower-roman;
+        }
+        &--4 {
+            list-style-type: disc;
+        }
+    }
+    &__link {
+        cursor: pointer;
+        text-decoration: underline;
+        margin-bottom: 20px;
+        font-size: 18px;
+        margin-top: 60px;
+    }
+    &__conclusion {
+        p {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+table.iksweb {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    height: auto;
+    margin-bottom: 20px;
+}
+table.iksweb,
+table.iksweb td,
+table.iksweb th {
+    border: 1px solid $border;
+}
+table.iksweb td,
+table.iksweb th {
+    padding: 3px;
+    width: 30px;
+    height: 35px;
+}
+table.iksweb th {
+    background: $background_2;
+    color: $white;
+    font-weight: normal;
+}

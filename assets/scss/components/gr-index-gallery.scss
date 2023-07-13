@@ -1,0 +1,30 @@
+.gr-index-gallery {
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 160px;
+    display: grid;
+    grid-template-columns: 898px 290px;
+    justify-content: space-between;
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__btn {
+        margin-top: 60px;
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}

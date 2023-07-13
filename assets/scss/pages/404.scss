@@ -1,0 +1,41 @@
+.gr-404 {
+    width: 100vw;
+    height: 100vh;
+    background-color: $background_2;
+    padding-top: 40px;
+    &__header {
+        margin-bottom: 109px;
+    }
+    &__content {
+        margin: 0 auto;
+        max-width: 700px;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-image: url(@/assets/img/gr-404/cone.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__code {
+        font-size: 280px;
+        font-weight: 700;
+        line-height: 341px;
+        letter-spacing: 0.02em;
+    }
+    &__error {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 44px;
+        margin-bottom: 25px;
+    }
+    &__text {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        margin-bottom: 62px;
+    }
+    &__link {
+    }
+}

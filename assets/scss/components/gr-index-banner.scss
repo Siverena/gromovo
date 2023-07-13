@@ -1,0 +1,19 @@
+.gr-index-banner {
+    background-color: $primary_green;
+    padding: 190px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("@/assets/img/gr-main-banner/cone_left.png"),
+        url("@/assets/img/gr-main-banner/cone_right.png");
+    background-repeat: no-repeat;
+    background-position: left -512px bottom -388px, right -395px bottom -462px;
+    margin-bottom: 160px;
+    &__content {
+        font-size: 90px;
+        font-weight: 400;
+        line-height: 110px;
+        letter-spacing: 0.02em;
+        color: $white;
+    }
+}

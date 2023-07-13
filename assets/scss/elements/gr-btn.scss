@@ -1,0 +1,70 @@
+.gr-btn {
+    text-decoration: none;
+    width: fit-content;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    box-sizing: border-box;
+    &--green {
+        transition: all 1s;
+        color: $white;
+        background-color: $primary_green;
+        &:hover {
+            transition: all 1s;
+            background-color: #146949;
+        }
+        &:active {
+            background-color: #022619;
+        }
+        &:disabled {
+            background-color: $text_disabled;
+        }
+    }
+    &--white {
+        transition: all 1s;
+        color: $primary_green;
+        background-color: $white;
+        border: 2px solid $primary_green;
+
+        &:hover {
+            transition: all 1s;
+            color: #146949;
+            border: 2px solid #146949;
+        }
+        &:active {
+            background-color: #022619;
+            border-color: #022619;
+            color: $white;
+        }
+        &:disabled {
+            background-color: $text_disabled;
+            color: $white;
+        }
+    }
+    &--transparent {
+        color: $white;
+        background-color: transparent;
+        border: 2px solid $white;
+        transition: all 1s;
+        &:hover {
+            transition: all 1s;
+            background-color: $white;
+            color: $primary_green;
+        }
+        &:active {
+            background-color: #146949;
+            border-color: #146949;
+            color: $white;
+        }
+        &:disabled {
+            background-color: $text_disabled;
+            color: $white;
+            border-color: $text_disabled;
+        }
+    }
+}

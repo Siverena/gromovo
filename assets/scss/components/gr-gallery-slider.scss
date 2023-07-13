@@ -1,0 +1,67 @@
+.gr-gallery-slider {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+
+    justify-content: center;
+    overflow-y: auto;
+    &__image {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+    &__close {
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+    }
+    &__content {
+        width: 1280px;
+        position: relative;
+    }
+    &__top {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__center {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 32px;
+        align-items: center;
+    }
+    &__image {
+        width: 1064px;
+        height: 660px;
+    }
+    &__small {
+        width: 200px;
+        height: 143px;
+        margin-right: 18px;
+        img {
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        &--active {
+            border: 1px solid $white;
+        }
+    }
+    &__bottom {
+        width: 100%;
+        overflow: hidden;
+    }
+    &__bottom-cont {
+        width: 9999px;
+        display: flex;
+    }
+    &__btn {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,59 @@
+.gr-weather {
+    color: $text_primary;
+    position: relative;
+    display: flex;
+    align-items: center;
+    &--index {
+        color: $white;
+        .gr-weather__icon {
+            fill: $white;
+            svg {
+                fill: inherit;
+                path {
+                    fill: inherit;
+                }
+            }
+        }
+    }
+    &__temperature {
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.03em;
+        color: inherit;
+    }
+    &__icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+        fill: $text_primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+            width: 28px;
+            height: 28px;
+        }
+    }
+}
+@media (max-width: 1280px) {
+    .gr-weather {
+        &__temperature {
+            color: $text_primary;
+        }
+        &__icon {
+            width: 25px;
+            height: 25px;
+            margin-right: 8px;
+            fill: $text_primary;
+        }
+        &--index {
+            color: $white;
+            .gr-weather__icon {
+                fill: $text_primary;
+            }
+        }
+    }
+}

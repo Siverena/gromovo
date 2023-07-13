@@ -1,0 +1,27 @@
+.gr-logo {
+    width: 200px;
+    height: 60px;
+    &__stroke {
+        stroke: $text_primary;
+        stroke-width: 2px;
+    }
+    path {
+        fill: $text_primary;
+    }
+    &--index {
+        .gr-logo__stroke {
+            stroke: $white;
+        }
+        path {
+            fill: $white;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .gr-logo {
+        path {
+            fill: $text_primary;
+        }
+    }
+}

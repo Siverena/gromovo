@@ -1,0 +1,14 @@
+.gr-page-titles {
+    position: relative;
+    margin-bottom: 96px;
+    &__logo {
+        position: absolute;
+        right: -177px;
+        bottom: -251px;
+    }
+    &__path {
+        &--white {
+            fill: $white;
+        }
+    }
+}

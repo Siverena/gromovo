@@ -1,0 +1,31 @@
+.gr-uslov {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    line-height: 22px;
+    &__titles {
+        margin-bottom: 64px;
+    }
+
+    &__list {
+        padding-left: 20px;
+
+        &--2 {
+            list-style-type: lower-alpha;
+        }
+        &--3 {
+            list-style-type: disc;
+        }
+    }
+    &__link {
+        cursor: pointer;
+        text-decoration: underline;
+        margin-bottom: 20px;
+        font-size: 18px;
+        margin-top: 60px;
+    }
+    &__conclusion {
+        p {
+            margin-bottom: 30px;
+        }
+    }
+}

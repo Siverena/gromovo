@@ -1,0 +1,51 @@
+.gr-partners {
+    &__titles {
+        position: relative;
+        margin-bottom: 94px;
+    }
+    &__logo {
+        position: absolute;
+        right: -177px;
+        bottom: -251px;
+    }
+    &__path {
+        &--white {
+            fill: $white;
+        }
+    }
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 632px);
+        justify-content: space-between;
+        margin-bottom: 160px;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        &--green {
+            color: $white;
+            padding: 24px 126px 24px 32px;
+            background-color: $background_2;
+        }
+        &--white {
+            color: $text_primary;
+            padding: 24px 126px 24px 32px;
+            border-left: 5px solid $background_2;
+        }
+    }
+    &__item-title {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        margin-bottom: 16px;
+    }
+    &__link {
+        // color: inherit;
+
+        // font-size: 14px;
+        font-weight: 700;
+        // line-height: 17px;
+        // letter-spacing: 0.02em;
+        margin-top: auto;
+    }
+}
