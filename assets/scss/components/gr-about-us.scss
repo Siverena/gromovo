@@ -1,20 +1,12 @@
 .gr-about-us {
-    // background-image: url(/_nuxt/assets/img/gr-about-us/bg2.png);
-    // background-size: auto 519px;
-    // background-repeat: no-repeat;
-    // background-position: top center;
     margin-bottom: 64px;
     &__content {
-        // width: 1900px;
         margin: 0 auto;
-        // height: 519px;
         display: flex;
         justify-content: center;
     }
     &__left {
-        // flex-grow: 1;
         display: flex;
-        // justify-content: flex-end;
         flex-direction: column;
         align-items: flex-end;
         flex-basis: 40%;
@@ -37,13 +29,11 @@
         position: relative;
         margin-bottom: 64px;
         justify-content: space-between;
-        width: 1200px;
+        width: 100%;
     }
-
     &__titles {
         padding: 0 40px 0 0;
     }
-
     &__info {
         font-size: 18px;
         line-height: 22px;
@@ -55,8 +45,88 @@
         align-items: flex-end;
     }
     &__video {
-        width: 1280px;
+        width: 100%;
         margin: 0 auto;
         position: relative;
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-about-us {
+        margin-bottom: 120px;
+        &__content {
+        }
+        &__left {
+        }
+        &__bg {
+            background-image: none;
+            height: 292px;
+            left: 397px;
+        }
+        &__row {
+        }
+        &__titles {
+        }
+        &__info {
+            padding-left: 6px;
+            font-size: 16px;
+        }
+        &__video {
+            video {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: grid-width($laptop)) {
+    .gr-about-us {
+        margin-bottom: 100px;
+        &__content {
+        }
+        &__left {
+        }
+        &__bg {
+            display: none;
+        }
+        &__row {
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+        &__titles {
+            margin-bottom: 40px;
+        }
+        &__info {
+            width: 100%;
+            max-width: 100%;
+            color: $text_primary;
+            padding: 0;
+        }
+        &__video {
+            video {
+                width: 100%;
+            }
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-about-us {
+        margin-bottom: 80px;
+        &__content {
+        }
+        &__left {
+        }
+        &__bg {
+        }
+        &__row {
+            margin-bottom: 32px;
+        }
+        &__titles {
+            margin-bottom: 24px;
+        }
+
+        &__video {
+            video {
+            }
+        }
     }
 }

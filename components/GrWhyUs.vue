@@ -7,7 +7,9 @@
           В Громово парк есть все для комфортного отдыха
         </h2>
 
-        <NuxtLink class="gr-btn gr-btn--green" to="/services"
+        <NuxtLink
+          class="gr-btn gr-btn--green gr-why-us__link gr-why-us__link--desktop"
+          to="/services"
           >Посмотреть все услуги</NuxtLink
         >
       </div>
@@ -35,6 +37,11 @@
           >
         </div>
       </div>
+      <NuxtLink
+        class="gr-btn gr-btn--green gr-why-us__link gr-why-us__link--mobile"
+        to="/services"
+        >Посмотреть все услуги</NuxtLink
+      >
     </div>
   </section>
 </template>
@@ -97,8 +104,9 @@ export default {
     },
 
     getImageUrl(src) {
-      const url = new URL(`../assets/img/${src}`, import.meta.url).href;
-      return url;
+      // const url = new URL(`../assets/img/${src}`, import.meta.url).href;
+      // return url;
+      return `/assets/img/${src}`;
     },
   },
   mounted() {},

@@ -1,7 +1,6 @@
 <template>
   <section class="gr-rules">
-    <div class="container">
-      <GrBreadCrumbs />
+    <div class="container gr-rules__container">
       <GrPageTitles>
         <template v-slot:h1>Правила проживания</template>
         <template v-slot:h2>
@@ -719,6 +718,7 @@
           <p>С уважением, <br />Администрация базы отдыха «ГРОМОВО ПАРК».</p>
         </div>
       </div>
+      <GrPageUp />
     </div>
   </section>
 </template>

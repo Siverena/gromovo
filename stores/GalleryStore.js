@@ -1,5 +1,9 @@
 import gall from '@/stores/data/d-gallery.js';
 import { defineStore } from 'pinia';
+async function API(arrId) {
+  return arrId ? gall.filter((el) => arrId.includes(el.id)) : gall;
+}
+
 export const useGalleryStore = defineStore('GalleryStore', {
   state: () => {
     return {
@@ -10,6 +14,9 @@ export const useGalleryStore = defineStore('GalleryStore', {
     getGallery(state) {
       return state.gallery;
     },
+    isLoading() {
+      return Promise.resolve(this.fetchGallery);
+    },
   },
   actions: {
     //mutations
@@ -17,9 +24,14 @@ export const useGalleryStore = defineStore('GalleryStore', {
       this.gallery = gl;
     },
     //actions
-    fetchGallery() {
-      const gl = gall;
-      this.SET_GALLERY(gl);
+    async fetchGallery(arrId = null) {
+      API(arrId)
+        .then((data) => {
+          this.SET_GALLERY(data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   },
 });

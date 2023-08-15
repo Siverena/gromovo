@@ -1,19 +1,20 @@
 .gr-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 416px);
+    grid-template-columns: repeat(auto-fill, 389px);
     justify-content: space-between;
+    row-gap: 14px;
     a {
         text-decoration: none;
     }
     &__titles {
-        width: 416px;
-        height: 279px;
+        width: 389px;
+        height: 263px;
         margin-bottom: 0;
     }
     &__item {
-        width: 416px;
-        height: 279px;
-        margin-bottom: 14px;
+        width: 389px;
+        height: 263px;
+
         background-size: cover;
         background-repeat: no-repeat;
 
@@ -32,9 +33,81 @@
         display: flex;
     }
     &__image {
-        width: 416px;
-        height: 279px;
+        width: 389px;
+        height: 263px;
         margin-bottom: 13px;
         cursor: pointer;
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-gallery {
+        grid-template-columns: repeat(auto-fill, 484px);
+        a {
+        }
+        &__titles {
+        }
+        &__item {
+            width: 484px;
+            height: 290px;
+        }
+        &__item-bg {
+        }
+        &__image {
+            width: 484px;
+            height: 290px;
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-gallery {
+        grid-template-columns: repeat(auto-fill, 356px);
+        a {
+        }
+        &__titles {
+            width: 100%;
+            height: auto;
+            grid-column-start: span 2;
+            margin-bottom: 40px;
+            .gr-site__h2 {
+                width: 100%;
+            }
+        }
+        &__item {
+            width: 356px;
+            height: 220px;
+            &--cone {
+                display: none;
+            }
+        }
+        &__item-bg {
+        }
+        &__image {
+            width: 356px;
+            height: 220px;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-gallery {
+        grid-template-columns: repeat(auto-fill, 320px);
+        a {
+        }
+        &__titles {
+            grid-column-start: 1;
+            .gr-site__h2 {
+            }
+        }
+        &__item {
+            width: 320px;
+            height: 218px;
+            &--cone {
+            }
+        }
+        &__item-bg {
+        }
+        &__image {
+            width: 320px;
+            height: 218px;
+        }
     }
 }

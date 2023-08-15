@@ -32,7 +32,7 @@
         </NuxtLink>
       </div>
       <div class="gr-footer__row">
-        <div class="gr-footer__contacts">
+        <div class="gr-footer__col gr-footer__contacts">
           <div class="gr-footer__contact">
             <svg
               width="14"
@@ -89,9 +89,9 @@
           </div>
         </div>
 
-        <GrNavColumn :links="links" />
+        <GrNavColumn :class="'gr-footer__col'" :links="links" />
 
-        <div class="gr-footer__links">
+        <div class="gr-footer__col gr-footer__links">
           <NuxtLink to="/" class="gr-link gr-link--white gr-footer__link"
             >Политика обработки персональных данных</NuxtLink
           >
@@ -99,7 +99,7 @@
             >Реквизиты</NuxtLink
           >
         </div>
-        <div class="gr-footer__layout">
+        <div class="gr-footer__col gr-footer__layout">
           <div class="gr-footer__subscribe">
             <p>Подписаться на рассылку</p>
             <GrBtn class="gr-btn--transparent gr-footer__subscribe-btn"
@@ -137,6 +137,11 @@ export default {
       currentMenu: false,
     };
   },
+  computed: {
+    currentYear() {
+      return new Date().getFullYear();
+    },
+  },
   methods: {
     toggleMenu(key) {
       if (this.currentMenu === false || this.currentMenu !== key) {
@@ -149,11 +154,6 @@ export default {
       if (this.currentMenu === key) {
         return 'gr-nav__arrow--open';
       }
-    },
-  },
-  computed: {
-    currentYear() {
-      return new Date().getFullYear();
     },
   },
 };

@@ -1,0 +1,208 @@
+.gr-cottages {
+    &__layout {
+        margin-bottom: 160px;
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 596px);
+        justify-content: space-between;
+    }
+    &__cottage {
+        margin-bottom: 48px;
+    }
+    &__cottage-image {
+        width: 596px;
+        height: 379px;
+        margin-bottom: 8px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__cottage-name {
+        padding: 21px 0;
+        margin-bottom: 24px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: 0.02em;
+        color: $text_primary;
+    }
+    &__cottage-btn {
+        text-decoration: none;
+        padding: 16px 32px;
+    }
+}
+.gr-cottages-specials {
+    display: flex;
+    &__content {
+        width: 50%;
+        flex-grow: 0;
+        background-color: $background_2;
+        color: $white;
+        padding: 24px 30px;
+    }
+    &__text {
+        font-size: 18px;
+
+        line-height: 22px;
+        letter-spacing: 0.02em;
+
+        p {
+            margin-bottom: 10px;
+        }
+    }
+    &__title {
+        width: 50%;
+    }
+    &__link {
+        color: $white;
+        &--vk {
+            text-decoration: none;
+        }
+        &--page {
+            padding: 16px 0px 16px 0px;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 29px;
+            letter-spacing: 0.02em;
+            text-decoration: underline;
+        }
+        &--tel {
+        }
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-cottages {
+        &__layout {
+        }
+        &__items {
+            grid-template-columns: repeat(auto-fill, 484px);
+        }
+        &__cottage {
+        }
+        &__cottage-image {
+            width: 484px;
+            height: 279px;
+            img {
+            }
+        }
+        &__cottage-name {
+        }
+        &__cottage-btn {
+        }
+    }
+    .gr-cottages-specials {
+        &__content {
+        }
+        &__text {
+            p {
+            }
+        }
+        &__title {
+        }
+        &__link {
+            &--vk {
+            }
+            &--page {
+                font-size: 14px;
+            }
+            &--tel {
+            }
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-cottages {
+        &__layout {
+        }
+        &__items {
+            grid-template-columns: repeat(auto-fill, 356px);
+        }
+        &__cottage {
+        }
+        &__cottage-image {
+            width: 356px;
+            height: 200px;
+            img {
+            }
+        }
+        &__cottage-name {
+        }
+        &__cottage-btn {
+        }
+    }
+    .gr-cottages-specials {
+        flex-direction: column;
+        &__content {
+            width: 100%;
+        }
+        &__text {
+            p {
+            }
+        }
+        &__title {
+            width: 100%;
+            .gr-site__h2 {
+                width: 100%;
+            }
+        }
+        &__link {
+            &--vk {
+            }
+            &--page {
+                font-size: 16px;
+            }
+            &--tel {
+            }
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-cottages {
+        &__layout {
+        }
+        &__items {
+            grid-template-columns: repeat(auto-fill, 100%);
+        }
+        &__cottage {
+        }
+        &__cottage-image {
+            width: 320px;
+            height: 180px;
+            img {
+            }
+        }
+        &__cottage-name {
+        }
+        &__cottage-btn {
+            display: flex;
+            justify-content: center;
+            width: 320px;
+        }
+    }
+    .gr-cottages-specials {
+        &__content {
+            background: none;
+            color: $text_primary;
+            padding: 0;
+        }
+        &__text {
+            p {
+            }
+        }
+        &__title {
+        }
+        &__link {
+            color: $text_primary;
+            &--vk {
+            }
+            &--page {
+                color: $primary_green;
+            }
+            &--tel {
+            }
+        }
+    }
+}

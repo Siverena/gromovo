@@ -1,5 +1,5 @@
 <template>
-  <section class="gr-contacts">
+  <section class="gr-contacts" v-if="widthComputed">
     <div class="container">
       <div class="gr-contacts__head">
         <GrPageTitles :showLogo="false">
@@ -162,7 +162,7 @@
               1 км. Справа будет КПП Коттеджного комплекса «Громово Парк».
             </p>
           </div>
-          <div class="gr-way__item gr-way__item--image">
+          <div class="gr-way__item gr-way__item--map gr-way__item--image">
             <img
               src="@/assets/img/gr-contacts/map_2.png"
               alt=""
@@ -172,7 +172,7 @@
           </div>
         </div>
         <div class="gr-way__row">
-          <div class="gr-way__item gr-way__item--image">
+          <div class="gr-way__item gr-way__item--plan1 gr-way__item--image">
             <img
               src="@/assets/img/gr-contacts/plan_1.png"
               alt=""
@@ -240,7 +240,28 @@
               Красноармейское.
             </p>
             <p class="gr-way__text">
-              <img src="@/assets/img/gr-contacts/icon.png" alt="" />
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25 28C26.6569 28 28 26.6569 28 25C28 23.3431 26.6569 22 25 22C23.3431 22 22 23.3431 22 25C22 26.6569 23.3431 28 25 28Z"
+                  stroke="#010101"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 7H21C22.0609 7 23.0783 7.42143 23.8284 8.17157C24.5786 8.92172 25 9.93913 25 11C25 12.0609 24.5786 13.0783 23.8284 13.8284C23.0783 14.5786 22.0609 15 21 15H9C7.67392 15 6.40215 15.5268 5.46447 16.4645C4.52678 17.4021 4 18.6739 4 20C4 21.3261 4.52678 22.5979 5.46447 23.5355C6.40215 24.4732 7.67392 25 9 25H22"
+                  stroke="#010101"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </p>
             <p class="gr-way__text">
               Дальше пешком 1 км по главной дороге в сторону п. Красноармейское.
@@ -248,7 +269,7 @@
           </div>
         </div>
         <div class="gr-way__row">
-          <div class="gr-way__item">
+          <div class="gr-way__item gr-way__item--train">
             <div class="gr-way__item-title">
               <svg
                 width="32"
@@ -315,7 +336,28 @@
               станции «Громово».
             </p>
             <p class="gr-way__text">
-              <img src="@/assets/img/gr-contacts/icon.png" alt="" />
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M25 28C26.6569 28 28 26.6569 28 25C28 23.3431 26.6569 22 25 22C23.3431 22 22 23.3431 22 25C22 26.6569 23.3431 28 25 28Z"
+                  stroke="#010101"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 7H21C22.0609 7 23.0783 7.42143 23.8284 8.17157C24.5786 8.92172 25 9.93913 25 11C25 12.0609 24.5786 13.0783 23.8284 13.8284C23.0783 14.5786 22.0609 15 21 15H9C7.67392 15 6.40215 15.5268 5.46447 16.4645C4.52678 17.4021 4 18.6739 4 20C4 21.3261 4.52678 22.5979 5.46447 23.5355C6.40215 24.4732 7.67392 25 9 25H22"
+                  stroke="#010101"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </p>
             <p class="gr-way__text gr-way__text--bold">Дальше:</p>
             <ul class="gr-way__list">
@@ -323,32 +365,191 @@
                 Такси от станции «Громово».
                 <ul class="gr-way__list gr-way__list--2">
                   <li class="gr-way__list-item gr-way__list-item--2">
-                    Такси «Вуокса» &nbsp;
-                    <a class="gr-way__link" href="tel:+79213398485">
-                      8(921) 339-84-85 </a
-                    >;&nbsp;
-                    <a class="gr-way__link" href="tel:+79990294202">
-                      8(999) 029-42-02</a
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                    .
-                  </li>
-                  <li class="gr-way__list-item gr-way__list-item--2">
-                    Такси Приозёрского района &nbsp;
-                    <a class="gr-way__link" href="tel:+79643724082">
-                      8(964) 372-40-82</a
-                    >
-                  </li>
-                  <li class="gr-way__list-item gr-way__list-item--2">
-                    Такси "РАУТУ" &nbsp;
-                    <a class="gr-way__link" href="tel:+79013136133">
-                      8(901) 313-61-33</a
-                    >;&nbsp;<a class="gr-way__link" href="tel:+79213023400">
-                      8(921) 302-34-00</a
-                    >;&nbsp;
+                      <path
+                        d="M1.125 8.4375H16.875"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.75 12.9375V14.625C15.75 14.7742 15.6907 14.9173 15.5852 15.0227C15.4798 15.1282 15.3367 15.1875 15.1875 15.1875H13.5C13.3508 15.1875 13.2077 15.1282 13.1023 15.0227C12.9968 14.9173 12.9375 14.7742 12.9375 14.625V12.9375"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5.0625 12.9375V14.625C5.0625 14.7742 5.00324 14.9173 4.89775 15.0227C4.79226 15.1282 4.64918 15.1875 4.5 15.1875H2.8125C2.66332 15.1875 2.52024 15.1282 2.41475 15.0227C2.30926 14.9173 2.25 14.7742 2.25 14.625V12.9375"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.5 10.6875H5.625"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.375 10.6875H13.5"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.75 8.4375L13.6485 3.70905C13.6043 3.60962 13.5322 3.52514 13.441 3.46585C13.3497 3.40656 13.2433 3.375 13.1344 3.375H4.86555C4.75675 3.375 4.65027 3.40656 4.55904 3.46585C4.46781 3.52514 4.39573 3.60962 4.35154 3.70905L2.25 8.4375V12.9375H15.75V8.4375Z"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
 
-                    <a class="gr-way__link" href="tel:+78137964689">
-                      8(81379) 64-689</a
+                    <div>
+                      Такси «Вуокса» &nbsp;
+                      <a class="gr-way__link" href="tel:+79213398485">
+                        8(921) 339-84-85 </a
+                      >;&nbsp;
+                      <a class="gr-way__link" href="tel:+79990294202">
+                        8(999) 029-42-02</a
+                      >
+                      .
+                    </div>
+                  </li>
+                  <li class="gr-way__list-item gr-way__list-item--2">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
+                      <path
+                        d="M1.125 8.4375H16.875"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.75 12.9375V14.625C15.75 14.7742 15.6907 14.9173 15.5852 15.0227C15.4798 15.1282 15.3367 15.1875 15.1875 15.1875H13.5C13.3508 15.1875 13.2077 15.1282 13.1023 15.0227C12.9968 14.9173 12.9375 14.7742 12.9375 14.625V12.9375"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5.0625 12.9375V14.625C5.0625 14.7742 5.00324 14.9173 4.89775 15.0227C4.79226 15.1282 4.64918 15.1875 4.5 15.1875H2.8125C2.66332 15.1875 2.52024 15.1282 2.41475 15.0227C2.30926 14.9173 2.25 14.7742 2.25 14.625V12.9375"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.5 10.6875H5.625"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.375 10.6875H13.5"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.75 8.4375L13.6485 3.70905C13.6043 3.60962 13.5322 3.52514 13.441 3.46585C13.3497 3.40656 13.2433 3.375 13.1344 3.375H4.86555C4.75675 3.375 4.65027 3.40656 4.55904 3.46585C4.46781 3.52514 4.39573 3.60962 4.35154 3.70905L2.25 8.4375V12.9375H15.75V8.4375Z"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <div>
+                      Такси Приозёрского района &nbsp;
+                      <a class="gr-way__link" href="tel:+79643724082">
+                        8(964) 372-40-82</a
+                      >
+                    </div>
+                  </li>
+                  <li class="gr-way__list-item gr-way__list-item--2">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.125 8.4375H16.875"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.75 12.9375V14.625C15.75 14.7742 15.6907 14.9173 15.5852 15.0227C15.4798 15.1282 15.3367 15.1875 15.1875 15.1875H13.5C13.3508 15.1875 13.2077 15.1282 13.1023 15.0227C12.9968 14.9173 12.9375 14.7742 12.9375 14.625V12.9375"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5.0625 12.9375V14.625C5.0625 14.7742 5.00324 14.9173 4.89775 15.0227C4.79226 15.1282 4.64918 15.1875 4.5 15.1875H2.8125C2.66332 15.1875 2.52024 15.1282 2.41475 15.0227C2.30926 14.9173 2.25 14.7742 2.25 14.625V12.9375"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.5 10.6875H5.625"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.375 10.6875H13.5"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.75 8.4375L13.6485 3.70905C13.6043 3.60962 13.5322 3.52514 13.441 3.46585C13.3497 3.40656 13.2433 3.375 13.1344 3.375H4.86555C4.75675 3.375 4.65027 3.40656 4.55904 3.46585C4.46781 3.52514 4.39573 3.60962 4.35154 3.70905L2.25 8.4375V12.9375H15.75V8.4375Z"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <div>
+                      Такси "РАУТУ" &nbsp;
+                      <a class="gr-way__link" href="tel:+79013136133">
+                        8(901) 313-61-33</a
+                      >;&nbsp;<a class="gr-way__link" href="tel:+79213023400">
+                        8(921) 302-34-00</a
+                      >;&nbsp;
+
+                      <a class="gr-way__link" href="tel:+78137964689">
+                        8(81379) 64-689</a
+                      >
+                    </div>
                   </li>
                 </ul>
               </li>
@@ -359,7 +560,7 @@
               </li>
             </ul>
           </div>
-          <div class="gr-way__item gr-way__item--image">
+          <div class="gr-way__item gr-way__item--cone gr-way__item--image">
             <img
               src="@/assets/img/gr-contacts/cone_2.png"
               alt=""
@@ -367,8 +568,28 @@
               height="520"
             />
           </div>
+          <div
+            class="gr-way__item gr-way__item--map-mob gr-way__item--image"
+            v-if="isMobileVersion"
+          >
+            <img
+              src="@/assets/img/gr-contacts/map_2.png"
+              alt=""
+              height="499"
+              class="gr-way__image"
+            />
+          </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+<script>
+import { mapState } from 'pinia';
+import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
+export default {
+  computed: {
+    ...mapState(useAdaptiveStore, ['isMobileVersion', 'widthComputed']),
+  },
+};
+</script>

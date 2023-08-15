@@ -11,10 +11,10 @@
       class="gr-service-slider__nav"
       :class="right ? 'gr-service-slider__nav--right ' : ''"
     >
-      <GrBtnSlidesPrev @click="prewSlide" />
+      <GrBtnSlidesPrev @click="prevSlide" />
       <GrBtnSlidesNext @click="nextSlide" />
       <div class="gr-service-slider__count">
-        {{ this.currentActive + 1 }}/ {{ slideCount }}
+        {{ currentActive + 1 }}/ {{ slideCount }}
       </div>
     </div>
   </div>
@@ -34,8 +34,9 @@ export default {
   },
   methods: {
     getImageUrl(src) {
-      const url = new URL(`../assets/img/${src}`, import.meta.url).href;
-      return url;
+      // const url = new URL(`../assets/img/${src}`, import.meta.url).href;
+      // return url;
+      return `/assets/img/${src}`;
     },
     nextSlide() {
       //   this.activeRemove();
@@ -46,7 +47,7 @@ export default {
       }
       //   this.activeAdd();
     },
-    prewSlide() {
+    prevSlide() {
       //   this.activeRemove();
       if (this.currentActive === 0) {
         this.currentActive = this.slides.length - 1;

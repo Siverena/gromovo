@@ -1,13 +1,13 @@
 <template>
   <header
     class="gr-header"
-    :class="currentUrl === 'index' ? 'gr-header--index' : ''"
+    :class="currentPage === 'index' ? 'gr-header--index' : ''"
   >
     <div class="gr-header__top">
       <div
         class="container gr-header__top-cont"
         :class="
-          currentUrl === 'index' || currentUrl === '404'
+          currentPage === 'index' || !currentPage
             ? 'gr-header__top-cont--index'
             : ''
         "
@@ -15,28 +15,24 @@
         <div class="gr-header__logo">
           <GrLogo
             :class="
-              currentUrl === 'index' || currentUrl === '404'
-                ? 'gr-logo--index'
-                : ''
+              currentPage === 'index' || !currentPage ? 'gr-logo--index' : ''
             "
           />
         </div>
         <div class="gr-header__nav">
-          <GrNav :currentUrl="currentUrl" />
+          <GrNav />
         </div>
 
         <GrCallback
           :class="
-            currentUrl === 'index' || currentUrl === '404'
-              ? 'gr-callback--index'
-              : ''
+            currentPage === 'index' || !currentPage ? 'gr-callback--index' : ''
           "
         />
 
         <div class="gr-header__weather">
           <GrWeather
-            v-if="currentUrl !== '404'"
-            :class="currentUrl === 'index' ? 'gr-weather--index' : ''"
+            v-if="currentPage"
+            :class="currentPage === 'index' ? 'gr-weather--index' : ''"
           />
         </div>
         <div @click="openMobMenu" class="gr-header__nav-open">
@@ -49,20 +45,39 @@
       </div>
     </div>
 
-    <div class="gr-header__slider" v-if="currentUrl === 'index'">
-      <GrMainSlider :currentUrl="currentUrl" />
+    <div
+      class="gr-header__slider"
+      v-if="currentPage === 'index' && widthComputed"
+      :class="!isDesktopVersion ? 'container' : ''"
+    >
+      <GrMainSlider />
     </div>
-    <div class="gr-header__bottom"></div>
+    <div
+      v-if="currentPage !== 'cottage-id'"
+      class="gr-header__bottom"
+      :class="currentPage === 'index' ? 'gr-header__bottom--index' : ''"
+    >
+      <div class="container">
+        <GrPickUp :page="'index'" :btnText="'Подобрать'" />
+      </div>
+    </div>
   </header>
 </template>
 <script>
+import { mapState } from 'pinia';
+import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
 export default {
-  props: ['openMobMenu', 'currentUrl'],
+  props: ['openMobMenu'],
   data() {
     return {};
   },
-
-  beforeCreate() {},
+  computed: {
+    ...mapState(useAdaptiveStore, ['isDesktopVersion', 'widthComputed']),
+    currentPage() {
+      return this.$route.name;
+    },
+  },
+  methods: {},
   mounted() {},
 };
 </script>

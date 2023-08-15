@@ -10,5 +10,123 @@
         &--white {
             fill: $white;
         }
+        &--green {
+            fill: $background_2;
+        }
+    }
+    &--prices {
+        .gr-site__h2 {
+            width: 100%;
+        }
+        .gr-page-titles {
+            &__logo {
+                bottom: -88px;
+                right: -256;
+            }
+            &__path {
+                &--white {
+                    fill: $background_2;
+                }
+            }
+        }
+    }
+    &--cottage {
+        .gr-site__h2 {
+            width: 60%;
+        }
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-page-titles {
+        &__logo {
+            width: 243px;
+            height: 243px;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+        &__path {
+            &--white {
+                fill: $background_2;
+            }
+            &--green {
+            }
+        }
+        &--prices {
+            .gr-site__h2 {
+            }
+            .gr-page-titles {
+                &__logo {
+                }
+                &__path {
+                    &--white {
+                    }
+                }
+            }
+        }
+        &--cottage {
+            .gr-site__h2 {
+            }
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-page-titles {
+        margin-bottom: 40px;
+        &__logo {
+        }
+        &__path {
+            &--white {
+            }
+            &--green {
+            }
+        }
+        &--prices {
+            .gr-site__h2 {
+            }
+            .gr-page-titles {
+                &__logo {
+                }
+                &__path {
+                    &--white {
+                    }
+                }
+            }
+        }
+        &--cottage {
+            .gr-site__h2 {
+            }
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-page-titles {
+        margin-bottom: 32px;
+        &__logo {
+            display: none;
+        }
+        &__path {
+            &--white {
+            }
+            &--green {
+            }
+        }
+        &--prices {
+            .gr-site__h2 {
+            }
+            .gr-page-titles {
+                &__logo {
+                }
+                &__path {
+                    &--white {
+                    }
+                }
+            }
+        }
+        &--cottage {
+            .gr-site__h2 {
+                width: 100%;
+            }
+        }
     }
 }

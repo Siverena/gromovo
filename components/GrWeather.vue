@@ -5,7 +5,7 @@
       <svg
         class="clear_sky_day"
         v-if="
-          [0].includes(weather.current_weather.weathercode) &&
+          [0].includes(weather?.current_weather?.weathercode) &&
           currentTimesOfDaY === 1
         "
         height="25"
@@ -21,7 +21,7 @@
       <svg
         class="clear_sky_night"
         v-if="
-          [0].includes(weather.current_weather.weathercode) &&
+          [0].includes(weather?.current_weather?.weathercode) &&
           currentTimesOfDaY === 0
         "
         height="25"
@@ -40,7 +40,7 @@
       <svg
         class="few_clouds_day"
         v-if="
-          [1].includes(weather.current_weather.weathercode) &&
+          [1].includes(weather?.current_weather?.weathercode) &&
           currentTimesOfDaY === 1
         "
         height="25"
@@ -56,7 +56,7 @@
       <svg
         class="few_clouds_nigth"
         v-if="
-          [1].includes(weather.current_weather.weathercode) &&
+          [1].includes(weather?.current_weather?.weathercode) &&
           currentTimesOfDaY === 0
         "
         height="25"
@@ -83,7 +83,7 @@
       </svg>
       <!-- Scattered clouds 2 -->
       <svg
-        v-if="[2].includes(weather.current_weather.weathercode)"
+        v-if="[2].includes(weather?.current_weather?.weathercode)"
         class="scattered_clouds"
         height="25"
         viewBox="0 0 25 25"
@@ -98,7 +98,7 @@
       <!-- Broken clouds 3 -->
       <svg
         class="broken_clouds"
-        v-if="[3].includes(weather.current_weather.weathercode)"
+        v-if="[3].includes(weather?.current_weather?.weathercode)"
         height="25"
         viewBox="0 0 25 25"
         fill="none"
@@ -127,7 +127,7 @@
       </svg>
       <!-- Shower rain 80,81,82 -->
       <svg
-        v-if="[80, 81, 82].includes(weather.current_weather.weathercode)"
+        v-if="[80, 81, 82].includes(weather?.current_weather?.weathercode)"
         class="shower_rain"
         height="25"
         viewBox="0 0 25 25"
@@ -144,7 +144,7 @@
         class="rain"
         v-if="
           [51, 53, 55, 56, 57, 61, 63, 65, 66, 67].includes(
-            weather.current_weather.weathercode
+            weather?.current_weather?.weathercode
           )
         "
         height="25"
@@ -159,7 +159,7 @@
       </svg>
       <!-- Thunderstorm 95,96,99-->
       <svg
-        v-if="[95, 96, 99].includes(weather.current_weather.weathercode)"
+        v-if="[95, 96, 99].includes(weather?.current_weather?.weathercode)"
         class=""
         height="25"
         viewBox="0 0 25 25"
@@ -178,7 +178,9 @@
       <!-- Snow 71,73,75,77,85,86 -->
       <svg
         v-if="
-          [71, 73, 75, 77, 85, 86].includes(weather.current_weather.weathercode)
+          [71, 73, 75, 77, 85, 86].includes(
+            weather?.current_weather?.weathercode
+          )
         "
         height="25"
         viewBox="0 0 25 25"
@@ -192,7 +194,7 @@
       </svg>
       <!-- Mist 45,48 -->
       <svg
-        v-if="[45, 48].includes(weather.current_weather.weathercode)"
+        v-if="[45, 48].includes(weather?.current_weather?.weathercode)"
         viewBox="0 0 27 27"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -204,18 +206,21 @@
       </svg>
     </div>
     <p class="gr-weather__temperature">
-      {{ weather.current_weather.temperature > 0 ? '+' : '-' }}
-      {{ weather.current_weather.temperature }}
-      {{ weather.hourly_units.temperature_2m }}
+      {{ weather?.current_weather?.temperature > 0 ? '+' : '-' }}
+      {{ weather?.current_weather?.temperature }}
+      {{ weather?.hourly_units?.temperature_2m }}
     </p>
   </div>
 </template>
 <script>
+import { mapState, mapActions } from 'pinia';
+import { useWeatherStore } from '@/stores/weatherStore.js';
+
 // const API =
 //   'https://api.open-meteo.com/v1/forecast?latitude=60.74&current_weather=true&hourly=temperature_2m&longitude=30.09&&minutely_15=precipitation';
 //Онежское озеро
-const API =
-  'https://api.open-meteo.com/v1/forecast?latitude=60.74&current_weather=true&hourly=temperature_2m&longitude=35.09&&minutely_15=precipitation';
+// const API =
+//   'https://api.open-meteo.com/v1/forecast?latitude=60.74&current_weather=true&hourly=temperature_2m&longitude=35.09&&minutely_15=precipitation';
 
 export default {
   data() {
@@ -225,6 +230,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(useWeatherStore, ['getWeather']),
     currentTimesOfDaY() {
       const timeTmp = new Date();
       const time = timeTmp.getHours();
@@ -236,10 +242,19 @@ export default {
     },
   },
   methods: {
+    ...mapActions(useWeatherStore, ['fetchWeather']),
     async loadData() {
-      const data = await useFetch(API);
-      this.weather = data.data;
-      this.isLoading = false;
+      this.isLoading = true;
+      this.fetchWeather()
+        .then((data) => {
+          this.weather = this.getWeather;
+          this.isLoading = false;
+        })
+        .catch((e) => {
+          console.log(e);
+          this.isLoading = false;
+        });
+      // this.weather = this.getWeather;
     },
   },
   async created() {

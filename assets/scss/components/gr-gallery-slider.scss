@@ -6,28 +6,36 @@
     top: 0;
     left: 0;
     display: flex;
-
     justify-content: center;
     overflow-y: auto;
-    &__image {
-        width: 100%;
+    &__image-wrapper {
+        width: 932px;
+        height: 590px;
         max-width: 100%;
         max-height: 100%;
         object-fit: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background-color: $white;
+        margin: 0 auto;
     }
     &__close {
         cursor: pointer;
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
     &__content {
         width: 1280px;
         position: relative;
+        margin-top: 10%;
     }
     &__top {
         margin-bottom: 40px;
         display: flex;
         justify-content: flex-end;
+        padding: 0 40px;
     }
     &__center {
         display: flex;
@@ -36,15 +44,16 @@
         align-items: center;
     }
     &__image {
-        width: 1064px;
-        height: 660px;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
     }
     &__small {
-        width: 200px;
-        height: 143px;
-        margin-right: 18px;
+        width: 147px;
+        height: 105px;
+        margin-right: 16px;
+        display: flex;
         img {
-            width: 100%;
             max-width: 100%;
             max-height: 100%;
             object-fit: cover;
@@ -53,15 +62,130 @@
             border: 1px solid $white;
         }
     }
+    &__nav {
+        display: flex;
+        align-items: center;
+        width: 1196px;
+        height: 508px;
+        position: absolute;
+        justify-content: space-between;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
     &__bottom {
-        width: 100%;
+        width: 831px;
+        height: 137px;
         overflow: hidden;
+        margin: 0 auto;
+        background-color: $white;
+        padding: 16px;
     }
     &__bottom-cont {
-        width: 9999px;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 147px);
+        justify-content: space-between;
     }
     &__btn {
         cursor: pointer;
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-gallery-slider {
+        &__image-wrapper {
+            width: 800px;
+            height: 508px;
+        }
+        &__small {
+            width: 176px;
+            height: 126px;
+        }
+        &__bottom {
+            width: 784px;
+            height: 158px;
+        }
+        &__bottom-cont {
+            grid-template-columns: repeat(auto-fill, 176px);
+        }
+        &__btn {
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+            width: 56px;
+            height: 56px;
+        }
+        &__nav {
+            width: 960px;
+            height: 508px;
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-gallery-slider {
+        &__image-wrapper {
+            width: 716px;
+            height: 450px;
+            padding: 8px;
+        }
+        &__close {
+            width: 50px;
+            height: 50px;
+        }
+        &__top {
+            padding: 0 20px;
+        }
+        &__small {
+            width: 168px;
+            height: 120px;
+            margin-right: 8px;
+        }
+        &__bottom {
+            width: 715px;
+            height: 138px;
+            padding: 8px;
+        }
+        &__bottom-cont {
+            grid-template-columns: repeat(auto-fill, 168px);
+        }
+        &__btn {
+            width: 32px;
+            height: 32px;
+        }
+        &__nav {
+            width: 700px;
+            height: 450px;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-gallery-slider {
+        &__image-wrapper {
+            width: 320px;
+            height: 202px;
+        }
+        &__close {
+            width: 30px;
+            height: 30px;
+        }
+        &__small {
+            width: 70px;
+            height: 50px;
+        }
+        &__bottom {
+            width: 320px;
+            height: 70px;
+        }
+        &__bottom-cont {
+            grid-template-columns: repeat(auto-fill, 70px);
+        }
+        &__btn {
+            width: 23px;
+            height: 23px;
+        }
+        &__nav {
+            width: 288px;
+            height: 202px;
+        }
     }
 }

@@ -20,43 +20,79 @@
 </template>
 <script>
 import { mapState, mapActions } from 'pinia';
-import { useGalleryStore } from '@/stores/GalleryStore.js';
-import { useNavLinksStore } from '@/stores/NavLinksStore.js';
+import { useGalleryStore } from '@/stores/galleryStore.js';
+import { useNavLinksStore } from '@/stores/navLinksStore.js';
+import { useCottagesStore } from '@/stores/cottagesStore.js';
 
-// import gallery from '@/stores/data/d-gallery.js';
 export default {
   data() {
     return {
       links: [],
-      showBreadcrumbs: true,
-      currentPage: this.$route.name,
       loading: true,
     };
   },
   computed: {
     ...mapState(useNavLinksStore, ['navLinks']),
-    ...mapState(useGalleryStore, ['gallery']),
+    ...mapState(useGalleryStore, {
+      getGallery: 'getGallery',
+      galleryLoading: 'isLoading',
+    }),
+    ...mapState(useCottagesStore, {
+      getCottage: 'getCottage',
+      cottagesLoading: 'isLoading',
+    }),
+    currentPage() {
+      return this.$route.name;
+    },
+    showBreadcrumbs() {
+      return this.currentPage !== 'index';
+    },
+    currentCottage() {
+      return this.getCottage;
+    },
+  },
+  watch: {
+    currentPage() {
+      this.getLinks();
+    },
+    currentCottage() {
+      this.getLinks();
+    },
   },
   methods: {
     ...mapActions(useGalleryStore, ['fetchGallery']),
+    ...mapActions(useCottagesStore, ['fetchCottage']),
+
     getLinks() {
       //Получим массив строк из адресной строки
       //пример : ['', 'gallery', 'summer']
+      this.links = [];
       const arr = this.$route.fullPath.split('/');
       //Обрабатываем 2-й элемент, достаем данные из навигации, в первую очередь проверяем, не галерея ли, а точнее длину массива arr
-      if (this.$route.name === 'index') {
-        this.showBreadcrumbs = false;
-      }
-      // console.log(this.gallery);
       if (arr.length === 3) {
-        this.links.push({
-          name: 'Галерея',
-          link: '/galleries',
-        });
-        this.links.push({
-          name: this.gallery.find((el) => el.nameEng === arr[2]).name,
-          link: '/' + this.gallery.find((el) => el.nameEng === arr[2]).nameEng,
-        });
+        if (arr[1] === 'gallery') {
+          this.links.push({
+            name: 'Галерея',
+            link: '/galleries',
+          });
+
+          this.links.push({
+            name: this.getGallery.find((el) => el.nameEng === arr[2]).name,
+            link:
+              '/' + this.getGallery.find((el) => el.nameEng === arr[2]).nameEng,
+          });
+        }
+
+        if (arr[1] === 'cottage') {
+          this.links.push({
+            name: 'Коттеджи',
+            link: '/cottages',
+          });
+          this.links.push({
+            name: this.getCottage.name,
+            link: '/cottages',
+          });
+        }
       } else {
         const elem = this.getElem(this.navLinks, '/' + arr[1]);
         this.links.push({
@@ -80,15 +116,17 @@ export default {
     async loadData() {
       try {
         this.loading = true;
-        await this.fetchGallery();
-        this.getLinks();
-        this.loading = false;
+        // await this.fetchGallery();
+        // await this.fetchCottage(this.$route.params.id);
+        Promise.all([this.getGalleryLoading, this.cottagesLoading]).then(() => {
+          this.getLinks();
+          this.loading = false;
+        });
       } catch (e) {
         console.log(e);
       }
     },
   },
-
   async created() {
     this.loadData();
   },

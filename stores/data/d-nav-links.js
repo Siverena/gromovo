@@ -20,6 +20,20 @@ export default [
   {
     name: 'Коттеджи',
     link: '/cottages',
+    child: [
+      {
+        name: 'Условия и способы оплаты',
+        link: '/uslov',
+      },
+      {
+        name: 'Правила проживания',
+        link: '/rules',
+      },
+      {
+        name: 'Галерея',
+        link: '/galleries',
+      },
+    ],
   },
   {
     name: 'Цены',

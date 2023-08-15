@@ -4,15 +4,16 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
-    margin-bottom: 160px;
+    margin-bottom: 60px;
     &--index {
         height: 1080px;
+        margin-bottom: 160px;
     }
     &__top-cont {
         &--index {
             position: absolute;
             z-index: 10;
-            top: 0;
+            top: 40px;
             left: 0;
             right: 0;
         }
@@ -36,22 +37,37 @@
     &__nav-open {
         display: none;
     }
+    &__bottom {
+        &--index {
+            position: absolute;
+            z-index: 10;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+        }
+    }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: grid-width($desktop)) {
     .gr-header {
         height: auto;
+        &--index {
+            margin-bottom: 100px;
+        }
         &__nav {
             display: none;
         }
         &__slider {
             position: relative;
-            width: 981px;
-            margin: 0 auto;
+
+            margin: 0 auto 24px;
         }
         &__top-cont {
             position: relative;
             flex-wrap: nowrap;
+            top: 0;
+            margin-top: 24px;
+            margin-bottom: 24px;
         }
         &__weather {
             order: 2;
@@ -71,6 +87,37 @@
             }
             rect {
                 fill: $text_primary;
+            }
+        }
+        &__bottom {
+            &--index {
+                position: relative;
+                bottom: 0;
+            }
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-header {
+        &--index {
+            margin-bottom: 80px;
+        }
+        &__nav {
+        }
+        &__slider {
+        }
+        &__top-cont {
+        }
+        &__weather {
+        }
+        &__nav-open {
+            svg {
+            }
+            rect {
+            }
+        }
+        &__bottom {
+            &--index {
             }
         }
     }

@@ -2,13 +2,13 @@
 }
 .gr-service {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 634px);
+    grid-template-columns: repeat(auto-fill, 592px);
     justify-content: space-between;
     margin-bottom: 160px;
 
     &__description {
         padding: 32px 154px 32px 32px;
-        min-height: 478px;
+        min-height: 448px;
         display: flex;
         height: fit-content;
         flex-direction: column;
@@ -34,13 +34,13 @@
     }
     &__images {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 308px);
-        row-gap: 16px;
+        grid-template-columns: repeat(auto-fill, 288px);
+        align-content: space-between;
         justify-content: space-between;
         align-self: stretch;
         img {
-            width: 308px;
-            height: 231px;
+            width: 288px;
+            height: 216px;
         }
     }
     &__link {
@@ -56,6 +56,115 @@
             font-weight: 700;
             line-height: 17px;
             letter-spacing: 0.02em;
+        }
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-service {
+        grid-template-columns: repeat(auto-fill, 484px);
+        margin-bottom: 120px;
+        &__description {
+            padding: 24px 32px;
+            min-height: 362px;
+            &--green {
+            }
+            &--white {
+            }
+        }
+        &__title {
+        }
+        &__text {
+        }
+        &__images {
+            grid-template-columns: repeat(auto-fill, 234px);
+            img {
+                width: 234px;
+                height: 175px;
+            }
+        }
+        &__link {
+            svg {
+            }
+            span {
+            }
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-service {
+        grid-template-columns: repeat(auto-fill, 357px);
+        margin-bottom: 100px;
+        &__description {
+            padding: 24px 12px;
+            min-height: 362px;
+            &--green {
+            }
+            &--white {
+            }
+        }
+        &__title {
+        }
+        &__text {
+        }
+        &__images {
+            grid-template-columns: repeat(auto-fill, 170px);
+            row-gap: 16px;
+            align-self: flex-start;
+            img {
+                width: 170px;
+                height: 127px;
+            }
+        }
+        &__link {
+            svg {
+            }
+            span {
+            }
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-service {
+        grid-template-columns: repeat(auto-fill, 100%);
+        margin-bottom: 80px;
+        &__description {
+            padding: 0;
+            min-height: auto;
+            &--green {
+                background: none;
+                color: $text_primary;
+            }
+            &--white {
+                border: none;
+                padding: 0;
+            }
+        }
+        &__title {
+        }
+        &__text {
+        }
+        &__images {
+            grid-template-columns: repeat(auto-fill, 155px);
+            row-gap: 16px;
+            align-self: flex-start;
+            width: 100%;
+            img {
+                width: 155px;
+                height: 116px;
+            }
+        }
+        &__link {
+            font-size: 16px;
+            padding: 16px 0;
+            line-height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            svg {
+            }
+            span {
+            }
         }
     }
 }

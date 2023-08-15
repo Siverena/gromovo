@@ -27,7 +27,7 @@
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: grid-width($desktop)) {
     .gr-callback {
         flex-shrink: 0;
         order: 3;
@@ -37,6 +37,27 @@
         }
         &__link {
             color: $text_primary;
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-callback {
+        &__phone {
+            font-size: 16px;
+            line-height: 20px;
+        }
+        &__link {
+            font-size: 10px;
+            line-height: 12px;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-callback {
+        display: none;
+        &__phone {
+        }
+        &__link {
         }
     }
 }

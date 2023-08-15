@@ -16,7 +16,7 @@
           сил и получить заряд бодрости на долгое время.
         </p>
       </div>
-      <div class="gr-about-us__video">
+      <!-- <div class="gr-about-us__video">
         <iframe
           width="1200"
           height="689"
@@ -26,6 +26,16 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
+      </div> -->
+      <div class="gr-about-us__video">
+        <video
+          controls="controls"
+          preload="auto"
+          width="1200"
+          poster="@/assets/img/gr-about-us/video_poster.jpg"
+        >
+          <source src="@/assets/img/gr-about-us/gromovo_park_ok.mp4" />
+        </video>
       </div>
     </div>
 

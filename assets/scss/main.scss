@@ -9,7 +9,14 @@
 /* MIXINS */
 
 /**********
+/* FUNCTIONS */
+@import "./functions.scss";
 
+/**********
+/* FONTS */
+@import "./fonts.scss";
+
+/**********
 /* BASE */
 @import "./base";
 
@@ -20,6 +27,12 @@
 @import "./elements/gr-btn-slides.scss";
 @import "./elements/gr-link.scss";
 @import "./elements/gr-page-titles.scss";
+@import "./elements/gr-page-up.scss";
+@import "./elements/gr-calendar.scss";
+
+/**********
+/* PLUGINS */
+@import "./plugins/accordion.scss";
 
 /**********
 /* COMPONENTS */
@@ -40,17 +53,21 @@
 @import "./components/gr-contacts.scss";
 @import "./components/gr-partners.scss";
 @import "./components/gr-offer.scss";
-@import "./components/gr-specal.scss";
+@import "./components/gr-special.scss";
 @import "./components/gr-services.scss";
 @import "./components/gr-service-slider.scss";
 @import "./components/gr-breadcrumbs.scss";
+@import "./components/gr-prices-info.scss";
+@import "./components/gr-prices.scss";
+@import "./components/gr-pick-up.scss";
+@import "./components/gr-cottage.scss";
+@import "./components/gr-general.scss";
+@import "./components/gr-way.scss";
 
 /**********
 /* PAGES */
 @import "./pages/rules.scss";
 @import "./pages/uslov.scss";
 @import "./pages/gallery.scss";
+@import "./pages/cottages.scss";
 @import "./pages/404.scss";
-/**********
-/* FONTS */
-@import "./fonts.scss";

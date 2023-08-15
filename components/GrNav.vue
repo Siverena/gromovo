@@ -1,7 +1,7 @@
 <template>
   <nav class="gr-nav">
     <ul class="gr-nav__list">
-      <li class="gr-nav__item" v-for="(item, key) in links" :key="key">
+      <li class="gr-nav__item" v-for="(item, key) in getNavLinks" :key="key">
         <NuxtLink
           class="gr-nav__link"
           :to="item.link"
@@ -45,25 +45,36 @@
   </nav>
 </template>
 <script>
-import links from '@/stores/data/d-nav-links.js';
+import { mapState } from 'pinia';
+import { useNavLinksStore } from '@/stores/navLinksStore.js';
 export default {
-  props: ['currentUrl', 'isFooter'],
+  props: ['isFooter'],
   data() {
     return {
-      currentMenu: false,
-      links: links,
+      currentMenu: null,
     };
   },
+  computed: {
+    ...mapState(useNavLinksStore, ['getNavLinks']),
+    currentPage() {
+      return this.$route.name;
+    },
+  },
+  watch: {
+    currentPage() {
+      this.toggleMenu();
+    },
+  },
   methods: {
-    toggleMenu(key) {
-      if (this.currentMenu === false || this.currentMenu !== key) {
+    toggleMenu(key = null) {
+      if (this.currentMenu !== key) {
         this.currentMenu = key;
       } else {
-        this.currentMenu = false;
+        this.currentMenu = null;
       }
     },
     getClassByRoute(string) {
-      if (this.$route.name === 'index' || this.currentUrl === '404') {
+      if (this.$route.name === 'index' || !this.$route.name) {
         return string + '--index';
       }
     },
@@ -73,7 +84,9 @@ export default {
       }
     },
   },
-  mounted() {},
+  beforeRouteUpdate(to, from, next) {
+    this.toggleMenu();
+  },
 };
 
 // const { data: links } =

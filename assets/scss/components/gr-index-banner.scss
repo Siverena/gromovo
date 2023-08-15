@@ -7,7 +7,9 @@
     background-image: url("@/assets/img/gr-main-banner/cone_left.png"),
         url("@/assets/img/gr-main-banner/cone_right.png");
     background-repeat: no-repeat;
-    background-position: left -512px bottom -388px, right -395px bottom -462px;
+    background-position:
+        left -512px bottom -388px,
+        right -395px bottom -462px;
     margin-bottom: 160px;
     &__content {
         font-size: 90px;
@@ -15,5 +17,48 @@
         line-height: 110px;
         letter-spacing: 0.02em;
         color: $white;
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-index-banner {
+        margin-bottom: 120px;
+        padding: 152px 0;
+        background-image: url("@/assets/img/gr-main-banner/cone_laptop_left.png"),
+            url("@/assets/img/gr-main-banner/cone_laptop_right.png");
+        background-position:
+            left -110px bottom -196px,
+            right -128px bottom 16px;
+        &__content {
+            font-size: 62px;
+
+            line-height: 76px;
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-index-banner {
+        margin-bottom: 100px;
+        padding: 122px 0;
+        background-image: url("@/assets/img/gr-main-banner/cone_laptop_right.png");
+        background-position: center;
+        &__content {
+            font-size: 48px;
+
+            line-height: 59px;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-index-banner {
+        margin-bottom: 100px;
+        padding: 89px 0;
+        background-image: url("@/assets/img/gr-main-banner/cone_laptop_right.png");
+        background-size: 230px;
+
+        &__content {
+            font-size: 28px;
+
+            line-height: 34px;
+        }
     }
 }

@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <GrBreadCrumbs />
-    <section class="gr-gallery" v-if="!isLoading">
+    <section class="gr-gallery" v-if="!isLoading && widthComputed">
       <GrPageTitles class="gr-gallery__titles">
         <template v-slot:h1>{{ information.name }}</template>
         <template v-slot:h2> {{ information.title }}</template>
@@ -22,12 +21,16 @@
       :closeSlider="closeSlider"
       :nextSlide="nextSlide"
       :prevSlide="prevSlide"
+      :setCurrentImage="setCurrentImage"
+      :firstThumbnailsIndex="firstThumbnailsIndex"
       :thumbnails="thumbnails"
     />
   </div>
 </template>
 <script>
 import gallery from '@/stores/data/d-gallery.js';
+import { mapState } from 'pinia';
+import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
 
 export default {
   data() {
@@ -38,12 +41,17 @@ export default {
       currentImage: 0,
       images: [],
       thumbnails: [],
-      elem: '',
     };
   },
   computed: {
+    ...mapState(useAdaptiveStore, [
+      'isMobileVersion',
+      'isTabVersion',
+      'isLaptopVersion',
+      'widthComputed',
+    ]),
     body() {
-      this.elem = document.querySelector('body');
+      return document.querySelector('body');
     },
     information() {
       return gallery.find((el) => el.nameEng === this.$route.params.nameEng);
@@ -58,6 +66,26 @@ export default {
       });
       return tmp;
     },
+    imagesCount() {
+      if (this.isTabVersion || this.isLaptopVersion || this.isMobileVersion) {
+        return 4;
+      }
+      return 5; //desktop
+    },
+    firstThumbnailsIndex() {
+      return this.currentImage - Math.floor((this.imagesCount - 1) / 2);
+    },
+    lastThumbnailsIndex() {
+      return this.currentImage + Math.ceil((this.imagesCount - 1) / 2);
+    },
+  },
+  watch: {
+    currentImage() {
+      this.getThumbnails();
+    },
+    imagesCount() {
+      this.getThumbnails();
+    },
   },
   methods: {
     async loadData() {
@@ -71,13 +99,10 @@ export default {
       this.isLoading = false;
     },
     getImageUrl(src) {
-      const url = new URL(`../../assets/img/${src}`, import.meta.url).href;
-      return url;
+      // const url = new URL(`../../assets/img/${src}`, import.meta.url).href;
+      // return url;
+      return `/assets/img/${src}`;
     },
-    // getImagesForSlider(indexStart = this.currentImage) {
-    //   console.log(this.currentImage);
-    //   this.images = this.informations.images.slice(indexStart, indexStart + 6);
-    // },
     showSlider(key) {
       this.isShowSlider = true;
       this.body.style.overflow = 'hidden';
@@ -89,19 +114,49 @@ export default {
       this.body.style.overflow = 'scroll';
     },
     nextSlide() {
-      if (
-        this.images[this.currentImage] ===
-        this.thumbnails[this.thumbnails.length - 1]
-      ) {
-        this.getThumbnails(this.currentImage - (this.thumbnails.length - 1));
+      if (this.currentImage === this.images.length - 1) {
+        this.currentImage = 0;
+      } else {
+        ++this.currentImage;
       }
-      ++this.currentImage;
     },
     prevSlide() {
-      --this.currentImage;
+      if (this.currentImage === 0) {
+        this.currentImage = this.images.length - 1;
+      } else {
+        --this.currentImage;
+      }
     },
-    getThumbnails(index = this.currentImage) {
-      this.thumbnails = this.images.slice(index, index + 6);
+    setCurrentImage(number) {
+      if (number > this.images.length - 1) {
+        number = number - this.images.length;
+      }
+      if (number < 0) {
+        number = this.images.length + number;
+      }
+      this.currentImage = number;
+    },
+    getThumbnails() {
+      this.thumbnails = [];
+      if (this.firstThumbnailsIndex < 0) {
+        this.thumbnails = this.images.slice(this.firstThumbnailsIndex);
+        this.thumbnails.push(
+          ...this.images.slice(0, this.lastThumbnailsIndex + 1)
+        );
+      } else if (this.lastThumbnailsIndex >= this.images.length) {
+        this.thumbnails = this.images.slice(this.firstThumbnailsIndex);
+        this.thumbnails.push(
+          ...this.images.slice(
+            0,
+            this.lastThumbnailsIndex - (this.images.length - 1)
+          )
+        );
+      } else {
+        this.thumbnails = this.images.slice(
+          this.firstThumbnailsIndex,
+          this.lastThumbnailsIndex + 1
+        );
+      }
     },
   },
   async created() {

@@ -1,6 +1,6 @@
 .gr-logo {
-    width: 200px;
-    height: 60px;
+    width: 188px;
+    height: 56px;
     &__stroke {
         stroke: $text_primary;
         stroke-width: 2px;
@@ -18,8 +18,28 @@
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: grid-width($desktop)) {
     .gr-logo {
+        width: 230px;
+        height: 58px;
+        path {
+            fill: $text_primary;
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-logo {
+        width: 170px;
+        height: 32px;
+        path {
+            fill: $text_primary;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-logo {
+        width: 152px;
+        height: 36px;
         path {
             fill: $text_primary;
         }

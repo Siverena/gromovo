@@ -56,7 +56,7 @@
     <div class="gr-main-slider__nav-buttons">
       <div
         class="gr-main-slider__nav-button gr-main-slider__nav-button--prev"
-        @click="prewSlide"
+        @click="prevSlide"
       >
         <svg
           width="56"
@@ -71,6 +71,16 @@
           />
         </svg>
       </div>
+      <ul class="gr-main-slider__dots">
+        <li
+          v-for="(dots, key) in dotsCount"
+          :key="key"
+          class="gr-main-slider__dot"
+          :class="key === currentActive ? 'gr-main-slider__dot--current' : ''"
+        >
+          <button @click="setSlide(key)" type="button">1</button>
+        </li>
+      </ul>
       <div
         class="gr-main-slider__nav-button gr-main-slider__nav-button--next"
         @click="nextSlide"
@@ -96,17 +106,6 @@
         </svg>
       </div>
     </div>
-
-    <ul class="gr-main-slider__dots">
-      <li
-        v-for="(dots, key) in dotsCount"
-        :key="key"
-        class="gr-main-slider__dot"
-        :class="key === currentActive ? 'gr-main-slider__dot--current' : ''"
-      >
-        <button @click="setSlide(key)" type="button">1</button>
-      </li>
-    </ul>
   </div>
 </template>
 <script>
@@ -117,11 +116,6 @@ export default {
       slides: [],
       slide: {},
     };
-  },
-  watch: {
-    currentActive() {
-      console.log(this.currentActive);
-    },
   },
   computed: {
     dotsCount() {
@@ -138,7 +132,7 @@ export default {
       }
       this.activeAdd();
     },
-    prewSlide() {
+    prevSlide() {
       this.activeRemove();
       if (this.currentActive === 0) {
         this.currentActive = this.slides.length - 1;
@@ -153,8 +147,9 @@ export default {
       this.activeAdd();
     },
     getImageUrl(src) {
-      const url = new URL(`../assets/img/${src}`, import.meta.url).href;
-      return url;
+      // const url = new URL(`../assets/img/${src}`, import.meta.url).href;
+      // return url;
+      return `/assets/img/${src}`;
     },
     getSlides() {
       this.slides = document.querySelectorAll('.gr-main-slider__slide');

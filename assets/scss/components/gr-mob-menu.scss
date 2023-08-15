@@ -17,8 +17,8 @@
 
 .gr-mob-menu {
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.411);
     top: 0;
     z-index: 1000;
@@ -30,16 +30,22 @@
         background-color: $white;
         position: fixed;
         padding: 0 16px;
-        background-image: url("@/assets/img/gr-mob-menu/cone.png");
-        background-repeat: no-repeat;
-        background-position: right 15px bottom 15px;
+
         animation-name: slide-out;
         animation-duration: 1s;
+        overflow-y: scroll;
         &--show {
             animation-name: slide-in;
             animation-duration: 1s;
         }
     }
+    &__information {
+        background-image: url("@/assets/img/gr-mob-menu/cone.png");
+        background-repeat: no-repeat;
+        background-position: right 15px bottom 15px;
+        padding-bottom: 160px;
+    }
+
     &__header {
         display: flex;
         padding: 25px 0;
@@ -183,6 +189,78 @@
         }
         path {
             fill: $text_primary;
+        }
+    }
+}
+@media (max-width: 667px) {
+    .gr-mob-menu {
+        // position: fixed;
+        // width: 100%;
+        // height: 100%;
+        // background-color: rgba(0, 0, 0, 0.411);
+        // top: 0;
+        // z-index: 1000;
+
+        &__content {
+            width: 305px;
+            &--show {
+            }
+        }
+        &__header {
+        }
+        &__logo {
+            path {
+            }
+        }
+
+        &__close {
+            svg {
+            }
+            path {
+            }
+        }
+        hr {
+        }
+        &__callback {
+            .gr-callback__link {
+                &:hover {
+                }
+            }
+        }
+        &__info {
+            svg {
+            }
+        }
+        &__info-item {
+        }
+        &__list {
+        }
+        &__link {
+            &:hover {
+            }
+            &.router-link-active {
+                &::before {
+                }
+            }
+        }
+
+        &__child-list {
+        }
+        &__child-link {
+            &:hover {
+            }
+        }
+        &__child__item {
+        }
+        &__item {
+        }
+        &__arrow {
+            &--open {
+            }
+            svg {
+            }
+            path {
+            }
         }
     }
 }

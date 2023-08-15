@@ -1,0 +1,228 @@
+.gr-way {
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 590px);
+        justify-content: space-between;
+        margin-bottom: 16px;
+    }
+    &__item {
+        padding: 32px;
+        background-color: $background_2;
+        color: $white;
+        max-height: 520px;
+        &--image {
+            background-color: $white;
+            padding: 0;
+        }
+        &--map-mob {
+            display: none;
+        }
+    }
+    &__item-title {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 32px;
+        display: flex;
+        align-items: center;
+        color: $white;
+        margin-bottom: 16px;
+        svg {
+            margin-right: 16px;
+        }
+    }
+    &__link {
+        color: inherit;
+    }
+    &__image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    &__text {
+        letter-spacing: 0.02em;
+        margin-bottom: 16px;
+        &--bold {
+            font-weight: 700;
+        }
+        svg {
+            path {
+                stroke: $white;
+            }
+        }
+    }
+    &__list {
+        padding-left: 20px;
+        &--2 {
+            margin-top: 16px;
+            padding: 0;
+            list-style: none;
+        }
+    }
+    &__list-item {
+        margin-bottom: 16px;
+        &--2 {
+            display: flex;
+            align-items: center;
+
+            svg {
+                margin-right: 8px;
+            }
+            div {
+                width: 100%;
+            }
+        }
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-way {
+        &__row {
+            grid-template-columns: repeat(auto-fill, 484px);
+        }
+        &__item {
+            &--image {
+            }
+        }
+        &__item-title {
+            font-size: 24px;
+            svg {
+            }
+            &__link {
+            }
+            &__image {
+            }
+            &__text {
+                &--bold {
+                }
+            }
+            &__list {
+                &--2 {
+                }
+            }
+            &__list-item {
+                &--2 {
+                    &::before {
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-way {
+        &__row {
+            grid-template-columns: repeat(auto-fill, 356px);
+        }
+        &__item {
+            max-height: none;
+            &--image {
+                display: flex;
+                align-items: flex-start;
+            }
+            &--train {
+                display: inline-block;
+                width: 100%;
+                grid-column-start: span 2;
+                // grid-column-end: 2;
+            }
+            &--cone {
+                display: none;
+            }
+        }
+        &__item--title {
+        }
+        &__text {
+        }
+        &__image {
+            object-fit: contain;
+            height: fit-content;
+        }
+        &__item-title {
+            svg {
+            }
+            &__link {
+            }
+            &__image {
+            }
+            &__text {
+                &--bold {
+                }
+            }
+            &__list {
+                &--2 {
+                }
+            }
+            &__list-item {
+                &--2 {
+                }
+            }
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-way {
+        &__row {
+            grid-template-columns: repeat(auto-fill, 100%);
+        }
+        &__item {
+            padding: 0;
+            background: none;
+            color: $text_primary;
+            &--image {
+            }
+            &--train {
+            }
+            &--cone {
+            }
+            &--plan1 {
+                display: none;
+            }
+            &--map-mob {
+                display: block;
+            }
+            &--map {
+                display: none;
+            }
+        }
+        &__item--title {
+        }
+        &__text {
+            svg {
+                path {
+                    stroke: $text_primary;
+                }
+            }
+        }
+        &__image {
+        }
+        &__item-title {
+            color: $primary_green;
+            svg {
+                path {
+                    stroke: $primary_green;
+                }
+            }
+            &__link {
+            }
+            &__image {
+            }
+            &__text {
+                &--bold {
+                }
+            }
+        }
+        &__list {
+            &--2 {
+            }
+        }
+        &__list-item {
+            &--2 {
+                align-items: flex-start;
+                svg {
+                    path {
+                        stroke: $text_primary;
+                    }
+                }
+            }
+        }
+    }
+}
