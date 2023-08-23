@@ -60,6 +60,7 @@
 <script>
 import { mapActions, mapState } from 'pinia';
 import { useModalStore } from '@/stores/modalStore.js';
+import currentUrl from '@/utils/mixins/current-url';
 export default {
   data() {
     return {
@@ -67,11 +68,9 @@ export default {
       mobMenu: true,
     };
   },
+  mixins: [currentUrl],
   computed: {
     ...mapState(useModalStore, ['getIsShowMob']),
-    currentUrl() {
-      return this.$route.name;
-    },
   },
   watch: {
     currentUrl() {

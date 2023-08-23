@@ -34,7 +34,9 @@
           <div class="gr-why-us__count">
             {{ activeReason + 1 }} / {{ reasonsCount }}
           </div>
-          <a class="gr-why-us__schema" @click="showPhoto('gr-why-us/plan.jpg')"
+          <a
+            class="gr-why-us__schema gr-link gr-link--green"
+            @click="showPhoto('gr-why-us/plan.jpg')"
             >Посмотреть схему базы отдыха</a
           >
         </div>

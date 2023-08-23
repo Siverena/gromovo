@@ -55,21 +55,21 @@
 <script>
 import { mapState } from 'pinia';
 import { useNavLinksStore } from '@/stores/navLinksStore.js';
+import currentUrl from '@/utils/mixins/current-url';
 export default {
   props: ['isFooter'],
+
   data() {
     return {
       currentMenu: null,
     };
   },
+  mixins: [currentUrl],
   computed: {
     ...mapState(useNavLinksStore, ['getMenuNavLinks']),
-    currentPage() {
-      return this.$route.name;
-    },
   },
   watch: {
-    currentPage() {
+    currentUrl() {
       this.toggleMenu();
     },
   },

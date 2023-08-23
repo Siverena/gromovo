@@ -1,6 +1,6 @@
 import cottageData from '@/stores/data/d-cottage.js';
 import cottageTypeData from '@/stores/data/d-cottage-type.js';
-import bookingData from '@/stores/data/d-booking.js';
+import bookingData from '@/stores/data/d-booked-dates.js';
 import { defineStore } from 'pinia';
 async function API(dateStart = null, dateEnd = null, cottageType = null) {
   const booked = [];

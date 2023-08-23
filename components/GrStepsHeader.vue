@@ -14,11 +14,11 @@
         />
       </svg>
 
-      {{ getBookingDataStep1.dateStart }} -
-      {{ getBookingDataStep1.dateEnd }}
+      {{ getBookingInformation.dateStart }} -
+      {{ getBookingInformation.dateEnd }}
     </div>
     <div class="gr-booking-1__cottage">
-      {{ getBookingDataStep1.cottageDescription }}
+      {{ getBookingInformation.cottageDescription }}
     </div>
   </div>
 </template>
@@ -28,7 +28,7 @@ import { useBookingStore } from '@/stores/bookingStore.js';
 
 export default {
   computed: {
-    ...mapState(useBookingStore, ['getBookingDataStep1']),
+    ...mapState(useBookingStore, ['getBookingInformation']),
   },
 };
 </script>

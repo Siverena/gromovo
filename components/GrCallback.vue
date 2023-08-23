@@ -22,7 +22,7 @@
       :class="{
         'gr-callback__link--mob-menu': mobMenu,
         'gr-link--green': mobMenu,
-        'gr-link-white': currentPage === 'index' && !mobMenu,
+        'gr-link-white': currentUrl === 'index' && !mobMenu,
         'gr-callback__link--header': header,
       }"
       @click="openOrder(false)"
@@ -34,13 +34,11 @@
 <script>
 import { mapActions } from 'pinia';
 import { useModalStore } from '@/stores/modalStore.js';
+import currentUrl from '@/utils/mixins/current-url';
 export default {
   props: ['mobMenu', 'header'],
-  computed: {
-    currentPage() {
-      return this.$route.name;
-    },
-  },
+  mixins: [currentUrl],
+  computed: {},
   methods: {
     ...mapActions(useModalStore, ['openOrder']),
   },
