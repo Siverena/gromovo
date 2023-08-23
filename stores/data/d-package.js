@@ -1,0 +1,51 @@
+export default [
+  {
+    id: 1,
+    name: 'Пакет "Понедельник-пятница"',
+    nights: '5',
+    daysStart: 1,
+    daysEnd: 5,
+  },
+  {
+    id: 2,
+    name: '1 неделя',
+    nights: '7',
+    daysStart: 1,
+    daysEnd: 7,
+  },
+  {
+    id: 3,
+    name: 'Выходной',
+    nights: '1',
+    daysStart: 1,
+    daysEnd: 7,
+  },
+  {
+    id: 4,
+    name: '2 недели',
+    nights: '13',
+    daysStart: 1,
+    daysEnd: 7,
+  },
+  {
+    id: 5,
+    name: '1 месяц',
+    nights: '30',
+    daysStart: 1,
+    daysEnd: 7,
+  },
+  {
+    id: 6,
+    name: 'Будние дни',
+    nights: '1',
+    daysStart: 1,
+    daysEnd: 5,
+  },
+  {
+    id: 7,
+    name: 'Пакет "Выходные дни"',
+    nights: '2',
+    daysStart: 5,
+    daysEnd: 7,
+  },
+];

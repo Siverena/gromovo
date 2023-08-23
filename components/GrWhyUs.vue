@@ -2,12 +2,16 @@
   <section class="gr-why-us">
     <div class="container gr-why-us__container">
       <div class="gr-why-us__first">
-        <h1 class="gr-site__h1 gr-why-us__title">Почему мы</h1>
-        <h2 class="gr-site__h2">
-          В Громово парк есть все для комфортного отдыха
-        </h2>
+        <GrPageTitles class="gr-why-us__title">
+          <template v-slot:h1>Почему мы</template>
+          <template v-slot:h2
+            >В Громово парк есть все для комфортного отдыха
+          </template>
+        </GrPageTitles>
 
-        <NuxtLink class="gr-btn gr-btn--green" to="/services"
+        <NuxtLink
+          class="gr-btn gr-btn--green gr-why-us__link gr-why-us__link--desktop"
+          to="/services"
           >Посмотреть все услуги</NuxtLink
         >
       </div>
@@ -18,7 +22,7 @@
             :key="key"
             class="gr-why-us__reason"
           >
-            <img :src="getImageUrl(reason.imgSrc)" alt="" />
+            <img :src="getStaticImageUrl(reason.imgSrc)" alt="" />
             <div class="gr-why-us__reason-text">
               {{ reason.text }}
             </div>
@@ -30,20 +34,27 @@
           <div class="gr-why-us__count">
             {{ activeReason + 1 }} / {{ reasonsCount }}
           </div>
-          <a class="gr-why-us__schema" @click="showPhoto"
+          <a class="gr-why-us__schema" @click="showPhoto('gr-why-us/plan.jpg')"
             >Посмотреть схему базы отдыха</a
           >
         </div>
       </div>
+      <NuxtLink
+        class="gr-btn gr-btn--green gr-why-us__link gr-why-us__link--mobile"
+        to="/services"
+        >Посмотреть все услуги</NuxtLink
+      >
     </div>
   </section>
 </template>
 
 <script>
+import imageUrl from '@/utils/mixins/image-url.js';
+import { mapActions } from 'pinia';
+import { useModalStore } from '@/stores/modalStore.js';
 export default {
   data() {
     return {
-      showPhoto: false,
       activeReason: 0,
       reasons: [
         {
@@ -65,12 +76,14 @@ export default {
       ],
     };
   },
+  mixins: [imageUrl],
   computed: {
     reasonsCount() {
       return this.reasons.length;
     },
   },
   methods: {
+    ...mapActions(useModalStore, ['showPhoto']),
     nextReason() {
       const tmp = this.reasons[0];
       if (this.reasons.length - 1 === this.activeReason) {
@@ -94,11 +107,6 @@ export default {
         this.reasons.unshift(tmp);
         this.activeReason = this.activeReason - 1;
       }
-    },
-
-    getImageUrl(src) {
-      const url = new URL(`../assets/img/${src}`, import.meta.url).href;
-      return url;
     },
   },
   mounted() {},

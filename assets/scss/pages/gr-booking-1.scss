@@ -1,0 +1,243 @@
+.gr-booking-1 {
+    &__header {
+        text-align: center;
+        background-color: $background_1;
+        margin-bottom: 32px;
+    }
+    &__promo {
+        border-top: 1px solid #010101;
+        padding: 24px 0;
+    }
+    &__dates {
+        margin-bottom: 16px;
+        padding: 14px 0;
+        svg {
+            margin-right: 20px;
+        }
+    }
+    &__cottage {
+        padding: 24px 0;
+
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 32px;
+    }
+    &__nav {
+        display: grid;
+        grid-template-columns: 290px auto 320px;
+        // justify-content: space-between;
+        padding: 20px 0;
+        border-bottom: 1px solid #010101;
+        align-items: center;
+        margin-bottom: 32px;
+    }
+    &__step-name {
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 32px;
+    }
+    &__link {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: $text_primary;
+        &--next {
+            justify-self: flex-end;
+            svg {
+                margin-left: 12px;
+            }
+        }
+        &--prev {
+            svg {
+                margin-right: 12px;
+            }
+        }
+    }
+    &__form {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+    &__star {
+        color: $mistake;
+    }
+    &__error {
+        grid-column-start: 2;
+        color: $mistake;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0.02em;
+        font-size: 10px;
+
+        position: absolute;
+        left: 0;
+        bottom: -12px;
+        line-height: 12px;
+    }
+    &__fields-block {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+    &__checkboxes {
+        row-gap: 10px;
+    }
+    &__field {
+        display: grid;
+        grid-template-columns: 290px auto;
+        align-items: center;
+        position: relative;
+        &--checkbox {
+            display: flex;
+            input[type="checkbox"] {
+                display: none;
+            }
+        }
+        &--input {
+            padding-bottom: 12px;
+        }
+    }
+    &__label {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+
+        // span {
+        //     color: $mistake;
+        // }
+        p {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 15px;
+            letter-spacing: 0.02em;
+            color: $text_secondary;
+            margin-top: 8px;
+            padding-right: 8px;
+        }
+        &--checkbox {
+            display: flex;
+            align-items: baseline;
+            //styleName: Text1_1920;
+            font-weight: 400;
+        }
+    }
+    &__checkbox {
+        display: flex;
+        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
+        width: 12px;
+        height: 12px;
+        margin-right: 4px;
+        border: 1px solid #010101;
+        border-radius: 2px;
+        &--error {
+            border-color: #e5160b;
+        }
+    }
+    &__input {
+        padding: 25px 20px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+        outline: none;
+        border: 1px solid $text_secondary;
+
+        &::placeholder {
+            color: $text_secondary;
+        }
+        &:focus {
+            outline: none;
+            border: 1px solid #093e2a;
+        }
+        &--promo {
+            width: 283px;
+        }
+    }
+    &__title {
+        padding: 22px 0;
+        margin: 30px 0;
+
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: 0.02em;
+    }
+    &__select {
+        padding: 25px 20px;
+        border: 1px solid $text_secondary;
+        display: flex;
+        position: relative;
+        svg {
+            margin-left: auto;
+            cursor: pointer;
+        }
+    }
+    &__select-list {
+        list-style: none;
+        margin: 0;
+        color: $text_secondary;
+        position: absolute;
+        width: 100%;
+        top: 78px;
+        left: 0;
+        border: 1px solid $border_2;
+        background-color: $white;
+        padding: 0px;
+        z-index: 20;
+    }
+    &__select-item {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+        padding: 4px 4px 4px 16px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &--selected {
+            background-color: #fafafa;
+            &::after {
+                width: 16px;
+                height: 16px;
+                display: block;
+                content: "";
+                background-image: url(/_nuxt/assets/img/gr-pick-up/check.png);
+            }
+        }
+    }
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__buttons {
+        display: flex;
+        column-gap: 10px;
+    }
+    &__footer {
+        display: flex;
+        align-items: center;
+    }
+    &__summa {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: 0.02em;
+
+        span {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 44px;
+            letter-spacing: 0.02em;
+        }
+    }
+}

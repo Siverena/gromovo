@@ -21,6 +21,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
     "pinia": "^2.1.4",
+    "primevue": "^3.30.2",
     "vue": "^3.3.4"
   }
 }

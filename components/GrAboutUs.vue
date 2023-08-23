@@ -17,18 +17,16 @@
         </p>
       </div>
       <div class="gr-about-us__video">
-        <iframe
+        <video
+          controls
+          preload="auto"
           width="1200"
-          height="689"
-          src="https://www.youtube.com/embed/ThLodFfvDa0"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          poster="@/assets/img/gr-about-us/video_poster.jpg"
+        >
+          <source src="@/assets/img/gr-about-us/gromovo_park_ok.mp4" />
+        </video>
       </div>
     </div>
-
     <div class="gr-about-us__left"></div>
   </section>
 </template>

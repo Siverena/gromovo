@@ -1,0 +1,24 @@
+.gr-booking-check-data {
+    padding: 65px 16px;
+    background-color: $background_1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    margin-bottom: 32px;
+    &__item {
+        display: grid;
+        grid-template-columns: 290px auto;
+    }
+    &__name {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+    }
+    &__value {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+    }
+}

@@ -1,7 +1,7 @@
 .gr-offer {
     display: flex;
     position: relative;
-    margin-bottom: 128px;
+    margin-bottom: 160px;
     &__bg {
         background-repeat: no-repeat;
         background-color: $background_1;
@@ -12,7 +12,7 @@
             left: 543px;
             background-image: url(/_nuxt/assets/img/gr-offer/cone.png);
             background-position: left 744px bottom 40px;
-            height: 613px;
+            height: 685px;
         }
         &--second {
             height: 403px;
@@ -22,18 +22,28 @@
             height: 403px;
             left: 543px;
         }
+        &--fourth {
+            height: 173px;
+            left: 543px;
+        }
+        &--fifth {
+            height: 403px;
+            right: 543px;
+        }
     }
     &__image {
         margin-top: 64px;
         &--first {
             margin-top: 234px;
         }
+
+        &--fourth {
+            margin-top: 138px;
+        }
     }
     &__content {
         padding: 94px 17px 0px 23px;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 22px;
+
         letter-spacing: 0.02em;
     }
     &__title {
@@ -56,5 +66,123 @@
     }
     &__link {
         font-weight: 700;
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-offer {
+        margin-bottom: 120px;
+
+        &__image {
+            margin-top: 0;
+            width: 484px;
+            height: 323px;
+            &--first {
+                margin-top: 0;
+                margin-right: 16px;
+            }
+            &--second {
+                margin-left: 16px;
+            }
+            &--third {
+                margin-right: 16px;
+            }
+            &--fourth {
+                height: 84px;
+                margin-right: 16px;
+            }
+            &--fifth {
+                margin-left: 16px;
+            }
+        }
+        &__content {
+            padding: 0;
+        }
+        &__title {
+            font-size: 24px;
+            line-height: 29px;
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-offer {
+        margin-bottom: 100px;
+        flex-direction: column;
+        &__image {
+            width: 728px;
+            height: 487px;
+            margin: 0;
+            &--first {
+                margin: 0 0 40px 0;
+            }
+            &--second {
+                order: -1;
+                margin: 0 0 40px 0;
+            }
+            &--third {
+                margin: 0 0 40px 0;
+            }
+            &--fourth {
+                height: 128px;
+                margin: 0 0 40px 0;
+            }
+            &--fifth {
+                order: -1;
+                margin: 0 0 40px 0;
+            }
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-offer {
+        margin-bottom: 80px;
+        &__image {
+            width: 320px;
+            height: 213px;
+            &--first {
+                margin: 0 0 20px 0;
+            }
+            &--second {
+                order: -1;
+                margin: 0 0 20px 0;
+            }
+            &--third {
+                margin: 0 0 20px 0;
+            }
+            &--fourth {
+                height: 57px;
+                margin: 0 0 20px 0;
+                position: relative;
+                z-index: 10;
+            }
+            &--fifth {
+                order: -1;
+                margin: 0 0 20px 0;
+            }
+        }
+        &__content {
+            &--fourth {
+                padding: 32px 15px 54px;
+                background-color: #f4f4f4;
+                position: relative;
+                top: -38px;
+            }
+        }
+        &__title {
+            font-size: 20px;
+            line-height: 24px;
+        }
+        &__text {
+            border: none;
+            padding: 0;
+            margin: 0;
+            &--fourth {
+                border-left: 5px solid #093e2a;
+                padding-left: 11px;
+                margin-left: 10px;
+                p {
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
     }
 }

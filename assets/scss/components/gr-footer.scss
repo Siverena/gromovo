@@ -1,26 +1,25 @@
 .gr-footer {
-    padding: 66px 0 57px;
+    padding: 112px 0;
     background-color: $primary_green;
     background-image: url(@/assets/img/gr-footer/cone_left.png), url(@/assets/img/gr-footer/cone_right.png);
     background-repeat: no-repeat;
-    background-position: left -49px bottom -153px, right -292px bottom -233px;
+    background-position:
+        left -9px bottom 31px,
+        right -236px bottom -186px;
+    margin-top: 160px;
+    font-size: 14px;
     &__logo {
         display: block;
-        margin-bottom: 32px;
+        margin-bottom: 10px;
         height: auto;
-        path {
-            fill: $white;
-        }
-        svg {
-            width: 396px;
-        }
     }
     &__row {
-        display: flex;
+        display: grid;
         justify-content: space-between;
+        grid-template-columns: repeat(auto-fill, 288px);
+        margin-bottom: 72px;
     }
     &__contacts {
-        width: 304px;
         display: flex;
         flex-direction: column;
     }
@@ -38,7 +37,7 @@
     &__contact-link {
         text-decoration: none;
         color: inherit;
-        margin-bottom: 13px;
+        margin-bottom: 19px;
     }
     &__copyright {
         display: flex;
@@ -49,7 +48,6 @@
         }
     }
     &__links {
-        width: 302px;
         display: flex;
         flex-direction: column;
         color: $white;
@@ -57,27 +55,80 @@
     &__link {
         line-height: 17px;
         letter-spacing: 0.02em;
-        margin-bottom: 10px;
+        margin-bottom: 23px;
         text-decoration: underline;
     }
     &__subscribe {
         margin-bottom: 30px;
         font-family: Montserrat;
-
         font-weight: 700;
         line-height: 17px;
         letter-spacing: 0.02em;
         color: $white;
         p {
-            margin-bottom: 13px;
+            margin-bottom: 18px;
         }
     }
     &__subscribe-btn {
-        font-size: 10px;
+        font-size: 14px;
         font-weight: 400;
-        line-height: 12px;
+        line-height: 17px;
         letter-spacing: 0.02em;
+        text-transform: uppercase;
     }
-    &__socials {
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-footer {
+        padding: 26px 0;
+        background-image: url(/_nuxt/assets/img/gr-footer/cone_left.png);
+        background-position: left 111px bottom 86px;
+        background-size: 509px;
+        margin-top: 120px;
+        &__row {
+            grid-template-columns: repeat(auto-fill, 234px);
+        }
+        &__logo {
+            margin-bottom: 20px;
+        }
+        &__link {
+            margin-bottom: 9px;
+        }
+        &__contact-link {
+            margin-bottom: 12px;
+        }
+        &__subscribe {
+            p {
+                margin-bottom: 9px;
+            }
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-footer {
+        padding: 46px 0 23px;
+        background-image: url(/_nuxt/assets/img/gr-footer/cone_right.png);
+        background-position: center;
+        background-size: 731px;
+        margin-top: 100px;
+        &__row {
+            grid-template-columns: repeat(auto-fill, 356px);
+            row-gap: 40px;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-footer {
+        padding: 54px 0;
+        background-size: 813px;
+        background-position: right -452px bottom;
+        &__copyright {
+            font-size: 12px;
+        }
+        &__subscribe-btn {
+            width: 100%;
+        }
+        &__row {
+            grid-template-columns: repeat(auto-fill, 100%);
+        }
     }
 }

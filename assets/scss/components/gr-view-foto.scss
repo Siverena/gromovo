@@ -1,0 +1,32 @@
+.gr-view-foto {
+    &__layout {
+        background-color: rgba(0, 0, 0, 0.72);
+
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 999999999 !important;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+    }
+    &__image {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    &__close {
+        cursor: pointer;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}

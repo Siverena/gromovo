@@ -1,0 +1,19 @@
+.gr-special {
+    &__titles {
+        margin-bottom: -178px;
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-special {
+        &__titles {
+            margin-bottom: 56px;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-special {
+        &__cone-mobile {
+            margin-bottom: 80px;
+        }
+    }
+}

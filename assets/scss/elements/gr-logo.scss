@@ -1,27 +1,83 @@
 .gr-logo {
-    width: 200px;
-    height: 60px;
-    &__stroke {
-        stroke: $text_primary;
+    width: 191px;
+    .stroke {
+        stroke: $primary_green;
         stroke-width: 2px;
     }
-    path {
-        fill: $text_primary;
+    .fill {
+        fill: $primary_green;
     }
+
     &--index {
-        .gr-logo__stroke {
+        .stroke {
             stroke: $white;
+            fill: $white;
         }
-        path {
+        .fill {
+            fill: $white;
+        }
+    }
+    &--error {
+        .stroke {
+            stroke: $white;
+            fill: $white;
+        }
+        .fill {
+            fill: $white;
+        }
+    }
+    &--footer {
+        width: 188px;
+        .stroke {
+            stroke: $white;
+            fill: $white;
+        }
+        .fill {
             fill: $white;
         }
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: grid-width($desktop)) {
     .gr-logo {
-        path {
-            fill: $text_primary;
+        width: 230px;
+        &--index {
+            .stroke {
+                stroke: $text_primary;
+                fill: $text_primary;
+            }
+            .fill {
+                fill: $text_primary;
+            }
+        }
+        &--footer {
+            width: 233px;
+        }
+        &--mob-menu {
+            width: 158px;
+            .stroke {
+                stroke: $primary_green;
+                fill: $primary_green;
+            }
+            .fill {
+                fill: $primary_green;
+            }
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-logo {
+        width: 170px;
+        &--footer {
+            width: 157px;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-logo {
+        width: 152px;
+        &--footer {
+            width: 320px;
         }
     }
 }

@@ -1,7 +1,11 @@
 <template>
   <nav class="gr-nav">
     <ul class="gr-nav__list">
-      <li class="gr-nav__item" v-for="(item, key) in links" :key="key">
+      <li
+        class="gr-nav__item"
+        v-for="(item, key) in getMenuNavLinks"
+        :key="key"
+      >
         <NuxtLink
           class="gr-nav__link"
           :to="item.link"
@@ -9,7 +13,7 @@
           >{{ item.name }}</NuxtLink
         >
         <div
-          @click="toggleMenu(key)"
+          @click.stop="toggleMenu(key)"
           v-if="item.child"
           class="gr-nav__arrow"
           :class="
@@ -24,6 +28,10 @@
         </div>
         <ul
           class="gr-nav__child-list"
+          :class="{
+            'gr-nav__child-list--index': this.$route.name === 'index',
+            'gr-nav__child-list--error': !this.$route.name,
+          }"
           :key="key"
           v-if="currentMenu === key && item.child"
         >
@@ -45,25 +53,45 @@
   </nav>
 </template>
 <script>
-import links from '@/stores/data/d-nav-links.js';
+import { mapState } from 'pinia';
+import { useNavLinksStore } from '@/stores/navLinksStore.js';
 export default {
-  props: ['currentUrl', 'isFooter'],
+  props: ['isFooter'],
   data() {
     return {
-      currentMenu: false,
-      links: links,
+      currentMenu: null,
     };
   },
+  computed: {
+    ...mapState(useNavLinksStore, ['getMenuNavLinks']),
+    currentPage() {
+      return this.$route.name;
+    },
+  },
+  watch: {
+    currentPage() {
+      this.toggleMenu();
+    },
+  },
   methods: {
-    toggleMenu(key) {
-      if (this.currentMenu === false || this.currentMenu !== key) {
+    toggleMenu(key = null) {
+      if (this.currentMenu !== key) {
         this.currentMenu = key;
+        document
+          .querySelector('body')
+          .addEventListener('click', this.closeMenu);
       } else {
-        this.currentMenu = false;
+        this.currentMenu = null;
       }
     },
+    closeMenu() {
+      this.currentMenu = null;
+      document
+        .querySelector('body')
+        .removeEventListener('click', this.closeMenu);
+    },
     getClassByRoute(string) {
-      if (this.$route.name === 'index' || this.currentUrl === '404') {
+      if (this.$route.name === 'index' || !this.$route.name) {
         return string + '--index';
       }
     },
@@ -73,8 +101,8 @@ export default {
       }
     },
   },
-  mounted() {},
+  beforeRouteUpdate(to, from, next) {
+    this.toggleMenu();
+  },
 };
-
-// const { data: links } =
 </script>

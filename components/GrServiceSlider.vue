@@ -2,7 +2,7 @@
   <div class="gr-service-slider">
     <div class="gr-service-slider__slide">
       <img
-        :src="getImageUrl(slides[currentActive])"
+        :src="getStaticImageUrl(slides[currentActive])"
         class="gr-service-slider__image"
         alt=""
       />
@@ -11,15 +11,16 @@
       class="gr-service-slider__nav"
       :class="right ? 'gr-service-slider__nav--right ' : ''"
     >
-      <GrBtnSlidesPrev @click="prewSlide" />
+      <GrBtnSlidesPrev @click="prevSlide" />
       <GrBtnSlidesNext @click="nextSlide" />
       <div class="gr-service-slider__count">
-        {{ this.currentActive + 1 }}/ {{ slideCount }}
+        {{ currentActive + 1 }}/ {{ slideCount }}
       </div>
     </div>
   </div>
 </template>
 <script>
+import imageUrl from '@/utils/mixins/image-url.js';
 export default {
   props: ['slides', 'right'],
   data() {
@@ -27,33 +28,26 @@ export default {
       currentActive: 0,
     };
   },
+  mixins: [imageUrl],
   computed: {
     slideCount() {
       return this.slides.length;
     },
   },
   methods: {
-    getImageUrl(src) {
-      const url = new URL(`../assets/img/${src}`, import.meta.url).href;
-      return url;
-    },
     nextSlide() {
-      //   this.activeRemove();
       if (this.slides.length - 1 === this.currentActive) {
         this.currentActive = 0;
       } else {
         this.currentActive = this.currentActive + 1;
       }
-      //   this.activeAdd();
     },
-    prewSlide() {
-      //   this.activeRemove();
+    prevSlide() {
       if (this.currentActive === 0) {
         this.currentActive = this.slides.length - 1;
       } else {
         this.currentActive = this.currentActive - 1;
       }
-      //   this.activeAdd();
     },
   },
 };

@@ -2,6 +2,10 @@
     font-size: 18px;
     letter-spacing: 0.02em;
     line-height: 22px;
+    position: relative;
+    &__container {
+        position: relative;
+    }
     &__titles {
         margin-bottom: 64px;
     }
@@ -67,4 +71,24 @@ table.iksweb th {
     background: $background_2;
     color: $white;
     font-weight: normal;
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-rules {
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-rules {
+        .iksweb {
+            font-size: 14px;
+            .col-1 {
+                display: none;
+            }
+
+            th {
+                text-align: left;
+            }
+        }
+    }
 }

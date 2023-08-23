@@ -24,3 +24,11 @@
         }
     }
 }
+@media (max-width: grid-width($tablet)) {
+    .gr-btn-slides {
+        svg {
+            width: 56px;
+            height: 56px;
+        }
+    }
+}

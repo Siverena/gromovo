@@ -1,125 +1,40 @@
 .gr-contacts {
-    &__title {
-        font-size: 26px;
-        font-weight: 400;
-        line-height: 32px;
-    }
     &__head {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 632px);
+        grid-template-columns: repeat(auto-fill, 590px);
         justify-content: space-between;
     }
     &__general {
         margin-bottom: 40px;
-        margin-top: 58px;
     }
     &__map {
         margin-bottom: 160px;
     }
 }
-.gr-general {
-    background-color: $background_2;
-    padding: 32px 34px;
-    background-image: url(@/assets/img/gr-contacts/cone.png);
-    background-repeat: no-repeat;
-    background-position: right 24px bottom 30px;
-
-    &__item {
-        display: flex;
-        margin-bottom: 24px;
-        align-items: center;
-    }
-    &__icon {
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 16px;
-    }
-    &__text {
-        color: $white;
-        font-size: 18px;
-        line-height: 22px;
-        span {
-            font-weight: 700;
+@media (max-width: grid-width($desktop)) {
+    .gr-contacts {
+        &__head {
+            grid-template-columns: repeat(auto-fill, 484px);
         }
-        a {
-            color: inherit;
-            text-decoration: none;
+        &__map {
+            margin-bottom: 120px;
         }
     }
 }
-.gr-way {
-    &__row {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 632px);
-        justify-content: space-between;
-        margin-bottom: 16px;
-    }
-    &__item {
-        padding: 32px;
-        background-color: $background_2;
-        color: $white;
-        max-height: 520px;
-        &--image {
-            background-color: $white;
-            padding: 0;
+@media (max-width: grid-width($laptop)) {
+    .gr-contacts {
+        &__head {
+            grid-template-columns: repeat(auto-fill, 100%);
+        }
+        &__map {
+            margin-bottom: 100px;
         }
     }
-    &__item-title {
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 32px;
-        display: flex;
-        align-items: center;
-        color: $white;
-        margin-bottom: 16px;
-        svg {
-            margin-right: 16px;
-        }
-    }
-    &__link {
-        color: inherit;
-    }
-    &__image {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
-    &__text {
-        font-size: 18px;
-        line-height: 22px;
-        letter-spacing: 0.02em;
-        margin-bottom: 16px;
-        &--bold {
-            font-weight: 700;
-        }
-    }
-    &__list {
-        padding-left: 20px;
-        &--2 {
-            margin-top: 16px;
-            padding: 0;
-            list-style: none;
-        }
-    }
-    &__list-item {
-        // display: flex;
-        // align-items: center;
-        margin-bottom: 16px;
-        &--2 {
-            display: flex;
-            align-items: center;
-            &::before {
-                content: "";
-                background-image: url(@/assets/img/gr-contacts/car_2.png);
-                background-size: 18px 18px;
-                width: 18px;
-                height: 18px;
-                display: block;
-                margin-right: 8px;
-            }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-contacts {
+        &__map {
+            margin-bottom: 80px;
         }
     }
 }

@@ -1,7 +1,9 @@
 <template>
+  <Head>
+    <Title>Условия и способы оплаты | Громово парк</Title>
+  </Head>
   <section class="gr-uslov">
     <div class="container">
-      <GrBreadCrumbs />
       <GrPageTitles>
         <template v-slot:h1>Условия и способы оплаты</template>
         <template v-slot:h2>Пожалуйста, ознакомьтесь перед заселением</template>
@@ -196,6 +198,7 @@
           </ol>
         </li>
       </ol>
+      <GrPageUp />
     </div>
   </section>
 </template>

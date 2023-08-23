@@ -1,0 +1,181 @@
+.gr-cottage {
+    &__header {
+        margin-bottom: 64px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 592px);
+        justify-content: space-between;
+    }
+    &__list {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        margin-bottom: 80px;
+        li {
+            display: flex;
+            align-items: center;
+            margin-right: 16px;
+            img {
+                margin-right: 8px;
+            }
+        }
+    }
+    &__booking-row {
+        display: flex;
+    }
+    &__booking-text {
+        color: $text_primary;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+
+        a {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+    &__included {
+        border-left: 3px solid $border_2;
+        padding: 0 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 160px;
+    }
+    &__included-bg {
+        position: absolute;
+        z-index: -1;
+        background: #fafafa;
+        width: 100vw;
+        height: 150%;
+
+        left: -107px;
+        background-image: url(@/assets/img/gr-cottage/cone.png);
+        background-repeat: no-repeat;
+        background-position: center left 1472px;
+    }
+
+    &__included-text {
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    &__filling {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 389px);
+        justify-content: space-between;
+        margin-bottom: 160px;
+    }
+    &__filling-item {
+        p {
+            font-weight: 700;
+
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
+        }
+    }
+    &__filling--list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            margin-bottom: 16px;
+            &::before {
+                content: "■";
+                color: $primary_green;
+                margin-right: 16px;
+            }
+        }
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-cottage {
+        &__header {
+            grid-template-columns: repeat(auto-fill, 482px);
+        }
+        &__included {
+            padding-right: 60px;
+            background-image: url(/_nuxt/assets/img/gr-cottage/cone.png);
+            background-repeat: no-repeat;
+            background-position: bottom left 900px;
+            background-size: auto 98px;
+            margin-bottom: 120px;
+        }
+        &__included-bg {
+            left: -50%;
+            width: 200vw;
+            background-image: none;
+        }
+        &__filling {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin-bottom: 120px;
+        }
+        &__filling-item {
+            margin-bottom: 24px;
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-cottage {
+        &__header {
+            grid-template-columns: repeat(auto-fill, 356px);
+        }
+        &__included {
+            padding-right: 60px;
+            background-image: url(/_nuxt/assets/img/gr-cottage/cone.png);
+            background-repeat: no-repeat;
+            background-position: bottom left 900px;
+            background-size: auto 98px;
+            margin-bottom: 100px;
+        }
+        &__included-bg {
+            left: -50%;
+            width: 200vw;
+            background-image: none;
+        }
+        &__filling {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin-bottom: 100px;
+        }
+        &__filling-item {
+            margin-bottom: 24px;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-cottage {
+        &__list {
+            flex-wrap: wrap;
+            row-gap: 16px;
+        }
+        &__included {
+            background: none;
+            padding: 0;
+            padding-left: 5px;
+            margin-bottom: 80px;
+        }
+        &__included-bg {
+            display: none;
+        }
+        &__included-title {
+            margin-bottom: 8px;
+        }
+        &__filling {
+            margin-bottom: 80px;
+        }
+    }
+}
