@@ -4,12 +4,14 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
+    padding-top: 40px;
     margin-bottom: 60px;
     &--index {
         height: 1080px;
         margin-bottom: 160px;
     }
     &__top-cont {
+        row-gap: 7px;
         &--index {
             position: absolute;
             z-index: 10;
@@ -51,8 +53,9 @@
 @media (max-width: grid-width($desktop)) {
     .gr-header {
         height: auto;
+        padding-top: 24px;
         &--index {
-            margin-bottom: 100px;
+            margin-bottom: 120px;
         }
         &__nav {
             display: none;
@@ -66,8 +69,9 @@
             position: relative;
             flex-wrap: nowrap;
             top: 0;
-            margin-top: 24px;
-            margin-bottom: 24px;
+            &--index {
+                margin-bottom: 19px;
+            }
         }
         &__weather {
             order: 2;
@@ -77,16 +81,25 @@
             align-items: center;
             justify-content: center;
             width: 41px;
-            height: 38px;
             order: 5;
             margin-left: 24px;
             cursor: pointer;
+            flex-shrink: 0;
             svg {
-                width: 41px;
-                height: 38px;
+                height: auto;
             }
             rect {
                 fill: $text_primary;
+            }
+            &--index {
+                rect {
+                    fill: $text_primary;
+                }
+            }
+            &--error {
+                rect {
+                    fill: $white;
+                }
             }
         }
         &__bottom {
@@ -97,28 +110,21 @@
         }
     }
 }
+
+@media (max-width: grid-width($laptop)) {
+    .gr-header {
+        &--index {
+            margin-bottom: 100px;
+        }
+    }
+}
 @media (max-width: grid-width($tablet)) {
     .gr-header {
         &--index {
             margin-bottom: 80px;
         }
-        &__nav {
-        }
-        &__slider {
-        }
-        &__top-cont {
-        }
-        &__weather {
-        }
         &__nav-open {
-            svg {
-            }
-            rect {
-            }
-        }
-        &__bottom {
-            &--index {
-            }
+            width: 31px;
         }
     }
 }

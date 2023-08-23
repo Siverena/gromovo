@@ -9,8 +9,6 @@
     &__list {
         width: 100%;
         height: 100%;
-        // width: 1280px;
-        // height: 688px;
         overflow: visible;
     }
     &__slide {
@@ -20,6 +18,7 @@
         display: none;
         align-items: center;
         justify-content: center;
+        position: relative;
         &--active {
             display: flex;
         }
@@ -37,6 +36,7 @@
         align-items: center;
         position: absolute;
         height: 60px;
+        padding: 0 40px;
     }
     &__nav-button {
         color: $white;
@@ -59,13 +59,15 @@
     }
     &__dots {
         width: 100%;
-        bottom: -383px;
-        margin: 0;
+        bottom: -395px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
         position: absolute;
         display: flex;
         list-style: none;
         justify-content: center;
-        padding-left: 0;
+        padding-right: 40px;
     }
     &__dot {
         box-sizing: border-box;
@@ -101,11 +103,14 @@
         flex-direction: column;
         color: $white;
         position: absolute;
-        top: 0;
+        letter-spacing: 0.05em;
+        background-color: rgba(0, 0, 0, 0.3);
         span {
             font-weight: 400;
             font-size: 26px;
             line-height: 32px;
+            letter-spacing: 0;
+            margin-top: 24px;
         }
     }
     &__image {
@@ -118,7 +123,7 @@
     .gr-main-slider {
         height: 546px;
         &__dots {
-            bottom: -222px;
+            bottom: -214px;
         }
         &__nav-buttons {
             width: 100%;
@@ -127,15 +132,18 @@
         &__text {
             margin: 0 auto;
             text-align: center;
-            width: 509px;
-            font-size: 64px;
 
+            font-size: 64px;
+            line-height: 64px;
+            letter-spacing: 0.05em;
+            padding: 0 146px;
             span {
                 font-size: 24px;
                 font-weight: 400;
                 line-height: 29px;
                 letter-spacing: 0em;
                 padding: 0 10px;
+                margin-top: 36px;
             }
         }
     }
@@ -176,6 +184,7 @@
         &__dots {
             bottom: 0px;
             position: relative;
+            padding: 0;
         }
         &__dot {
             margin: 8px;
@@ -205,7 +214,6 @@
                 width: 32px;
                 height: 32px;
             }
-
             path {
                 fill: $border;
             }
@@ -230,7 +238,6 @@
             span {
                 width: 260px;
                 font-size: 12px;
-
                 line-height: 14px;
             }
         }

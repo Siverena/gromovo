@@ -25,7 +25,7 @@
     }
     &__days {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 42px);
+        grid-template-columns: repeat(auto-fill, 41px);
         justify-content: space-between;
         flex-wrap: wrap;
     }
@@ -41,8 +41,8 @@
         cursor: pointer;
     }
     &__day-layout {
-        width: 42px;
-        height: 42px;
+        width: 41px;
+        height: 41px;
         display: flex;
         align-items: center;
         justify-content: center;

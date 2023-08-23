@@ -78,3 +78,17 @@ table.iksweb th {
         line-height: 19px;
     }
 }
+@media (max-width: grid-width($tablet)) {
+    .gr-rules {
+        .iksweb {
+            font-size: 14px;
+            .col-1 {
+                display: none;
+            }
+
+            th {
+                text-align: left;
+            }
+        }
+    }
+}

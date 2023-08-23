@@ -1,12 +1,12 @@
 <template>
-  <nav class="gr-mob-menu" v-if="isShowMob">
+  <nav class="gr-mob-menu" @click.self="closeMobMenu">
     <div
       class="gr-mob-menu__content"
-      :class="isShowMob ? 'gr-mob-menu__content--show' : ''"
+      :class="getIsShowMob ? 'gr-mob-menu__content--show' : ''"
     >
       <div class="gr-mob-menu__information">
         <div class="gr-mob-menu__header">
-          <GrLogo class="gr-mob-menu__logo" />
+          <GrLogo class="gr-mob-menu__logo" :mobMenu="mobMenu" />
           <button @click="closeMobMenu" class="gr-mob-menu__close">
             <svg fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -15,10 +15,9 @@
             </svg>
           </button>
         </div>
-
         <GrNavColumn :mobMenu="mobMenu" />
         <hr />
-        <GrCallback :class="'gr-mob-menu__callback'" />
+        <GrCallback :mobMenu="mobMenu" />
         <div class="gr-mob-menu__info">
           <a
             href="mailto:info@gromovopark.ru"
@@ -59,15 +58,28 @@
   </nav>
 </template>
 <script>
+import { mapActions, mapState } from 'pinia';
+import { useModalStore } from '@/stores/modalStore.js';
 export default {
-  props: ['closeMobMenu', 'isShowMob'],
   data() {
     return {
       currentMenu: false,
       mobMenu: true,
     };
   },
+  computed: {
+    ...mapState(useModalStore, ['getIsShowMob']),
+    currentUrl() {
+      return this.$route.name;
+    },
+  },
+  watch: {
+    currentUrl() {
+      this.closeMobMenu();
+    },
+  },
   methods: {
+    ...mapActions(useModalStore, ['closeMobMenu']),
     toggleMenu(key) {
       if (this.currentMenu === false || this.currentMenu !== key) {
         this.currentMenu = key;
@@ -75,13 +87,15 @@ export default {
         this.currentMenu = false;
       }
     },
+
     getClassByCurrentMenu(key) {
       if (this.currentMenu === key) {
         return 'gr-nav__arrow--open';
       }
     },
   },
-  beforeCreate() {},
-  mounted() {},
+  beforeRouteUpdate(to, from, next) {
+    this.closeMobMenu();
+  },
 };
 </script>

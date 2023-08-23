@@ -5,17 +5,14 @@
     align-items: center;
     margin-bottom: 16px;
     margin-top: 8px;
+    fill: $text_primary;
     &--index {
         color: $white;
-        .gr-weather__icon {
-            fill: $white;
-            svg {
-                fill: inherit;
-                path {
-                    fill: inherit;
-                }
-            }
-        }
+        fill: $white;
+    }
+    &--error {
+        color: $white;
+        fill: $white;
     }
     &__temperature {
         font-weight: 400;
@@ -30,32 +27,35 @@
         width: 30px;
         height: 30px;
         margin-right: 8px;
-        fill: $text_primary;
         display: flex;
         align-items: center;
         justify-content: center;
+        fill: inherit;
         svg {
             width: 28px;
             height: 28px;
+            fill: inherit;
+            path {
+                fill: inherit;
+            }
         }
     }
 }
 @media (max-width: grid-width($desktop)) {
     .gr-weather {
-        &__temperature {
-            color: $text_primary;
-        }
+        color: $text_primary;
         &__icon {
             width: 25px;
             height: 25px;
             margin-right: 8px;
-            fill: $text_primary;
         }
         &--index {
+            color: $text_primary;
+            fill: $text_primary;
+        }
+        &--error {
             color: $white;
-            .gr-weather__icon {
-                fill: $text_primary;
-            }
+            fill: $white;
         }
     }
 }

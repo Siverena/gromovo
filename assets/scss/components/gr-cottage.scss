@@ -60,14 +60,12 @@
         background-repeat: no-repeat;
         background-position: center left 1472px;
     }
-    &__included-title {
-    }
+
     &__included-text {
         font-weight: 700;
         margin-bottom: 10px;
     }
-    &__included-list {
-    }
+
     &__filling {
         display: grid;
         grid-template-columns: repeat(auto-fill, 389px);
@@ -76,9 +74,8 @@
     }
     &__filling-item {
         p {
-            // font-size: 18px;
             font-weight: 700;
-            // line-height: 22px;
+
             letter-spacing: 0.02em;
             margin-bottom: 16px;
         }
@@ -98,7 +95,6 @@
                 color: $primary_green;
                 margin-right: 16px;
             }
-            // list-style: square;
         }
     }
 }
@@ -107,18 +103,6 @@
         &__header {
             grid-template-columns: repeat(auto-fill, 482px);
         }
-        &__list {
-            li {
-                img {
-                }
-            }
-        }
-        &__booking-row {
-        }
-        &__booking-text {
-            a {
-            }
-        }
         &__included {
             padding-right: 60px;
             background-image: url(/_nuxt/assets/img/gr-cottage/cone.png);
@@ -132,12 +116,6 @@
             width: 200vw;
             background-image: none;
         }
-        &__included-title {
-        }
-        &__included-text {
-        }
-        &__included-list {
-        }
         &__filling {
             display: flex;
             flex-direction: column;
@@ -146,15 +124,6 @@
         }
         &__filling-item {
             margin-bottom: 24px;
-            p {
-            }
-        }
-        &__filling--list {
-            li {
-                &::before {
-                }
-                // list-style: square;
-            }
         }
     }
 }
@@ -163,18 +132,6 @@
         &__header {
             grid-template-columns: repeat(auto-fill, 356px);
         }
-        &__list {
-            li {
-                img {
-                }
-            }
-        }
-        &__booking-row {
-        }
-        &__booking-text {
-            a {
-            }
-        }
         &__included {
             padding-right: 60px;
             background-image: url(/_nuxt/assets/img/gr-cottage/cone.png);
@@ -188,12 +145,6 @@
             width: 200vw;
             background-image: none;
         }
-        &__included-title {
-        }
-        &__included-text {
-        }
-        &__included-list {
-        }
         &__filling {
             display: flex;
             flex-direction: column;
@@ -202,35 +153,14 @@
         }
         &__filling-item {
             margin-bottom: 24px;
-            p {
-            }
-        }
-        &__filling--list {
-            li {
-                &::before {
-                }
-                // list-style: square;
-            }
         }
     }
 }
 @media (max-width: grid-width($tablet)) {
     .gr-cottage {
-        &__header {
-        }
         &__list {
             flex-wrap: wrap;
             row-gap: 16px;
-            li {
-                img {
-                }
-            }
-        }
-        &__booking-row {
-        }
-        &__booking-text {
-            a {
-            }
         }
         &__included {
             background: none;
@@ -244,23 +174,8 @@
         &__included-title {
             margin-bottom: 8px;
         }
-        &__included-text {
-        }
-        &__included-list {
-        }
         &__filling {
             margin-bottom: 80px;
-        }
-        &__filling-item {
-            p {
-            }
-        }
-        &__filling--list {
-            li {
-                &::before {
-                }
-                // list-style: square;
-            }
         }
     }
 }

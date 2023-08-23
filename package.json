@@ -15,7 +15,7 @@
     "sass": "^1.63.4",
     "sass-loader": "^13.3.2"
   },
-    "overrides": {
+  "overrides": {
     "vue": "latest"
   },
   "dependencies": {

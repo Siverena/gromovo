@@ -20,14 +20,16 @@ body {
     margin: 0;
     margin-bottom: 56px;
     font-weight: 400;
+    max-width: 100%;
 }
 .gr-site__h2 {
     font-weight: 700;
     font-size: 36px;
     line-height: 44px;
     color: $primary_green;
-    width: 427px;
+    width: 451px;
     margin: 0;
+    max-width: 100%;
 }
 
 @media (max-width: grid-width($desktop)) {
@@ -38,6 +40,7 @@ body {
     .gr-site__h1 {
         font-size: 24px;
         line-height: 29px;
+        margin-bottom: 48px;
     }
     .gr-site__h2 {
         font-size: 32px;
@@ -53,9 +56,15 @@ body {
     .container {
         width: $tablet;
     }
+    .gr-site__h1 {
+        margin-bottom: 23px;
+    }
 }
 
 @media (max-width: grid-width($tablet)) {
+    body {
+        // width: $mobile;
+    }
     .container {
         width: $mobile;
     }
@@ -74,4 +83,6 @@ body {
 
         width: 100%;
     }
+}
+@media (max-width: 360px) {
 }

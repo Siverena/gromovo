@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Правила проживания | Громово парк</Title>
+  </Head>
   <section class="gr-rules">
     <div class="container gr-rules__container">
       <GrPageTitles>
@@ -596,111 +599,111 @@
           <table class="iksweb" v-if="isTableVisible">
             <tbody>
               <tr>
-                <th>№</th>
-                <th>Наименование</th>
-                <th>Количество</th>
+                <th class="col-1">№</th>
+                <th class="col-2">Наименование</th>
+                <th class="col-3">Количество</th>
                 <th>Цена (руб.)</th>
               </tr>
               <tr>
-                <td>1</td>
-                <td>Порча крупногабаритной мебели</td>
-                <td>1</td>
+                <td class="col-1">1</td>
+                <td class="col-2">Порча крупногабаритной мебели</td>
+                <td class="col-3">1</td>
                 <td>от 3 000</td>
               </tr>
               <tr>
-                <td>2</td>
-                <td>Чашка в ассортименте</td>
-                <td>1</td>
+                <td class="col-1">2</td>
+                <td class="col-2">Чашка в ассортименте</td>
+                <td class="col-3">1</td>
                 <td>200</td>
               </tr>
               <tr>
-                <td>3</td>
-                <td>Блюдце в ассортименте</td>
-                <td>1</td>
+                <td class="col-1">3</td>
+                <td class="col-2">Блюдце в ассортименте</td>
+                <td class="col-3">1</td>
                 <td>150</td>
               </tr>
               <tr>
-                <td>4</td>
-                <td>Тарелка в ассортименте</td>
-                <td>1</td>
+                <td class="col-1">4</td>
+                <td class="col-2">Тарелка в ассортименте</td>
+                <td class="col-3">1</td>
                 <td>200</td>
               </tr>
               <tr>
-                <td>5</td>
-                <td>Сахарница</td>
-                <td>1</td>
+                <td class="col-1">5</td>
+                <td class="col-2">Сахарница</td>
+                <td class="col-3">1</td>
                 <td>400</td>
               </tr>
               <tr>
-                <td>6</td>
-                <td>Стакан стеклянный</td>
-                <td>1</td>
+                <td class="col-1">6</td>
+                <td class="col-2">Стакан стеклянный</td>
+                <td class="col-3">1</td>
                 <td>150</td>
               </tr>
               <tr>
-                <td>7</td>
-                <td>Фужер</td>
-                <td>1</td>
+                <td class="col-1">7</td>
+                <td class="col-2">Фужер</td>
+                <td class="col-3">1</td>
                 <td>200</td>
               </tr>
               <tr>
-                <td>8</td>
-                <td>Рюмка</td>
-                <td>1</td>
+                <td class="col-1">8</td>
+                <td class="col-2">Рюмка</td>
+                <td class="col-3">1</td>
                 <td>100</td>
               </tr>
               <tr>
-                <td>9</td>
-                <td>Чайник заварочный</td>
-                <td>1</td>
+                <td class="col-1">9</td>
+                <td class="col-2">Чайник заварочный</td>
+                <td class="col-3">1</td>
                 <td>400</td>
               </tr>
               <tr>
-                <td>10</td>
-                <td>Порча столовых приборов</td>
-                <td>1</td>
+                <td class="col-1">10</td>
+                <td class="col-2">Порча столовых приборов</td>
+                <td class="col-3">1</td>
                 <td>100</td>
               </tr>
               <tr>
-                <td>11</td>
-                <td>Порча стула</td>
-                <td>1</td>
+                <td class="col-1">11</td>
+                <td class="col-2">Порча стула</td>
+                <td class="col-3">1</td>
                 <td>2000</td>
               </tr>
               <tr>
-                <td>12</td>
-                <td>Порча стула раскладного</td>
-                <td>1</td>
+                <td class="col-1">12</td>
+                <td class="col-2">Порча стула раскладного</td>
+                <td class="col-3">1</td>
                 <td>2000</td>
               </tr>
               <tr>
-                <td>13</td>
-                <td>Порча стола</td>
-                <td>1</td>
+                <td class="col-1">13</td>
+                <td class="col-2">Порча стола</td>
+                <td class="col-3">1</td>
                 <td>5000</td>
               </tr>
               <tr>
-                <td>14</td>
-                <td>Порча клеенки</td>
-                <td>1</td>
+                <td class="col-1">14</td>
+                <td class="col-2">Порча клеенки</td>
+                <td class="col-3">1</td>
                 <td>500</td>
               </tr>
               <tr>
-                <td>15</td>
-                <td>Порча бытовой техники</td>
-                <td>1</td>
+                <td class="col-1">15</td>
+                <td class="col-2">Порча бытовой техники</td>
+                <td class="col-3">1</td>
                 <td>от 1000</td>
               </tr>
               <tr>
-                <td>16</td>
-                <td>Порча полотенца</td>
-                <td>1</td>
+                <td class="col-1">16</td>
+                <td class="col-2">Порча полотенца</td>
+                <td class="col-3">1</td>
                 <td>400</td>
               </tr>
               <tr>
-                <td>17</td>
-                <td>Порча постельного белья</td>
-                <td>1</td>
+                <td class="col-1">17</td>
+                <td class="col-2">Порча постельного белья</td>
+                <td class="col-3">1</td>
                 <td>от 400</td>
               </tr>
             </tbody>

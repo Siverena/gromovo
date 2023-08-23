@@ -6,21 +6,15 @@
     }
     &__general {
         margin-bottom: 40px;
-        // margin-top: 58px;
     }
     &__map {
         margin-bottom: 160px;
     }
 }
-
 @media (max-width: grid-width($desktop)) {
     .gr-contacts {
         &__head {
             grid-template-columns: repeat(auto-fill, 484px);
-        }
-        &__general {
-            // margin-bottom: 40px;
-            // margin-top: 58px;
         }
         &__map {
             margin-bottom: 120px;
@@ -32,8 +26,6 @@
         &__head {
             grid-template-columns: repeat(auto-fill, 100%);
         }
-        &__general {
-        }
         &__map {
             margin-bottom: 100px;
         }
@@ -41,10 +33,6 @@
 }
 @media (max-width: grid-width($tablet)) {
     .gr-contacts {
-        &__head {
-        }
-        &__general {
-        }
         &__map {
             margin-bottom: 80px;
         }

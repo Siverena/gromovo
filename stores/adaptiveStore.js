@@ -50,7 +50,6 @@ export const useAdaptiveStore = defineStore('adaptiveStore', {
     updateWidth() {
       this.CHANGE_WIDTH(document.documentElement.clientWidth);
       this.CHANGE_VERSION();
-      console.log(`width Updated as ${this.windowWidth} at ${Date.now()}`);
     },
   },
 });

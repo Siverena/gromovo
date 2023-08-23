@@ -4,7 +4,7 @@
       <div class="gr-main-slider__slide">
         <img
           class="gr-main-slider__image"
-          src="@/assets/img/gr-main-slider/gromovo_08.jpg"
+          src="@/assets/img/gr-main-slider/1.jpg"
         />
         <div class="gr-main-slider__text">
           <p>Громово парк</p>
@@ -14,7 +14,7 @@
       <div class="gr-main-slider__slide" data-key="1">
         <img
           class="gr-main-slider__image"
-          src="@/assets/img/gr-main-slider/gromovo_03.jpg"
+          src="@/assets/img/gr-main-slider/2.jpg"
         />
         <div class="gr-main-slider__text">
           <p>Громово парк</p>
@@ -24,7 +24,7 @@
       <div class="gr-main-slider__slide" data-key="1">
         <img
           class="gr-main-slider__image"
-          src="@/assets/img/gr-main-slider/gromovo_04.jpg"
+          src="@/assets/img/gr-main-slider/3.jpg"
         />
         <div class="gr-main-slider__text">
           <p>Громово парк</p>
@@ -34,7 +34,7 @@
       <div class="gr-main-slider__slide" data-key="1">
         <img
           class="gr-main-slider__image"
-          src="@/assets/img/gr-main-slider/gromovo_05.jpg"
+          src="@/assets/img/gr-main-slider/4.jpg"
         />
         <div class="gr-main-slider__text">
           <p>Громово парк</p>
@@ -44,7 +44,27 @@
       <div class="gr-main-slider__slide" data-key="1">
         <img
           class="gr-main-slider__image"
-          src="@/assets/img/gr-main-slider/gromovo_07.jpg"
+          src="@/assets/img/gr-main-slider/5.jpg"
+        />
+        <div class="gr-main-slider__text">
+          <p>Громово парк</p>
+          <span>Комфортабельные коттеджи в уголке Карельского перешейка</span>
+        </div>
+      </div>
+      <div class="gr-main-slider__slide" data-key="1">
+        <img
+          class="gr-main-slider__image"
+          src="@/assets/img/gr-main-slider/6.jpg"
+        />
+        <div class="gr-main-slider__text">
+          <p>Громово парк</p>
+          <span>Комфортабельные коттеджи в уголке Карельского перешейка</span>
+        </div>
+      </div>
+      <div class="gr-main-slider__slide" data-key="1">
+        <img
+          class="gr-main-slider__image"
+          src="@/assets/img/gr-main-slider/7.jpg"
         />
         <div class="gr-main-slider__text">
           <p>Громово парк</p>
@@ -145,11 +165,6 @@ export default {
       this.activeRemove();
       this.currentActive = key;
       this.activeAdd();
-    },
-    getImageUrl(src) {
-      // const url = new URL(`../assets/img/${src}`, import.meta.url).href;
-      // return url;
-      return `/assets/img/${src}`;
     },
     getSlides() {
       this.slides = document.querySelectorAll('.gr-main-slider__slide');

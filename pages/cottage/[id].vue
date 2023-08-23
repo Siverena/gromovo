@@ -1,7 +1,10 @@
 <template>
-  <div class="container">
-    <GrLoader v-if="loading" />
-    <section class="gr-cottage" v-if="!loading">
+  <Head>
+    <Title>{{ getCottage.name }} | Громово парк</Title>
+  </Head>
+  <GrLoader v-if="loading" />
+  <div class="container" v-if="!loading">
+    <section class="gr-cottage">
       <GrPageTitles class="gr-page-titles--cottage">
         <template v-slot:h1>{{ getCottage.name }}</template>
         <template v-slot:h2
@@ -14,8 +17,11 @@
           <GrServiceSlider :slides="getCottage.images" />
         </div>
         <div class="gr-cottage__booking">
-          <GrPickUp :btnText="'Забронировать'" :mode="'cottage'" />
-
+          <GrPickUp
+            :btnText="'Забронировать'"
+            :mode="'cottage'"
+            @click="getBooking"
+          />
           <p class="gr-cottage__booking-text">
             Также вы можете забронировать коттедж по телефону
             <a href="tel:+78123850722"> +7&nbsp;(812)&nbsp;385-07-22</a>
@@ -142,9 +148,7 @@ export default {
         console.log(e);
       }
     },
-    getImageUrl(src) {
-      return `/img/${src}`;
-    },
+    getBooking() {},
   },
   async created() {
     await this.loadData();

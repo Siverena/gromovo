@@ -4,7 +4,6 @@
     background-image: url(@/assets/img/gr-contacts/cone.png);
     background-repeat: no-repeat;
     background-position: right 24px bottom 30px;
-
     &__item {
         display: flex;
         margin-bottom: 24px;
@@ -33,16 +32,8 @@
 }
 @media (max-width: grid-width($desktop)) {
     .gr-general {
-        &__item {
-        }
-        &__icon {
-        }
         &__text {
             font-size: 16px;
-            span {
-            }
-            a {
-            }
         }
     }
 }
@@ -50,23 +41,16 @@
     .gr-general {
         padding: 0;
         background: none;
-
         &__item {
             align-items: flex-start;
         }
         &__icon {
-            svg {
-            }
             path {
                 fill: $text_primary;
             }
         }
         &__text {
             color: $text_primary;
-            span {
-            }
-            a {
-            }
         }
     }
 }

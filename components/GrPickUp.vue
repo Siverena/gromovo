@@ -1,5 +1,5 @@
 <template>
-  <div class="gr-pick-up" v-if="!loading">
+  <div class="gr-pick-up" v-if="!loading && currentPage">
     <form
       action=""
       class="gr-pick-up__form"
@@ -33,13 +33,6 @@
               </svg>
             </div>
           </label>
-          <!-- <input
-            class="gr-pick-up__input"
-            type="date"
-            name="check-in"
-            id="check-in"
-            placeholder="Заезд"
-          /> -->
           <GrCalendar
             v-if="calendarType === 'checkIn'"
             :dateStart="dateStart"
@@ -51,7 +44,6 @@
         <div class="gr-pick-up__item">
           <label for="check-out" class="gr-pick-up__label">
             <p class="gr-pick-up__placeholder" v-if="!dateEnd">Выезд</p>
-
             <p class="gr-pick-up__pick-date" v-if="dateEnd">
               {{ dateEnd.toLocaleDateString() }}
             </p>
@@ -73,13 +65,6 @@
               </svg>
             </div>
           </label>
-          <!-- <input
-            class="gr-pick-up__input"
-            type="date"
-            name="check-out"
-            id="check-out"
-            placeholder="Выезд"
-          /> -->
           <GrCalendar
             v-if="calendarType === 'checkOut'"
             :dateStart="dateStart"
@@ -99,7 +84,6 @@
             :class="selectValue !== null ? 'gr-pick-up__select--selected' : ''"
           >
             {{ selectText }}
-
             <svg
               @click.stop="toggleSelect"
               class="gr-pick-up__select-open"
@@ -160,6 +144,7 @@
               ? 'gr-btn--green gr-pick-up__btn--cottage'
               : 'gr-btn--green'
           "
+          :disabled="isDisabled"
           >{{ btnText }}</GrBtn
         >
       </div>
@@ -170,6 +155,7 @@
 import { mapActions, mapState } from 'pinia';
 import { useCottagesStore } from '@/stores/cottagesStore.js';
 import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
+import { useBookingStore } from '@/stores/bookingStore.js';
 
 export default {
   props: ['btnText', 'mode'],
@@ -182,10 +168,11 @@ export default {
       isSelectOpen: false,
       selectValue: null,
       loading: true,
+      summa: 40000,
     };
   },
   computed: {
-    ...mapState(useCottagesStore, ['getCottageType']),
+    ...mapState(useCottagesStore, ['getCottageType', 'getCottage']),
     ...mapState(useAdaptiveStore, ['isDesktopVersion']),
     selectText() {
       if (this.selectValue === null) {
@@ -202,14 +189,28 @@ export default {
     currentPage() {
       return this.$route.name;
     },
+    isDisabled() {
+      if (this.mode === 'cottage' && (!this.dateStart || !this.dateEnd)) {
+        return true;
+      }
+      return false;
+    },
+    nightCount() {
+      if (this.dateStart && this.dateEnd) {
+        const count =
+          (Date.parse(this.dateEnd) - Date.parse(this.dateStart)) /
+          60 /
+          60 /
+          24 /
+          1000;
+        return count;
+      }
+      return 0;
+    },
   },
-
-  // watch: {
-  //   currentPage() {
-  //     },
-  // },
   methods: {
     ...mapActions(useCottagesStore, ['fetchCottageType', 'filterCottages']),
+    ...mapActions(useBookingStore, ['addBookingDate']),
     closePickUps() {
       this.calendarType = '';
       this.isSelectOpen = false;
@@ -261,27 +262,24 @@ export default {
         console.log(e);
       }
     },
-    // sendForm() {
-    //   try {
-    //     this.loading = true;
-    //     this.fetchCottages(this.dateStart, this.dateEnd, this.selectValue);
-    //     this.loading = false;
-    //     if (!this.loading) {
-    //       this.$router.push('/cottages');
-    //     }
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    // },
     async sendForm() {
-      // try {
-      //   this.loading = true;
-      //   this.filterCottages(this.dateStart, this.dateEnd, this.selectValue);
-      //   this.loading = false;
-      // } catch (e) {
-      //   console.log(e);
-      // }
-      this.$router.push('/cottages');
+      this.addBookingDate({
+        dateStart: this.dateStart,
+        dateEnd: this.dateEnd,
+        cottageId: this.$route.params.id,
+        summa: this.summa,
+        cottageDescription: `${this.getCottage.name} с камином ${
+          this.getCottage.sauna ? 'и сауной' : ''
+        } ${this.getCottage.placement.main} основных мест + ${
+          this.getCottage.placement.additional
+        } дополнительных`,
+        nightCount: this.nightCount,
+      });
+      if (this.mode === 'cottage') {
+        this.$router.push('/booking/step-1');
+      } else {
+        this.$router.push('/cottages');
+      }
     },
   },
   async created() {

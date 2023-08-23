@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Партнеры | Громово парк</Title>
+  </Head>
   <section class="gr-partners" v-if="widthComputed">
     <div class="container">
       <GrPageTitles :showLogo="showLogo">

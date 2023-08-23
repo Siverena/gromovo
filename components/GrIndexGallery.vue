@@ -58,7 +58,7 @@
             :key="key"
             class="gr-index-gallery__mobile-img"
           >
-            <img :src="getImageUrl(img.imgSrc)" alt="" />
+            <img :src="getStaticImageUrl(img.imgSrc)" alt="" />
           </div>
         </div>
         <div class="gr-index-gallery__nav">
@@ -69,7 +69,6 @@
           </div>
         </div>
       </div>
-
       <GrBtn class="gr-btn gr-btn--green gr-index-gallery__btn">
         <NuxtLink to="/galleries"> Смотреть все фотографии</NuxtLink>
       </GrBtn>
@@ -77,6 +76,7 @@
   </div>
 </template>
 <script>
+import imageUrl from '@/utils/mixins/image-url.js';
 export default {
   data() {
     return {
@@ -98,6 +98,7 @@ export default {
       ],
     };
   },
+  mixins: [imageUrl],
   computed: {
     imagesCount() {
       return this.images.length;
@@ -127,10 +128,6 @@ export default {
         this.images.unshift(tmp);
         this.activeImg = this.activeImg - 1;
       }
-    },
-
-    getImageUrl(src) {
-      return `/assets/img/${src}`;
     },
   },
   mounted() {},

@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Условия и способы оплаты | Громово парк</Title>
+  </Head>
   <section class="gr-uslov">
     <div class="container">
       <GrPageTitles>

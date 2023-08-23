@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Услуги | Громово парк</Title>
+  </Head>
+  <GrLoader v-if="loading"></GrLoader>
   <section class="gr-services" v-if="!loading && widthComputed">
     <div class="container">
       <GrPageTitles :showLogo="true">
@@ -33,7 +37,11 @@
 
           <NuxtLink
             class="gr-service__link"
-            :class="isMobileVersion ? 'gr-btn gr-btn--green' : ''"
+            :class="{
+              'gr-btn gr-btn--green': isMobileVersion,
+              'gr-link gr-link--white': !isMobileVersion,
+            }"
+            to="/prices"
             >Посмотреть прейскурант</NuxtLink
           >
         </div>
@@ -65,9 +73,14 @@
 
           <p
             class="gr-service__link"
-            :class="isMobileVersion ? 'gr-btn gr-btn--green' : ''"
+            :class="{
+              'gr-btn gr-btn--green': isMobileVersion,
+              'gr-link gr-link--green': !isMobileVersion,
+            }"
           >
-            <span>Карта глубин оз. Комсомольское</span>
+            <span @click="showPhoto('gr-services/komsomolskoe1.jpg')"
+              >Карта глубин оз. Комсомольское</span
+            >
           </p>
         </div>
         <GrServiceSlider
@@ -105,7 +118,10 @@
           <NuxtLink
             to="/prices"
             class="gr-service__link"
-            :class="isMobileVersion ? 'gr-btn gr-btn--green' : ''"
+            :class="{
+              'gr-btn gr-btn--green': isMobileVersion,
+              'gr-link gr-link--white': !isMobileVersion,
+            }"
           >
             <span>Посмотреть весь инвентарь</span>
           </NuxtLink>
@@ -136,7 +152,10 @@
           <NuxtLink
             to="/prices"
             class="gr-service__link"
-            :class="isMobileVersion ? 'gr-btn gr-btn--green' : ''"
+            :class="{
+              'gr-btn gr-btn--green': isMobileVersion,
+              'gr-link gr-link--green': !isMobileVersion,
+            }"
           >
             <span>Посмотреть весь инвентарь</span>
           </NuxtLink>
@@ -176,7 +195,10 @@
           <NuxtLink
             to="/prices"
             class="gr-service__link"
-            :class="isMobileVersion ? 'gr-btn gr-btn--green' : ''"
+            :class="{
+              'gr-btn gr-btn--green': isMobileVersion,
+              'gr-link gr-link--white': !isMobileVersion,
+            }"
           >
             <span>Посмотреть цены на услуги</span>
           </NuxtLink>
@@ -189,6 +211,7 @@
 import { mapState, mapActions } from 'pinia';
 import { useGalleryStore } from '@/stores/galleryStore.js';
 import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
+import { useModalStore } from '@/stores/modalStore.js';
 export default {
   data() {
     return {
@@ -201,6 +224,7 @@ export default {
   },
   methods: {
     ...mapActions(useGalleryStore, ['fetchGallery']),
+    ...mapActions(useModalStore, ['showPhoto']),
     async loadData() {
       try {
         this.loading = true;

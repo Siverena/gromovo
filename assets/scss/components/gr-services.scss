@@ -1,11 +1,8 @@
-.gr-services {
-}
 .gr-service {
     display: grid;
     grid-template-columns: repeat(auto-fill, 592px);
     justify-content: space-between;
     margin-bottom: 160px;
-
     &__description {
         padding: 32px 154px 32px 32px;
         min-height: 448px;
@@ -47,12 +44,12 @@
         margin-top: auto;
         display: flex;
         align-items: center;
-
+        cursor: pointer;
         svg {
             margin-right: 8px;
         }
         span {
-            text-decoration: underline;
+            // text-decoration: underline;
             font-weight: 700;
             line-height: 17px;
             letter-spacing: 0.02em;
@@ -66,26 +63,12 @@
         &__description {
             padding: 24px 32px;
             min-height: 362px;
-            &--green {
-            }
-            &--white {
-            }
-        }
-        &__title {
-        }
-        &__text {
         }
         &__images {
             grid-template-columns: repeat(auto-fill, 234px);
             img {
                 width: 234px;
                 height: 175px;
-            }
-        }
-        &__link {
-            svg {
-            }
-            span {
             }
         }
     }
@@ -97,14 +80,6 @@
         &__description {
             padding: 24px 12px;
             min-height: 362px;
-            &--green {
-            }
-            &--white {
-            }
-        }
-        &__title {
-        }
-        &__text {
         }
         &__images {
             grid-template-columns: repeat(auto-fill, 170px);
@@ -113,12 +88,6 @@
             img {
                 width: 170px;
                 height: 127px;
-            }
-        }
-        &__link {
-            svg {
-            }
-            span {
             }
         }
     }
@@ -139,10 +108,6 @@
                 padding: 0;
             }
         }
-        &__title {
-        }
-        &__text {
-        }
         &__images {
             grid-template-columns: repeat(auto-fill, 155px);
             row-gap: 16px;
@@ -161,10 +126,6 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            svg {
-            }
-            span {
-            }
         }
     }
 }

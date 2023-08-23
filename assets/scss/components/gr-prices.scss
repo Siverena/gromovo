@@ -60,8 +60,6 @@
         border-bottom: 1px solid $text_primary;
         padding: 4px 0;
     }
-    &__item-layout {
-    }
     &__icons {
         margin: 24px 0;
     }
@@ -94,7 +92,6 @@
         bottom: 45px;
         left: -1px;
         display: none;
-
         &::after {
             content: "";
             display: block;
@@ -121,7 +118,6 @@
         font-weight: 400;
         line-height: 22px;
         letter-spacing: 0.02em;
-
         color: $text_secondary;
     }
     &__price {
@@ -160,8 +156,6 @@
             text-align: right;
         }
     }
-    &__price-layout {
-    }
     &__price-name {
         line-height: 30px;
     }
@@ -187,61 +181,19 @@
         &__content {
             margin-bottom: 120px;
         }
-        &__text-star {
-        }
-    }
-    .gr-prices-nav {
-        &__list {
-        }
-        &__item {
-            &:hover {
-            }
-            &--active {
-            }
-        }
     }
     .gr-prices-regular {
-        &__star-info {
-        }
         &__item {
             flex-direction: column;
             align-items: flex-start;
         }
-        &__item-layout {
-        }
-        &__package {
-        }
         &__days {
             margin-bottom: 10px;
         }
-        &__price {
-        }
     }
     .gr-prices-services {
-        &__item {
-        }
         &__item-grid {
             grid-template-columns: 635px 155px 155px;
-        }
-        &__title {
-        }
-        &__col {
-            &--first {
-            }
-            &--center {
-            }
-            &--last {
-            }
-        }
-        &__price-layout {
-        }
-        &__price-name {
-        }
-        &__price-attention {
-            svg {
-            }
-        }
-        &__price {
         }
     }
 }
@@ -250,58 +202,10 @@
         &__content {
             margin-bottom: 100px;
         }
-        &__text-star {
-        }
-    }
-    .gr-prices-nav {
-        &__list {
-        }
-        &__item {
-            &:hover {
-            }
-            &--active {
-            }
-        }
-    }
-    .gr-prices-regular {
-        &__star-info {
-        }
-        &__item {
-        }
-        &__item-layout {
-        }
-        &__package {
-        }
-        &__days {
-        }
-        &__price {
-        }
     }
     .gr-prices-services {
-        &__item {
-        }
         &__item-grid {
             grid-template-columns: 500px 105px 105px;
-        }
-        &__title {
-        }
-        &__col {
-            &--first {
-            }
-            &--center {
-            }
-            &--last {
-            }
-        }
-        &__price-layout {
-        }
-        &__price-name {
-        }
-        &__price-attention {
-            svg {
-            }
-        }
-        &__price {
         }
     }
 }
@@ -314,59 +218,19 @@
             font-size: 12px;
         }
     }
-    .gr-prices-nav {
-        &__list {
-        }
-        &__item {
-            &:hover {
-            }
-            &--active {
-            }
-        }
-    }
     .gr-prices-regular {
         &__star-info {
             font-size: 12px;
         }
-        &__item {
-        }
-        &__item-layout {
-        }
-        &__package {
-        }
-        &__days {
-        }
-        &__price {
-        }
     }
     .gr-prices-services {
-        &__item {
-        }
         &__item-grid {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
-        &__title {
-        }
-        &__col {
-            &--first {
-            }
-            &--center {
-            }
-            &--last {
-            }
-        }
-        &__price-layout {
-        }
-        &__price-name {
-        }
         &__price-attention {
             line-height: 19px;
-            svg {
-            }
-        }
-        &__price {
         }
     }
 }

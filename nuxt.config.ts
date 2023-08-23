@@ -9,7 +9,14 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   //If you want to auto-import components based only on its name, not path, then you need to set pathPrefix option to false using extended form of the configuration object:
-  app: { baseURL: process.env.NODE_ENV === 'development' ? '/' : '/gromovo/' },
+  app: {
+    baseURL: process.env.NODE_ENV === 'development' ? '/' : '/gromovo/',
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    },
+  },
+
   components: [
     {
       path: '~/components',

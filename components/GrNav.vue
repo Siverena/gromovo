@@ -1,7 +1,11 @@
 <template>
   <nav class="gr-nav">
     <ul class="gr-nav__list">
-      <li class="gr-nav__item" v-for="(item, key) in getNavLinks" :key="key">
+      <li
+        class="gr-nav__item"
+        v-for="(item, key) in getMenuNavLinks"
+        :key="key"
+      >
         <NuxtLink
           class="gr-nav__link"
           :to="item.link"
@@ -9,7 +13,7 @@
           >{{ item.name }}</NuxtLink
         >
         <div
-          @click="toggleMenu(key)"
+          @click.stop="toggleMenu(key)"
           v-if="item.child"
           class="gr-nav__arrow"
           :class="
@@ -24,6 +28,10 @@
         </div>
         <ul
           class="gr-nav__child-list"
+          :class="{
+            'gr-nav__child-list--index': this.$route.name === 'index',
+            'gr-nav__child-list--error': !this.$route.name,
+          }"
           :key="key"
           v-if="currentMenu === key && item.child"
         >
@@ -55,7 +63,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(useNavLinksStore, ['getNavLinks']),
+    ...mapState(useNavLinksStore, ['getMenuNavLinks']),
     currentPage() {
       return this.$route.name;
     },
@@ -69,9 +77,18 @@ export default {
     toggleMenu(key = null) {
       if (this.currentMenu !== key) {
         this.currentMenu = key;
+        document
+          .querySelector('body')
+          .addEventListener('click', this.closeMenu);
       } else {
         this.currentMenu = null;
       }
+    },
+    closeMenu() {
+      this.currentMenu = null;
+      document
+        .querySelector('body')
+        .removeEventListener('click', this.closeMenu);
     },
     getClassByRoute(string) {
       if (this.$route.name === 'index' || !this.$route.name) {
@@ -88,6 +105,4 @@ export default {
     this.toggleMenu();
   },
 };
-
-// const { data: links } =
 </script>

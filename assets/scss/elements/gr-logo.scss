@@ -1,18 +1,38 @@
 .gr-logo {
-    width: 188px;
-    height: 56px;
-    &__stroke {
-        stroke: $text_primary;
+    width: 191px;
+    .stroke {
+        stroke: $primary_green;
         stroke-width: 2px;
     }
-    path {
-        fill: $text_primary;
+    .fill {
+        fill: $primary_green;
     }
+
     &--index {
-        .gr-logo__stroke {
+        .stroke {
             stroke: $white;
+            fill: $white;
         }
-        path {
+        .fill {
+            fill: $white;
+        }
+    }
+    &--error {
+        .stroke {
+            stroke: $white;
+            fill: $white;
+        }
+        .fill {
+            fill: $white;
+        }
+    }
+    &--footer {
+        width: 188px;
+        .stroke {
+            stroke: $white;
+            fill: $white;
+        }
+        .fill {
             fill: $white;
         }
     }
@@ -21,27 +41,43 @@
 @media (max-width: grid-width($desktop)) {
     .gr-logo {
         width: 230px;
-        height: 58px;
-        path {
-            fill: $text_primary;
+        &--index {
+            .stroke {
+                stroke: $text_primary;
+                fill: $text_primary;
+            }
+            .fill {
+                fill: $text_primary;
+            }
+        }
+        &--footer {
+            width: 233px;
+        }
+        &--mob-menu {
+            width: 158px;
+            .stroke {
+                stroke: $primary_green;
+                fill: $primary_green;
+            }
+            .fill {
+                fill: $primary_green;
+            }
         }
     }
 }
 @media (max-width: grid-width($laptop)) {
     .gr-logo {
         width: 170px;
-        height: 32px;
-        path {
-            fill: $text_primary;
+        &--footer {
+            width: 157px;
         }
     }
 }
 @media (max-width: grid-width($tablet)) {
     .gr-logo {
         width: 152px;
-        height: 36px;
-        path {
-            fill: $text_primary;
+        &--footer {
+            width: 320px;
         }
     }
 }

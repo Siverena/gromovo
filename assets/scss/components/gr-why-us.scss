@@ -1,7 +1,7 @@
 .gr-why-us {
     margin-bottom: 160px;
     &__first {
-        margin-right: 96px;
+        margin-right: 79px;
         padding-bottom: 118px;
         display: flex;
         flex-direction: column;
@@ -13,7 +13,6 @@
     &__reasons-cont {
         width: 100%;
     }
-
     &__reasons {
         display: flex;
         margin-bottom: 16px;
@@ -28,8 +27,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-        &--active {
         }
     }
     &__link {
@@ -60,35 +57,19 @@
         letter-spacing: 0.02em;
         color: $primary_green;
         text-decoration: underline;
-        margin-left: 32px;
+        margin-left: 45px;
+        cursor: pointer;
     }
 }
 @media (max-width: grid-width($desktop)) {
     .gr-why-us {
-        margin-bottom: 120px;
+        margin-bottom: 90px;
         &__first {
-        }
-        &__container {
-        }
-        &__reasons-cont {
-        }
-        &__reasons {
+            margin-right: 73px;
         }
         &__reason {
-            img {
-            }
-            &--active {
-            }
-        }
-        &__link {
-            &--desktop {
-            }
-            &--mobile {
-            }
-        }
-        &__reason-text {
-        }
-        &__nav {
+            width: 414px;
+            height: 276px;
         }
         &__schema {
             font-size: 14px;
@@ -100,22 +81,18 @@
 }
 @media (max-width: grid-width($laptop)) {
     .gr-why-us {
+        margin-bottom: 100px;
         &__first {
             padding-bottom: 0;
-            margin-bottom: 40px;
+            margin-bottom: 14px;
         }
         &__container {
             display: block;
         }
-        &__reasons-cont {
-        }
-        &__reasons {
-        }
+
         &__reason {
-            img {
-            }
-            &--active {
-            }
+            width: 663px;
+            height: 442px;
         }
         &__link {
             &--desktop {
@@ -125,9 +102,8 @@
                 display: flex;
             }
         }
-        &__reason-text {
-        }
         &__nav {
+            margin-bottom: 27px;
         }
         &__schema {
             margin-left: auto;
@@ -138,30 +114,12 @@
 @media (max-width: grid-width($tablet)) {
     .gr-why-us {
         margin-bottom: 80px;
-        &__first {
-        }
-        &__title {
-        }
-        &__container {
-        }
         &__reasons-cont {
             overflow: hidden;
-        }
-        &__reasons {
         }
         &__reason {
             width: 320px;
             height: 206px;
-            img {
-            }
-            &--active {
-            }
-        }
-        &__link {
-            &--desktop {
-            }
-            &--mobile {
-            }
         }
         &__reason-text {
             width: 304px;

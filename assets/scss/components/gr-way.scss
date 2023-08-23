@@ -63,7 +63,6 @@
         &--2 {
             display: flex;
             align-items: center;
-
             svg {
                 margin-right: 8px;
             }
@@ -78,32 +77,8 @@
         &__row {
             grid-template-columns: repeat(auto-fill, 484px);
         }
-        &__item {
-            &--image {
-            }
-        }
         &__item-title {
             font-size: 24px;
-            svg {
-            }
-            &__link {
-            }
-            &__image {
-            }
-            &__text {
-                &--bold {
-                }
-            }
-            &__list {
-                &--2 {
-                }
-            }
-            &__list-item {
-                &--2 {
-                    &::before {
-                    }
-                }
-            }
         }
     }
 }
@@ -122,39 +97,14 @@
                 display: inline-block;
                 width: 100%;
                 grid-column-start: span 2;
-                // grid-column-end: 2;
             }
             &--cone {
                 display: none;
             }
         }
-        &__item--title {
-        }
-        &__text {
-        }
         &__image {
             object-fit: contain;
             height: fit-content;
-        }
-        &__item-title {
-            svg {
-            }
-            &__link {
-            }
-            &__image {
-            }
-            &__text {
-                &--bold {
-                }
-            }
-            &__list {
-                &--2 {
-                }
-            }
-            &__list-item {
-                &--2 {
-                }
-            }
         }
     }
 }
@@ -167,12 +117,6 @@
             padding: 0;
             background: none;
             color: $text_primary;
-            &--image {
-            }
-            &--train {
-            }
-            &--cone {
-            }
             &--plan1 {
                 display: none;
             }
@@ -183,8 +127,6 @@
                 display: none;
             }
         }
-        &__item--title {
-        }
         &__text {
             svg {
                 path {
@@ -192,26 +134,12 @@
                 }
             }
         }
-        &__image {
-        }
         &__item-title {
             color: $primary_green;
             svg {
                 path {
                     stroke: $primary_green;
                 }
-            }
-            &__link {
-            }
-            &__image {
-            }
-            &__text {
-                &--bold {
-                }
-            }
-        }
-        &__list {
-            &--2 {
             }
         }
         &__list-item {

@@ -1,7 +1,11 @@
 import gall from '@/stores/data/d-gallery.js';
 import { defineStore } from 'pinia';
-async function API(arrId) {
-  return arrId ? gall.filter((el) => arrId.includes(el.id)) : gall;
+async function API(nameEng = null) {
+  if (nameEng) {
+    return gall.find((el) => el.nameEng === nameEng);
+  } else {
+    return gall;
+  }
 }
 
 export const useGalleryStore = defineStore('GalleryStore', {
@@ -24,8 +28,8 @@ export const useGalleryStore = defineStore('GalleryStore', {
       this.gallery = gl;
     },
     //actions
-    async fetchGallery(arrId = null) {
-      API(arrId)
+    async fetchGallery(nameEng = null) {
+      API(nameEng)
         .then((data) => {
           this.SET_GALLERY(data);
         })

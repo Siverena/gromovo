@@ -49,54 +49,12 @@
             &--white {
                 fill: $background_2;
             }
-            &--green {
-            }
-        }
-        &--prices {
-            .gr-site__h2 {
-            }
-            .gr-page-titles {
-                &__logo {
-                }
-                &__path {
-                    &--white {
-                    }
-                }
-            }
-        }
-        &--cottage {
-            .gr-site__h2 {
-            }
         }
     }
 }
 @media (max-width: grid-width($laptop)) {
     .gr-page-titles {
         margin-bottom: 40px;
-        &__logo {
-        }
-        &__path {
-            &--white {
-            }
-            &--green {
-            }
-        }
-        &--prices {
-            .gr-site__h2 {
-            }
-            .gr-page-titles {
-                &__logo {
-                }
-                &__path {
-                    &--white {
-                    }
-                }
-            }
-        }
-        &--cottage {
-            .gr-site__h2 {
-            }
-        }
     }
 }
 @media (max-width: grid-width($tablet)) {
@@ -105,24 +63,7 @@
         &__logo {
             display: none;
         }
-        &__path {
-            &--white {
-            }
-            &--green {
-            }
-        }
-        &--prices {
-            .gr-site__h2 {
-            }
-            .gr-page-titles {
-                &__logo {
-                }
-                &__path {
-                    &--white {
-                    }
-                }
-            }
-        }
+
         &--cottage {
             .gr-site__h2 {
                 width: 100%;

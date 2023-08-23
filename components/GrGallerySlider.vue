@@ -73,7 +73,7 @@
             "
             @click="setCurrentImage(key + firstThumbnailsIndex)"
           >
-            <img :src="getImageUrl(img)" alt="" />
+            <img :src="getStaticImageUrl(img)" alt="" />
           </div>
         </div>
       </div>
@@ -82,6 +82,7 @@
 </template>
 
 <script>
+import imageUrl from '@/utils/mixins/image-url.js';
 export default {
   props: [
     'currentImage',
@@ -93,30 +94,13 @@ export default {
     'firstThumbnailsIndex',
     'thumbnails',
   ],
-  data() {
-    return {
-      //   currentImage: this.index,
-    };
-  },
+  mixins: [imageUrl],
   computed: {
     imageSrc() {
       const srctmp = this.images[this.currentImage];
-      const src = this.getImageUrl(srctmp);
+      const src = this.getStaticImageUrl(srctmp);
       return src;
     },
-    // thumbnails() {
-    //   return this.images.slice(this.currentImage, this.currentImage + 6);
-    // },
-  },
-  methods: {
-    getImageUrl(src) {
-      // const url = new URL(`../assets/img/${src}`, import.meta.url).href;
-      // return url;
-      return `/assets/img/${src}`;
-    },
-  },
-  mounted() {
-    // this.imageSrc();
   },
 };
 </script>

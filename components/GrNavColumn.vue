@@ -3,14 +3,14 @@
     <ul class="gr-nav-column__list">
       <li
         class="gr-nav-column__item"
-        v-for="(item, key) in getNavLinks"
+        v-for="(item, key) in getMenuNavLinks"
         :key="key"
       >
         <NuxtLink class="gr-nav-column__link" :to="item.link">{{
           item.name
         }}</NuxtLink>
         <div
-          @click="toggleMenu(key)"
+          @click.stop="toggleMenu(key)"
           v-if="item.child"
           class="gr-nav-column__arrow"
           :class="getClassByCurrentMenu(key)"
@@ -44,7 +44,7 @@
 import { mapState } from 'pinia';
 import { useNavLinksStore } from '@/stores/navLinksStore.js';
 export default {
-  props: ['mobMenu'],
+  props: ['mobMenu', 'closeMobMenu'],
   data() {
     return {
       isFooter: true,
@@ -52,7 +52,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(useNavLinksStore, ['getNavLinks']),
+    ...mapState(useNavLinksStore, ['getMenuNavLinks']),
     currentYear() {
       return new Date().getFullYear();
     },

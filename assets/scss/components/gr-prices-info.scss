@@ -34,9 +34,9 @@
         border-left: 10px solid $background_2;
         padding-left: 10px;
         a {
-            font-size: 26px;
+            font-size: inherit;
             font-weight: 700;
-            line-height: 32px;
+            line-height: inherit;
             color: inherit;
             text-decoration: none;
         }
@@ -44,56 +44,35 @@
 }
 @media (max-width: grid-width($desktop)) {
     .gr-prices-info {
-        &__block {
-        }
-        &__title {
-        }
-        &__item {
-        }
-        &__svg {
-        }
         &__notification {
             padding: 0;
         }
         &__attention {
-            a {
-            }
+            font-size: 26px;
+
+            line-height: 32px;
         }
     }
 }
 @media (max-width: grid-width($laptop)) {
     .gr-prices-info {
-        &__block {
-        }
-        &__title {
-        }
-        &__item {
-        }
-        &__svg {
-        }
-        &__notification {
-        }
         &__attention {
-            a {
-            }
+            font-size: 24px;
+
+            line-height: 29px;
         }
     }
 }
 @media (max-width: grid-width($tablet)) {
     .gr-prices-info {
-        &__block {
-        }
-        &__title {
-        }
-        &__item {
-        }
-        &__svg {
+        &__attention {
+            font-size: 16px;
+
+            line-height: 19px;
         }
         &__notification {
-        }
-        &__attention {
-            a {
-            }
+            font-size: 10px;
+            line-height: 12px;
         }
     }
 }

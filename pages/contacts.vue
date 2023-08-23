@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Контакты | Громово парк</Title>
+  </Head>
   <section class="gr-contacts" v-if="widthComputed">
     <div class="container">
       <div class="gr-contacts__head">

@@ -1,9 +1,7 @@
 import { defineStore } from 'pinia';
 const API =
   'https://api.open-meteo.com/v1/forecast?latitude=60.74&current_weather=true&hourly=temperature_2m&longitude=30.09&&minutely_15=precipitation';
-//Онежское озеро
-// const API =
-//   'https://api.open-meteo.com/v1/forecast?latitude=60.74&current_weather=true&hourly=temperature_2m&longitude=35.09&&minutely_15=precipitation';
+
 export const useWeatherStore = defineStore('WeatherStore', {
   state: () => {
     return {

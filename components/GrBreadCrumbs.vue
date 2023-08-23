@@ -32,7 +32,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(useNavLinksStore, ['navLinks']),
+    ...mapState(useNavLinksStore, ['getNavLinks']),
     ...mapState(useGalleryStore, {
       getGallery: 'getGallery',
       galleryLoading: 'isLoading',
@@ -53,10 +53,12 @@ export default {
   },
   watch: {
     currentPage() {
-      this.getLinks();
+      // this.getLinks();
+      this.loadData();
     },
     currentCottage() {
-      this.getLinks();
+      // this.getLinks();
+      this.loadData();
     },
   },
   methods: {
@@ -76,13 +78,12 @@ export default {
             link: '/galleries',
           });
 
+          // 3й элемент
           this.links.push({
-            name: this.getGallery.find((el) => el.nameEng === arr[2]).name,
-            link:
-              '/' + this.getGallery.find((el) => el.nameEng === arr[2]).nameEng,
+            name: this.getGallery.name,
+            link: '/' + this.getGallery.nameEng,
           });
         }
-
         if (arr[1] === 'cottage') {
           this.links.push({
             name: 'Коттеджи',
@@ -93,11 +94,11 @@ export default {
             link: '/cottages',
           });
         }
-      } else {
-        const elem = this.getElem(this.navLinks, '/' + arr[1]);
+      } else if (arr[1]) {
+        const elem = this.getElem(this.getNavLinks, '/' + arr[1]);
         this.links.push({
-          name: elem?.name,
-          link: elem?.link,
+          name: elem.name,
+          link: elem.link,
         });
       }
     },
@@ -116,8 +117,6 @@ export default {
     async loadData() {
       try {
         this.loading = true;
-        // await this.fetchGallery();
-        // await this.fetchCottage(this.$route.params.id);
         Promise.all([this.getGalleryLoading, this.cottagesLoading]).then(() => {
           this.getLinks();
           this.loading = false;

@@ -1,5 +1,9 @@
 <template>
-  <section class="gr-cottages">
+  <Head>
+    <Title>Коттеджи | Громово парк</Title>
+  </Head>
+  <GrLoader v-if="loading"></GrLoader>
+  <section class="gr-cottages" v-if="!loading">
     <div class="container">
       <GrPageTitles :showLogo="false" :class="'gr-page-titles--cottages'">
         <template v-slot:h1>Коттеджи</template>
@@ -8,8 +12,7 @@
         >
       </GrPageTitles>
 
-      <GrLoader v-if="loading"></GrLoader>
-      <div class="gr-cottages__layout" v-if="!loading">
+      <div class="gr-cottages__layout">
         <Accordion :multiple="true" :activeIndex="[0]" :class="'gr-accordion'">
           <AccordionTab
             v-if="getFivePersonCottages.length !== 0"
@@ -22,7 +25,7 @@
                 :key="key"
               >
                 <div class="gr-cottages__cottage-image">
-                  <img :src="getImageUrl(item.photo)" alt="" />
+                  <img :src="getStaticImageUrl(item.photo)" alt="" />
                 </div>
                 <p class="gr-cottages__cottage-name">{{ item.name }}</p>
                 <NuxtLink
@@ -44,7 +47,7 @@
                 :key="key"
               >
                 <div class="gr-cottages__cottage-image">
-                  <img :src="getImageUrl(item.photo)" alt="" />
+                  <img :src="getStaticImageUrl(item.photo)" alt="" />
                 </div>
                 <p class="gr-cottages__cottage-name">{{ item.name }}</p>
                 <NuxtLink
@@ -66,7 +69,7 @@
                 :key="key"
               >
                 <div class="gr-cottages__cottage-image">
-                  <img :src="getImageUrl(item.photo)" alt="" />
+                  <img :src="getStaticImageUrl(item.photo)" alt="" />
                 </div>
                 <p class="gr-cottages__cottage-name">{{ item.name }}</p>
                 <NuxtLink
@@ -86,12 +89,14 @@
 <script>
 import { mapActions, mapState } from 'pinia';
 import { useCottagesStore } from '@/stores/cottagesStore.js';
+import imageUrl from '@/utils/mixins/image-url.js';
 export default {
   data() {
     return {
       loading: true,
     };
   },
+  mixins: [imageUrl],
   computed: {
     ...mapState(useCottagesStore, [
       'getFivePersonCottages',
@@ -99,13 +104,9 @@ export default {
       'getEightPersonCottages',
     ]),
   },
+
   methods: {
     ...mapActions(useCottagesStore, ['fetchCottages3']),
-    getImageUrl(src) {
-      // const url = new URL(`../assets/img/${src}`, import.meta.url).href;
-      // return url;
-      return `/assets/img/${src}`;
-    },
     async loadData() {
       try {
         this.loading = true;
@@ -114,9 +115,6 @@ export default {
       } catch (e) {
         console.log(e);
       }
-    },
-    getImageUrl(src) {
-      return `/assets/img/${src}`;
     },
   },
   async created() {

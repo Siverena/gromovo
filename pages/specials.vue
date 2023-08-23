@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Специальные предложения | Громово парк</Title>
+  </Head>
   <section class="gr-specal" v-if="widthComputed">
     <div class="container">
       <GrPageTitles :showLogo="false" class="gr-specal__titles">

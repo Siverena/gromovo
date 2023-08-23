@@ -1,5 +1,9 @@
 <template>
-  <div class="container">
+  <Head>
+    <Title>Галерея | Громово парк</Title>
+  </Head>
+  <GrLoader v-if="loading" />
+  <div class="container" v-else>
     <section class="gr-gallery">
       <GrPageTitles class="gr-gallery__titles">
         <template v-slot:h1>Галерея</template>
@@ -8,11 +12,13 @@
         >
       </GrPageTitles>
       <NuxtLink
-        v-for="(item, key) in categories"
+        v-for="(item, key) in getGallery"
         :key="key"
         :to="`/gallery/${item?.nameEng}`"
         class="gr-gallery__item"
-        :style="`background-image: url(` + getImageUrl(item.mainImg) + `);`"
+        :style="
+          `background-image: url(` + getStaticImageUrl(item.mainImg) + `);`
+        "
       >
         <div class="gr-gallery__item-bg">
           {{ item.name }}
@@ -30,28 +36,21 @@
   </div>
 </template>
 <script>
-import gallery from '@/stores/data/d-gallery.js';
-
 import { mapActions, mapState } from 'pinia';
 import { useGalleryStore } from '@/stores/galleryStore.js';
-
+import imageUrl from '@/utils/mixins/image-url.js';
 export default {
   data() {
     return {
       loading: true,
     };
   },
+  mixins: [imageUrl],
   computed: {
-    ...mapState(useGalleryStore, ['gallery']),
-    categories() {
-      return gallery;
-    },
+    ...mapState(useGalleryStore, ['getGallery']),
   },
   methods: {
     ...mapActions(useGalleryStore, ['fetchGallery']),
-    getImageUrl(src) {
-      return `/assets/img/${src}`;
-    },
     async loadData() {
       try {
         this.loading = true;

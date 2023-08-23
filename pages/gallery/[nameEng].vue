@@ -1,16 +1,20 @@
 <template>
-  <div class="container">
-    <section class="gr-gallery" v-if="!isLoading && widthComputed">
+  <Head>
+    <Title>{{ getGallery.name }} | Громово парк</Title>
+  </Head>
+  <GrLoader v-if="loading" />
+  <div class="container" v-if="!loading && widthComputed">
+    <section class="gr-gallery">
       <GrPageTitles class="gr-gallery__titles">
-        <template v-slot:h1>{{ information.name }}</template>
-        <template v-slot:h2> {{ information.title }}</template>
+        <template v-slot:h1>{{ getGallery.name }}</template>
+        <template v-slot:h2> {{ getGallery.title }}</template>
       </GrPageTitles>
       <img
         alt=""
         v-for="(img, key) in imgsss"
         :key="key"
         class="gr-gallery__image"
-        :src="getImageUrl(img.src)"
+        :src="getStaticImageUrl(img.src)"
         @click="showSlider(key)"
       />
     </section>
@@ -28,14 +32,14 @@
   </div>
 </template>
 <script>
-import gallery from '@/stores/data/d-gallery.js';
-import { mapState } from 'pinia';
+import { mapState, mapActions } from 'pinia';
 import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
-
+import { useGalleryStore } from '@/stores/galleryStore.js';
+import imageUrl from '@/utils/mixins/image-url.js';
 export default {
   data() {
     return {
-      isLoading: true,
+      loading: true,
       isShowSlider: false,
       informations: [],
       currentImage: 0,
@@ -43,6 +47,7 @@ export default {
       thumbnails: [],
     };
   },
+  mixins: [imageUrl],
   computed: {
     ...mapState(useAdaptiveStore, [
       'isMobileVersion',
@@ -50,12 +55,11 @@ export default {
       'isLaptopVersion',
       'widthComputed',
     ]),
+    ...mapState(useGalleryStore, ['getGallery']),
     body() {
-      return document.querySelector('body');
+      return document.querySelector('html');
     },
-    information() {
-      return gallery.find((el) => el.nameEng === this.$route.params.nameEng);
-    },
+
     imgsss() {
       const tmp = [];
       this.images.forEach((element, index) => {
@@ -88,30 +92,22 @@ export default {
     },
   },
   methods: {
+    ...mapActions(useGalleryStore, ['fetchGallery']),
     async loadData() {
-      // this.informations = gallery[this.$route.params.nameEng];
-      this.informations = gallery.find(
-        (el) => el.nameEng === this.$route.params.nameEng
-      );
-      this.images = gallery.find(
-        (el) => el.nameEng === this.$route.params.nameEng
-      ).images;
-      this.isLoading = false;
-    },
-    getImageUrl(src) {
-      // const url = new URL(`../../assets/img/${src}`, import.meta.url).href;
-      // return url;
-      return `/assets/img/${src}`;
+      this.loading = true;
+      await this.fetchGallery(this.$route.params.nameEng);
+      this.images = this.getGallery.images;
+      this.loading = false;
     },
     showSlider(key) {
       this.isShowSlider = true;
-      this.body.style.overflow = 'hidden';
+      this.body.style.overflowY = 'hidden';
       this.currentImage = key;
       this.getThumbnails();
     },
     closeSlider() {
       this.isShowSlider = false;
-      this.body.style.overflow = 'scroll';
+      this.body.style.overflowY = 'scroll';
     },
     nextSlide() {
       if (this.currentImage === this.images.length - 1) {

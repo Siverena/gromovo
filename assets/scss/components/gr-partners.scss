@@ -22,11 +22,8 @@
     &__item {
         display: flex;
         flex-direction: column;
-
         font-size: 18px;
-
         line-height: 22px;
-
         &--green {
             color: $white;
             padding: 24px 126px 24px 32px;
@@ -51,64 +48,32 @@
 }
 @media (max-width: grid-width($desktop)) {
     .gr-partners {
-        &__titles {
-        }
-        &__logo {
-        }
-        &__path {
-            &--white {
-            }
-        }
         &__row {
             grid-template-columns: repeat(auto-fill, 484px);
             margin-bottom: 120px;
         }
         &__item {
             font-size: 16px;
-
             line-height: 20px;
-
-            &--green {
-            }
-            &--white {
-            }
         }
         &__item-title {
             font-size: 24px;
-
             line-height: 29px;
-        }
-        &__link {
         }
     }
 }
 @media (max-width: grid-width($laptop)) {
     .gr-partners {
-        &__titles {
-        }
-        &__logo {
-        }
-        &__path {
-            &--white {
-            }
-        }
         &__row {
             grid-template-columns: repeat(auto-fill, 356px);
             margin-bottom: 100px;
         }
         &__item {
             font-size: 16px;
-
             line-height: 20px;
-
-            &--green {
-            }
-            &--white {
-            }
         }
         &__item-title {
             font-size: 24px;
-
             line-height: 29px;
         }
         &__link {
@@ -118,21 +83,12 @@
 }
 @media (max-width: grid-width($tablet)) {
     .gr-partners {
-        &__titles {
-        }
-        &__logo {
-        }
-        &__path {
-            &--white {
-            }
-        }
         &__row {
             grid-template-columns: repeat(auto-fill, 100%);
             margin-bottom: 80px;
         }
         &__item {
             font-size: 16px;
-
             line-height: 20px;
             color: $text_primary;
             &--green {
@@ -149,7 +105,6 @@
         }
         &__item-title {
             font-size: 20px;
-
             line-height: 29px;
         }
         &__link {

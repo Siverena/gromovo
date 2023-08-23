@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Цены | Громово парк</Title>
+  </Head>
   <GrLoader v-if="loading"></GrLoader>
   <section class="gr-prices" v-if="!loading && widthComputed">
     <div class="container">
@@ -209,6 +212,7 @@
 import { mapState, mapActions } from 'pinia';
 import { usePricesStore } from '@/stores/pricesStore.js';
 import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
+import ending from '@/utils/mixins/ending';
 export default {
   data() {
     return {
@@ -235,6 +239,7 @@ export default {
       ],
     };
   },
+  mixins: [ending],
   computed: {
     currentYear() {
       return new Date().getFullYear();
@@ -270,19 +275,19 @@ export default {
         console.log(e);
       }
     },
-    getEnding(number) {
-      const arrTmp = number.split('');
-      const num = arrTmp[arrTmp.length - 1];
-      if (number > 4 && number < 20) {
-        return 'ночей';
-      } else if (num === '1') {
-        return 'ночь';
-      } else if (num >= '2' && num <= '4') {
-        return 'ночи';
-      } else {
-        return 'ночей';
-      }
-    },
+    // getEnding(number) {
+    //   const arrTmp = number.split('');
+    //   const num = arrTmp[arrTmp.length - 1];
+    //   if (number > 4 && number < 20) {
+    //     return 'ночей';
+    //   } else if (num === '1') {
+    //     return 'ночь';
+    //   } else if (num >= '2' && num <= '4') {
+    //     return 'ночи';
+    //   } else {
+    //     return 'ночей';
+    //   }
+    // },
     changePeriod(name) {
       this.currentPeriod = name;
       this.getCurrentPrices();

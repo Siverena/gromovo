@@ -1,5 +1,5 @@
 .gr-about-us {
-    margin-bottom: 64px;
+    margin-bottom: 170px;
     &__content {
         margin: 0 auto;
         display: flex;
@@ -20,7 +20,7 @@
         height: 519px;
         background-color: $primary_green;
         position: absolute;
-        left: 448px;
+        left: 446px;
         width: 100vw;
         z-index: -1;
     }
@@ -53,22 +53,14 @@
 @media (max-width: grid-width($desktop)) {
     .gr-about-us {
         margin-bottom: 120px;
-        &__content {
-        }
-        &__left {
-        }
         &__bg {
             background-image: none;
             height: 292px;
-            left: 397px;
-        }
-        &__row {
-        }
-        &__titles {
+            left: 410px;
         }
         &__info {
-            padding-left: 6px;
             font-size: 16px;
+            padding-left: 33px;
         }
         &__video {
             video {
@@ -81,10 +73,6 @@
 @media (max-width: grid-width($laptop)) {
     .gr-about-us {
         margin-bottom: 100px;
-        &__content {
-        }
-        &__left {
-        }
         &__bg {
             display: none;
         }
@@ -93,7 +81,7 @@
             margin-bottom: 40px;
         }
         &__titles {
-            margin-bottom: 40px;
+            margin-bottom: 34px;
         }
         &__info {
             width: 100%;
@@ -111,22 +99,11 @@
 @media (max-width: grid-width($tablet)) {
     .gr-about-us {
         margin-bottom: 80px;
-        &__content {
-        }
-        &__left {
-        }
-        &__bg {
-        }
         &__row {
             margin-bottom: 32px;
         }
         &__titles {
             margin-bottom: 24px;
-        }
-
-        &__video {
-            video {
-            }
         }
     }
 }
