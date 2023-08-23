@@ -3,7 +3,7 @@
     <Title>Бронирование. Шаг 1 | Громово парк</Title>
   </Head>
 
-  <div class="gr-booking-1" v-if="show">
+  <div class="gr-booking-1" v-if="showBookingForm">
     <div class="container">
       <GrPageTitles>
         <template v-slot:h1>Бронирование. Шаг 1</template>
@@ -33,7 +33,11 @@
         </NuxtLink>
         <p class="gr-booking-1__step-name">Ввод данных для бронирования</p>
         <NuxtLink
+          :to="disabledBtn ? '' : '/booking/step-2'"
           class="gr-booking-1__link gr-booking-1__link--next"
+          :class="{
+            'gr-booking-1__link--disabled': disabledBtn,
+          }"
           @click="submitForm"
         >
           <span>Продолжить бронирование</span>
@@ -59,6 +63,7 @@
             <div
               class="gr-booking-1__field gr-booking-1__field--input"
               v-if="field.name"
+              :ref="field.name"
             >
               <label class="gr-booking-1__label" :for="field.name"
                 >{{ field.label
@@ -410,16 +415,15 @@
                   <NuxtLink
                     to="/prices"
                     target="_blank"
-                    class="gr-booking-1__agree"
+                    class="gr-booking-1__agree gr-link gr-link--green"
                     >ценами</NuxtLink
                   >,<NuxtLink
                     to="/rules"
                     target="_blank"
-                    class="gr-booking-1__agree"
+                    class="gr-booking-1__agree gr-link gr-link--green"
                     >правилами проживания и поведения</NuxtLink
-                  >ознакомлен и согласен<span class="gr-booking-1__star"
-                    >*</span
                   >
+                  ознакомлен и согласен<span class="gr-booking-1__star">*</span>
                 </span>
               </div>
             </label>
@@ -474,7 +478,7 @@
                 <NuxtLink
                   to="/agree"
                   target="_blank"
-                  class="gr-booking-1__agree"
+                  class="gr-booking-1__agree gr-link gr-link--green"
                   >Политикой обработки персональных данных</NuxtLink
                 >
                 <span class="gr-booking-1__star">*</span>
@@ -492,23 +496,26 @@
               for="getNews"
               class="gr-booking-1__label gr-booking-1__label--checkbox"
             >
-              <div class="gr-booking-1__checkbox">
-                <svg
-                  v-if="agrees.getNews"
-                  width="9"
-                  height="7"
-                  viewBox="0 0 9 7"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M3.37233 5.93846L1.10564 3.67177C1.0126 3.57873 0.901572 3.55008 0.772551 3.58583C0.64353 3.62158 0.562978 3.70213 0.530894 3.82749C0.498811 3.95284 0.52929 4.06559 0.622332 4.16574L3.37233 6.91574L8.87233 1.41574C8.93673 1.34401 8.96721 1.26162 8.96377 1.16858C8.96033 1.07554 8.92447 0.994985 8.85618 0.926923C8.78788 0.85886 8.70905 0.824829 8.61968 0.824829C8.5303 0.824829 8.44975 0.857027 8.37802 0.921423L3.37233 5.93846Z"
-                    fill="#010101"
-                  />
-                </svg>
+              <div class="gr-booking-1__checkbox-layout">
+                <div class="gr-booking-1__checkbox">
+                  <svg
+                    v-if="agrees.getNews"
+                    width="9"
+                    height="7"
+                    viewBox="0 0 9 7"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M3.37233 5.93846L1.10564 3.67177C1.0126 3.57873 0.901572 3.55008 0.772551 3.58583C0.64353 3.62158 0.562978 3.70213 0.530894 3.82749C0.498811 3.95284 0.52929 4.06559 0.622332 4.16574L3.37233 6.91574L8.87233 1.41574C8.93673 1.34401 8.96721 1.26162 8.96377 1.16858C8.96033 1.07554 8.92447 0.994985 8.85618 0.926923C8.78788 0.85886 8.70905 0.824829 8.61968 0.824829C8.5303 0.824829 8.44975 0.857027 8.37802 0.921423L3.37233 5.93846Z"
+                      fill="#010101"
+                    />
+                  </svg>
+                </div>
               </div>
+
               <div class="gr-booking-1__label-text">
                 <span
                   >Хочу получать новости и информацию о специальных предложениях
@@ -541,9 +548,9 @@
         </div>
         <div class="gr-booking-1__footer">
           <div class="gr-booking-1__summa">
-            Стоимость за {{ getBookingDataStep1.nightCount }}
-            {{ getEnding(getBookingDataStep1.nightCount) }}
-            <span>{{ formattedPrice(getBookingDataStep1.summa) }}</span>
+            Стоимость за {{ getBookingInformation.nightCount }}
+            {{ getEnding(getBookingInformation.nightCount) }}
+            <span>{{ formattedPrice(getBookingInformation.summa) }}</span>
           </div>
           <div class="gr-booking-1__buttons">
             <router-link
@@ -551,7 +558,12 @@
               class="gr-btn gr-btn--white"
               >Назад</router-link
             >
-            <GrBtn class="gr-btn gr-btn--white" type="submit">Далее</GrBtn>
+            <GrBtn
+              class="gr-btn gr-btn--white"
+              type="submit"
+              :disabled="disabledBtn"
+              >Далее</GrBtn
+            >
           </div>
         </div>
       </form>
@@ -568,6 +580,7 @@ import { useBookingStore } from '@/stores/bookingStore.js';
 import { useCottagesStore } from '@/stores/cottagesStore.js';
 import ending from '@/utils/mixins/ending.js';
 import formatted from '@/utils/mixins/formatted.js';
+import showBookingForm from '@/utils/mixins/show-booking-form';
 export default {
   data() {
     return {
@@ -669,26 +682,25 @@ export default {
       formData: {},
     };
   },
-  mixins: [ending, formatted],
+  mixins: [ending, formatted, showBookingForm],
   computed: {
-    ...mapState(useBookingStore, ['getBookingDataStep1']),
+    ...mapState(useBookingStore, ['getBookingInformation']),
     ...mapState(useCottagesStore, ['getCottage']),
     placementCount() {
       return (
         this.getCottage.placement.main + this.getCottage.placement.additional
       );
     },
-    show() {
+    disabledBtn() {
       if (
-        !this.getCottage?.id ||
-        !this.getBookingDataStep1 ||
-        this.getBookingDataStep1.dateStart === null ||
-        this.getBookingDataStep1.dateEnd === null ||
-        this.getBookingDataStep1.summa === null
+        !this.agrees.personalInformation ||
+        !this.agrees.withoutAnimals ||
+        !this.agrees.rulesAndPrices
       ) {
+        return 'true';
+      } else {
         return false;
       }
-      return true;
     },
   },
   methods: {
@@ -701,13 +713,6 @@ export default {
       this.currentSelectOpen = '';
       this.numbersOfPersons[key] = count;
     },
-    // formattedPrice(string) {
-    //   if (!isFinite(string)) {
-    //     return string;
-    //   } else {
-    //     return `${new Intl.NumberFormat('ru-RU').format(string)} Ꝑ`;
-    //   }
-    // },
     validateName() {
       if (this.name.length < 0) {
         this.errors.name = 'Поле ';
@@ -753,6 +758,12 @@ export default {
           this.validationSuccess = false;
         }
       });
+      if (!this.validationSuccess) {
+        const nameField = this.fields.find((el) => el.error !== '').name;
+        const el = this.$refs[`${nameField}`][0];
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+
       if (
         !this.agrees.withoutAnimals ||
         !this.agrees.rulesAndPrices ||
@@ -775,8 +786,32 @@ export default {
         this.$router.push('/booking/step-2');
       }
     },
+    // fillTestData() {
+    //   if (this.getBookingInformation.name) {
+    //     this.fields[0].value = this.getBookingInformation.name;
+    //     this.fields[1].value = this.getBookingInformation.phone;
+    //     this.fields[2].value = this.getBookingInformation.email;
+    //     this.fields[3].value = this.getBookingInformation.seria;
+    //     this.fields[4].value = this.getBookingInformation.issued;
+    //     this.fields[5].value = this.getBookingInformation.whenIssued;
+    //     this.fields[6].value = this.getBookingInformation.address;
+    //     this.fields[7].value = this.getBookingInformation.birth;
+    //     this.agrees.withoutAnimals = this.getBookingInformation.withoutAnimals;
+    //     this.agrees.rulesAndPrices = this.getBookingInformation.rulesAndPrices;
+    //     this.agrees.personalInformation =
+    //       this.getBookingInformation.personalInformation;
+    //     this.numbersOfPersons.numberOfAdults =
+    //       this.getBookingInformation.numberOfAdults;
+    //     this.numbersOfPersons.numberOfTeenagers =
+    //       this.getBookingInformation.numberOfTeenagers;
+    //     this.numbersOfPersons.numberOfchildren =
+    //       this.getBookingInformation.numberOfchildren;
+    //     this.numbersOfPersons.placesWithoutAccommodation =
+    //       this.getBookingInformation.placesWithoutAccommodation;
+    //   }
+    // },
     fillTestData() {
-      this.fields[0].value = 'Иванов Иван Иванович';
+      this.fields[0].value = 'Иванов';
       this.fields[1].value = '9111110011';
       this.fields[2].value = 'wertwe@wertw.ru';
       this.fields[3].value = '400 011223';
@@ -793,7 +828,7 @@ export default {
     this.fillTestData();
   },
   created() {
-    if (!this.show) {
+    if (!this.showBookingForm) {
       this.$router.push('/cottages');
     }
   },

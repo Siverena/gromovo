@@ -23,6 +23,7 @@ import { mapState, mapActions } from 'pinia';
 import { useGalleryStore } from '@/stores/galleryStore.js';
 import { useNavLinksStore } from '@/stores/navLinksStore.js';
 import { useCottagesStore } from '@/stores/cottagesStore.js';
+import currentUrl from '@/utils/mixins/current-url';
 
 export default {
   data() {
@@ -31,6 +32,7 @@ export default {
       loading: true,
     };
   },
+  mixins: [currentUrl],
   computed: {
     ...mapState(useNavLinksStore, ['getNavLinks']),
     ...mapState(useGalleryStore, {
@@ -41,23 +43,19 @@ export default {
       getCottage: 'getCottage',
       cottagesLoading: 'isLoading',
     }),
-    currentPage() {
-      return this.$route.name;
-    },
+
     showBreadcrumbs() {
-      return this.currentPage !== 'index';
+      return this.currentUrl !== 'index';
     },
     currentCottage() {
-      return this.getCottage;
+      return this.currentUrl;
     },
   },
   watch: {
-    currentPage() {
-      // this.getLinks();
+    currentUrl() {
       this.loadData();
     },
     currentCottage() {
-      // this.getLinks();
       this.loadData();
     },
   },
@@ -93,6 +91,43 @@ export default {
             name: this.getCottage.name,
             link: '/cottages',
           });
+        }
+
+        if (arr[1] === 'booking') {
+          this.links.push({
+            name: 'Коттеджи',
+            link: '/cottages',
+          });
+          if (arr[2] === 'step-1') {
+            this.links.push({
+              name: 'Бронирование. Шаг 1',
+              link: '/booking/step-1',
+            });
+          }
+          if (arr[2] === 'step-2') {
+            this.links.push({
+              name: 'Бронирование. Шаг 1',
+              link: '/booking/step-1',
+            });
+            this.links.push({
+              name: 'Бронирование. Шаг 2',
+              link: '/booking/step-2',
+            });
+          }
+          if (arr[2] === 'payment') {
+            this.links.push({
+              name: 'Бронирование. Шаг 1',
+              link: '/booking/step-1',
+            });
+            this.links.push({
+              name: 'Бронирование. Шаг 2',
+              link: '/booking/step-2',
+            });
+            this.links.push({
+              name: 'Бронирование. Шаг 3',
+              link: '/booking/payment',
+            });
+          }
         }
       } else if (arr[1]) {
         const elem = this.getElem(this.getNavLinks, '/' + arr[1]);

@@ -1,5 +1,5 @@
 <template>
-  <div class="gr-pick-up" v-if="!loading && currentPage">
+  <div class="gr-pick-up" v-if="!loading && currentUrl">
     <form
       action=""
       class="gr-pick-up__form"
@@ -135,16 +135,20 @@
           Выберите даты
         </p>
         <GrBtn
+          v-if="mode === 'cottage'"
           @click.stop.prevent="sendForm"
-          class="gr-pick-up__btn"
-          :class="
-            currentPage === 'index' && isDesktopVersion
-              ? 'gr-btn--transparent'
-              : mode === 'cottage'
-              ? 'gr-btn--green gr-pick-up__btn--cottage'
-              : 'gr-btn--green'
-          "
+          class="gr-pick-up__btn gr-btn gr-btn--green gr-pick-up__btn--cottage"
           :disabled="isDisabled"
+          >{{ btnText }}</GrBtn
+        >
+        <GrBtn
+          v-else
+          @click.stop.prevent=""
+          class="gr-pick-up__btn"
+          :class="{
+            'gr-btn--transparent': currentUrl === 'index' && isDesktopVersion,
+            'gr-btn--green': currentUrl !== 'index' || !isDesktopVersion,
+          }"
           >{{ btnText }}</GrBtn
         >
       </div>
@@ -156,7 +160,7 @@ import { mapActions, mapState } from 'pinia';
 import { useCottagesStore } from '@/stores/cottagesStore.js';
 import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
 import { useBookingStore } from '@/stores/bookingStore.js';
-
+import currentUrl from '@/utils/mixins/current-url';
 export default {
   props: ['btnText', 'mode'],
   data() {
@@ -171,6 +175,7 @@ export default {
       summa: 40000,
     };
   },
+  mixins: [currentUrl],
   computed: {
     ...mapState(useCottagesStore, ['getCottageType', 'getCottage']),
     ...mapState(useAdaptiveStore, ['isDesktopVersion']),
@@ -186,9 +191,7 @@ export default {
         return `${tmp.placement} человек`;
       }
     },
-    currentPage() {
-      return this.$route.name;
-    },
+
     isDisabled() {
       if (this.mode === 'cottage' && (!this.dateStart || !this.dateEnd)) {
         return true;

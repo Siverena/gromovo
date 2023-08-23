@@ -29,15 +29,6 @@ export const useBookingStore = defineStore('bookingStore', {
     };
   },
   getters: {
-    getBookingDataStep1(state) {
-      return {
-        dateStart: state.dateStart.toLocaleDateString(),
-        dateEnd: state.dateEnd.toLocaleDateString(),
-        summa: state.summa,
-        cottageDescription: state.cottageDescription,
-        nightCount: state.nightCount,
-      };
-    },
     getBookingInformation(state) {
       return {
         dateStart: state.dateStart.toLocaleDateString(),
@@ -61,6 +52,7 @@ export const useBookingStore = defineStore('bookingStore', {
         personalInformation: state.personalInformation,
         getNews: state.getNews,
         summa: state.summa,
+        nightCount: state.nightCount,
       };
     },
   },

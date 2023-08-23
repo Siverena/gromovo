@@ -1,6 +1,7 @@
 .gr-breadcrumbs {
     margin-bottom: 80px;
     display: flex;
+    flex-wrap: wrap;
     &__item {
         display: flex;
         align-items: center;
@@ -10,6 +11,7 @@
         line-height: 15px;
         letter-spacing: 0.03em;
         color: $text_primary;
+        white-space: nowrap;
     }
     &__delimiter {
         width: 5px;

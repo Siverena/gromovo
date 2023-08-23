@@ -2,7 +2,7 @@
   <Head>
     <Title>Бронирование. Шаг 2 | Громово парк</Title>
   </Head>
-  <div v-if="show">
+  <div v-if="showBookingForm">
     <div class="container">
       <GrPageTitles>
         <template v-slot:h1>Бронирование. Шаг 2</template>
@@ -34,7 +34,7 @@
           Подтверждение данных для бронирования
         </p>
         <NuxtLink
-          to="/payment "
+          to="/booking/payment"
           class="gr-booking-1__link gr-booking-1__link--next"
         >
           <span>Оплата</span>
@@ -75,29 +75,21 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from 'pinia';
+import { mapState } from 'pinia';
 import { useBookingStore } from '@/stores/bookingStore.js';
 import { useCottagesStore } from '@/stores/cottagesStore.js';
 import ending from '@/utils/mixins/ending';
 import formatted from '@/utils/mixins/formatted.js';
+import showBookingForm from '@/utils/mixins/show-booking-form';
 export default {
-  data() {
-    return {};
-  },
-  mixins: [ending, formatted],
+  mixins: [ending, formatted, showBookingForm],
   computed: {
     ...mapState(useBookingStore, ['getBookingInformation']),
     ...mapState(useCottagesStore, ['getCottage']),
-    show() {
-      if (!this.getBookingInformation?.dateStart) {
-        return false;
-      }
-      return true;
-    },
   },
   created() {
-    if (!this.show) {
-      //   this.$router.push('/cottages');
+    if (!this.showBookingForm) {
+      this.$router.push('/cottages');
     }
   },
 };

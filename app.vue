@@ -1,8 +1,8 @@
-<template v-if="widthComputed">
+<template>
   <Head>
     <Title>Громово Парк</Title>
   </Head>
-  <GrHeader :currentUrl="currentUrl" />
+  <GrHeader />
   <div class="container"><GrBreadCrumbs /></div>
   <NuxtPage />
   <GrFooter />
@@ -17,14 +17,6 @@ import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
 import { useModalStore } from '@/stores/modalStore.js';
 
 export default {
-  data() {
-    return {
-      isShowMob: false,
-      isShowOrder: false,
-      currentMenu: false,
-      resourcesLoaded: false,
-    };
-  },
   computed: {
     ...mapState(useAdaptiveStore, ['widthComputed']),
     ...mapState(useModalStore, [
@@ -33,17 +25,13 @@ export default {
       'getIsShowPhoto',
       'getIsShowMob',
     ]),
-
-    currentUrl() {
-      return this.$route.name;
-    },
     html() {
       return document.querySelector('html');
     },
   },
   methods: {
     ...mapActions(useAdaptiveStore, ['updateWidth']),
-    getBodyClass() {
+    setHtmlClass() {
       if (this.$attrs.error) {
         document.querySelector('html').classList.add('gr-404__html');
       } else {
@@ -51,15 +39,12 @@ export default {
       }
     },
   },
-  created() {
-    console.clear();
-  },
   beforeMount() {
     this.updateWidth();
     window.addEventListener('resize', () => {
       this.updateWidth();
     });
-    this.getBodyClass();
+    this.setHtmlClass();
   },
 };
 </script>

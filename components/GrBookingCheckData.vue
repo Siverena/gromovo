@@ -1,5 +1,5 @@
 <template>
-  <div class="gr-booking-check-data" v-if="show">
+  <div class="gr-booking-check-data" v-if="showBookingForm">
     <div class="gr-booking-check-data__item">
       <div class="gr-booking-check-data__name">ФИО</div>
       <div class="gr-booking-check-data__value">
@@ -21,7 +21,7 @@
     <div class="gr-booking-check-data__item">
       <div class="gr-booking-check-data__name">Серия и номер паспорта</div>
       <div class="gr-booking-check-data__value">
-        {{ getBookingInformation.email }}
+        {{ getBookingInformation.seria }}
       </div>
     </div>
     <div class="gr-booking-check-data__item">
@@ -88,18 +88,13 @@ import ending from '@/utils/mixins/ending';
 import { mapState } from 'pinia';
 import { useBookingStore } from '@/stores/bookingStore.js';
 import { useCottagesStore } from '@/stores/cottagesStore.js';
+import showBookingForm from '@/utils/mixins/show-booking-form';
 
 export default {
-  mixins: [ending],
+  mixins: [ending, showBookingForm],
   computed: {
     ...mapState(useBookingStore, ['getBookingInformation']),
     ...mapState(useCottagesStore, ['getCottage']),
-    show() {
-      if (!this.getBookingInformation?.dateStart) {
-        return false;
-      }
-      return true;
-    },
   },
 };
 </script>
