@@ -29,6 +29,7 @@
         <span>К вводу данных</span>
       </NuxtLink>
       <p class="gr-booking-1__step-name">Оплата</p>
+      <p class="gr-booking-1__step-hidden"></p>
     </div>
 
     <div class="gr-booking-payment">
@@ -43,12 +44,14 @@
           </div>
         </div>
         <div class="gr-booking-payment__right">
-          <div class="gr-booking-1__summa">
+          <div class="gr-booking-payment__summa gr-booking-1__summa">
             Стоимость за {{ getBookingInformation.nightCount }}
             {{ getEnding(getBookingInformation.nightCount) }}
             <span>{{ formattedPrice(getBookingInformation.summa) }}</span>
           </div>
-          <button class="gr-btn gr-btn--green">Оплатить</button>
+          <button class="gr-booking-payment__btn gr-btn gr-btn--green">
+            Оплатить
+          </button>
         </div>
       </div>
 
@@ -62,12 +65,14 @@
           </div>
         </div>
         <div class="gr-booking-payment__right">
-          <div class="gr-booking-1__summa">
+          <div class="gr-booking-payment__summa gr-booking-1__summa">
             Стоимость за {{ getBookingInformation.nightCount }}
             {{ getEnding(getBookingInformation.nightCount) }}
             <span>{{ formattedPrice(getBookingInformation.summa) }}</span>
           </div>
-          <button class="gr-btn gr-btn--green">Оплатить</button>
+          <button class="gr-booking-payment__btn gr-btn gr-btn--green">
+            Оплатить
+          </button>
         </div>
       </div>
     </div>

@@ -14,7 +14,11 @@
         ></path>
       </svg>
     </div>
-    <img class="gr-view-foto__image" :src="getImageUrl(getSrcFoto)" alt="" />
+    <img
+      class="gr-view-foto__image"
+      :src="getStaticImageUrl(getSrcFoto)"
+      alt=""
+    />
   </div>
 </template>
 <script>

@@ -42,3 +42,58 @@
         letter-spacing: 0.02em;
     }
 }
+@media (max-width: grid-width($desktop)) {
+    .gr-booking-payment {
+        &__method {
+            flex-direction: column;
+            row-gap: 55px;
+        }
+        &__right {
+            align-items: flex-start;
+        }
+    }
+}
+@media (max-width: grid-width($tablet)) {
+    .gr-booking-payment {
+        &__payment-system {
+            font-size: 16px;
+
+            line-height: 20px;
+            letter-spacing: 0.02em;
+
+            p {
+                font-size: 16px;
+
+                line-height: 20px;
+                letter-spacing: 0.02em;
+
+                color: $text_secondary;
+            }
+        }
+        &__info {
+            font-size: 16px;
+
+            line-height: 20px;
+            letter-spacing: 0.02em;
+        }
+        &__method {
+            padding: 0;
+            background-color: transparent;
+            row-gap: 0;
+        }
+        &__left {
+            width: 100%;
+            padding: 8px 6px;
+            background-color: $background_1;
+        }
+        &__summa {
+            width: 100%;
+            padding: 20px 6px;
+            background-color: $background_1;
+            margin-bottom: 16px;
+        }
+        &__btn {
+            width: 100%;
+        }
+    }
+}

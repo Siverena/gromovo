@@ -2,6 +2,7 @@
     display: flex;
     position: relative;
     margin-bottom: 160px;
+    top: -272px;
     &__bg {
         background-repeat: no-repeat;
         background-color: $background_1;
@@ -71,7 +72,10 @@
 @media (max-width: grid-width($desktop)) {
     .gr-offer {
         margin-bottom: 120px;
-
+        top: 0;
+        &__bg {
+            display: none;
+        }
         &__image {
             margin-top: 0;
             width: 484px;
@@ -107,6 +111,7 @@
     .gr-offer {
         margin-bottom: 100px;
         flex-direction: column;
+
         &__image {
             width: 728px;
             height: 487px;

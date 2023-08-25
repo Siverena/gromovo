@@ -71,7 +71,7 @@
             удочек зимой.
           </p>
 
-          <p
+          <!-- <p
             class="gr-service__link"
             :class="{
               'gr-btn gr-btn--green': isMobileVersion,
@@ -81,7 +81,17 @@
             <span @click="showPhoto('gr-services/komsomolskoe1.jpg')"
               >Карта глубин оз. Комсомольское</span
             >
-          </p>
+          </p> -->
+          <a
+            class="gr-service__link"
+            :class="{
+              'gr-btn gr-btn--green': isMobileVersion,
+              'gr-link gr-link--green': !isMobileVersion,
+            }"
+            :href="getStaticImageUrl('gr-services/fishing/komsomolskoe1.jpg')"
+            target="_blank"
+            >Карта глубин оз. Комсомольское</a
+          >
         </div>
         <GrServiceSlider
           :slides="getCategoryImages('9')"
@@ -208,6 +218,7 @@
   </section>
 </template>
 <script>
+import imageUrl from '@/utils/mixins/image-url.js';
 import { mapState, mapActions } from 'pinia';
 import { useGalleryStore } from '@/stores/galleryStore.js';
 import { useAdaptiveStore } from '@/stores/adaptiveStore.js';
@@ -218,6 +229,7 @@ export default {
       loading: true,
     };
   },
+  mixins: [imageUrl],
   computed: {
     ...mapState(useGalleryStore, ['gallery']),
     ...mapState(useAdaptiveStore, ['isMobileVersion', 'widthComputed']),
