@@ -31,7 +31,7 @@
           <span>К вводу данных</span>
         </NuxtLink>
         <p class="gr-booking-1__step-name">
-          Подтверждение данных для бронирования
+          Подтверждение данных <span>для бронирования</span>
         </p>
         <NuxtLink
           to="/booking/payment"
@@ -56,17 +56,21 @@
       </div>
 
       <GrBookingCheckData />
-      <div class="gr-booking-1__footer">
+      <div class="gr-booking-1__footer gr-booking-1__footer--border">
         <div class="gr-booking-1__summa">
           Стоимость за {{ getBookingInformation.nightCount }}
           {{ getEnding(getBookingInformation.nightCount) }}
           <span>{{ formattedPrice(getBookingInformation.summa) }}</span>
         </div>
         <div class="gr-booking-1__buttons">
-          <router-link :to="`/booking/step-1`" class="gr-btn gr-btn--white"
+          <router-link
+            :to="`/booking/step-1`"
+            class="gr-booking-1__btn gr-btn gr-btn--white"
             >Назад</router-link
           >
-          <NuxtLink to="/booking/payment" class="gr-btn gr-btn--white"
+          <NuxtLink
+            to="/booking/payment"
+            class="gr-booking-1__btn gr-btn gr-btn--white"
             >Оплатить</NuxtLink
           >
         </div>

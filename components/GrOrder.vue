@@ -30,7 +30,10 @@
         <template v-for="(field, key) in fields" :key="key">
           <div class="gr-order__field" v-if="fieldsVisibility[field.name]">
             <label class="gr-order__label" :for="field.name"
-              >{{ field.label }}<span v-if="field.required">*</span></label
+              >{{ field.label
+              }}<span class="gr-order__star" v-if="field.required"
+                >*</span
+              ></label
             >
             <InputMask
               v-if="field.mask"
@@ -111,7 +114,9 @@
         <p class="gr-order__info">
           Мы свяжемся с вами в рабочее время пн-пт с 09:00 до 18:00
         </p>
-        <div class="gr-order__attention"><span>*</span>Обязательное поле</div>
+        <div class="gr-order__attention">
+          <span class="gr-order__star">*</span>Обязательное поле
+        </div>
       </form>
     </div>
   </div>

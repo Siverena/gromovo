@@ -36,9 +36,16 @@
           </div>
           <a
             class="gr-why-us__schema gr-link gr-link--green"
-            @click="showPhoto('gr-why-us/plan.jpg')"
+            :href="getStaticImageUrl('gr-why-us/plan.jpg')"
+            target="_blank"
             >Посмотреть схему базы отдыха</a
           >
+
+          <!-- <a
+            class="gr-why-us__schema gr-link gr-link--green"
+            @click="showPhoto('gr-why-us/plan.jpg')"
+            >Посмотреть схему базы отдыха</a
+          > -->
         </div>
       </div>
       <NuxtLink

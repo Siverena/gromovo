@@ -555,11 +555,11 @@
           <div class="gr-booking-1__buttons">
             <router-link
               :to="`/cottage/${getCottage.id}`"
-              class="gr-btn gr-btn--white"
+              class="gr-booking-1__btn gr-btn gr-btn--white"
               >Назад</router-link
             >
             <GrBtn
-              class="gr-btn gr-btn--white"
+              class="gr-booking-1__btn gr-btn gr-btn--white"
               type="submit"
               :disabled="disabledBtn"
               >Далее</GrBtn

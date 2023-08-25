@@ -48,7 +48,9 @@
         {{ getBookingInformation.birth ? getBookingInformation.birth : '-' }}
       </div>
     </div>
-    <div class="gr-booking-check-data__item">
+    <div
+      class="gr-booking-check-data__item gr-booking-check-data__item--placement-full"
+    >
       <div class="gr-booking-check-data__name">Размещение</div>
       <div class="gr-booking-check-data__value">
         {{
@@ -79,6 +81,42 @@
               )} мест без размещения`
             : ''
         }}
+      </div>
+    </div>
+
+    <div
+      class="gr-booking-check-data__item gr-booking-check-data__item--placement"
+    >
+      <div class="gr-booking-check-data__name">Кол-во гостей</div>
+      <div class="gr-booking-check-data__value">
+        {{ getBookingInformation.numberOfAdults }}
+      </div>
+    </div>
+
+    <div
+      class="gr-booking-check-data__item gr-booking-check-data__item--placement"
+    >
+      <div class="gr-booking-check-data__name">Кол-во детей 3-12 лет</div>
+      <div class="gr-booking-check-data__value">
+        {{ getBookingInformation.numberOfTeenagers }}
+      </div>
+    </div>
+
+    <div
+      class="gr-booking-check-data__item gr-booking-check-data__item--placement"
+    >
+      <div class="gr-booking-check-data__name">Кол-во детей до 3 лет</div>
+      <div class="gr-booking-check-data__value">
+        {{ getBookingInformation.numberOfchildren }}
+      </div>
+    </div>
+
+    <div
+      class="gr-booking-check-data__item gr-booking-check-data__item--placement"
+    >
+      <div class="gr-booking-check-data__name">Кол-во детей до 3 лет</div>
+      <div class="gr-booking-check-data__value">
+        {{ getBookingInformation.placesWithoutAccommodation }}
       </div>
     </div>
   </div>

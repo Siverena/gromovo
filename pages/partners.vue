@@ -28,6 +28,7 @@
             class="gr-partners__link gr-link gr-link--white"
             :class="isMobileVersion ? 'gr-btn gr-btn--green' : ''"
             href="http://alehovshina.ru/"
+            target="_blank"
             >Подробнее</a
           >
         </div>
@@ -52,6 +53,7 @@
             :class="
               isMobileVersion ? 'gr-btn gr-btn--green ' : 'gr-link--green'
             "
+            target="_blank"
             href="https://gromovopark.ru/alehovshina/index.php"
             >Подробнее</a
           >
@@ -82,6 +84,7 @@
             :class="isMobileVersion ? 'gr-btn gr-btn--green ' : ''"
             class="gr-partners__link gr-link gr-link--white"
             href="https://vk.com/bogatirskaysila"
+            target="_blank"
             >Подробнее</a
           >
           <p></p>

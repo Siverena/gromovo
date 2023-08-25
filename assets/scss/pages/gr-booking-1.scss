@@ -5,8 +5,11 @@
         margin-bottom: 32px;
     }
     &__promo {
-        border-top: 1px solid #010101;
-        padding: 24px 0;
+        padding: 0px 0 24px 0;
+    }
+    &__checkboxes {
+        padding-bottom: 24px;
+        border-bottom: 1px solid #010101;
     }
     &__dates {
         margin-bottom: 16px;
@@ -24,7 +27,7 @@
     }
     &__nav {
         display: grid;
-        grid-template-columns: 290px auto 320px;
+        grid-template-columns: 300px auto auto;
         // justify-content: space-between;
         padding: 20px 0;
         border-bottom: 1px solid #010101;
@@ -99,7 +102,7 @@
     }
     &__field {
         display: grid;
-        grid-template-columns: 290px auto;
+        grid-template-columns: 300px auto;
         align-items: center;
         position: relative;
         &--checkbox {
@@ -115,9 +118,9 @@
         }
     }
     &__label {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 700;
-        line-height: 22px;
+        line-height: 19px;
         letter-spacing: 0.02em;
         p {
             font-size: 12px;
@@ -260,6 +263,10 @@
     &__footer {
         display: flex;
         align-items: center;
+        &--border {
+            border-top: 1px solid #010101;
+            padding-top: 35px;
+        }
     }
     &__summa {
         font-size: 24px;
@@ -272,6 +279,130 @@
             font-weight: 700;
             line-height: 44px;
             letter-spacing: 0.02em;
+        }
+    }
+}
+@media (max-width: grid-width($desktop)) {
+    .gr-booking-1 {
+        &__link {
+            margin: 0;
+            span {
+                display: none;
+            }
+            svg {
+                margin: 0;
+            }
+        }
+        &__nav {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__step-name {
+            font-size: 24px;
+            line-height: 31px;
+        }
+        &__step-hidden {
+            width: 16px;
+            height: 17px;
+        }
+        &__field {
+            grid-template-columns: 250px auto;
+        }
+        &__label {
+            font-size: 16px;
+            line-height: 19px;
+        }
+    }
+}
+@media (max-width: grid-width($laptop)) {
+    .gr-booking-1 {
+        &__field {
+            grid-template-columns: 184px auto;
+        }
+        &__label {
+            font-size: 16px;
+            line-height: 19px;
+        }
+        &__footer {
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 24px;
+        }
+    }
+}
+
+@media (max-width: grid-width($tablet)) {
+    .gr-booking-1 {
+        &__field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 10px;
+        }
+
+        &__cottage {
+            font-size: 16px;
+            line-height: 19px;
+            padding: 10px 0;
+        }
+        &__dates {
+            margin-bottom: 0;
+        }
+        &__step-name {
+            font-size: 16px;
+            line-height: 19px;
+            span {
+                display: none;
+            }
+        }
+        &__input {
+            padding: 13px 20px;
+            font-size: 16px;
+            line-height: 19px;
+        }
+        &__select {
+            width: 100%;
+            padding: 13px 20px;
+            font-size: 16px;
+            line-height: 19px;
+        }
+        &__promo {
+            border-top: 0;
+        }
+        &__summa {
+            font-family: Montserrat;
+            font-size: 15px;
+
+            line-height: 20px;
+            letter-spacing: 0.02em;
+
+            // font-family: Montserrat;
+            // font-size: 24px;
+            // font-weight: 700;
+            // line-height: 29px;
+            // letter-spacing: 0.02em;
+            // text-align: left;
+            span {
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 29px;
+                letter-spacing: 0.02em;
+            }
+        }
+        &__buttons {
+            flex-direction: column;
+            row-gap: 10px;
+            width: 100%;
+            margin-bottom: 32px;
+        }
+        &__btn {
+            width: 100%;
+        }
+        &__checkboxes {
+            border-bottom: none;
+        }
+        &__attention {
+            align-items: flex-start;
         }
     }
 }
