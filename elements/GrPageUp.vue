@@ -16,11 +16,9 @@
 </template>
 <script>
 export default {
-  computed: {},
   methods: {
     scrollToTop() {
       const rootElement = document.querySelector('html');
-
       rootElement.scrollTo({
         top: 0,
         behavior: 'smooth',

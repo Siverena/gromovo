@@ -4,8 +4,6 @@ export const useModalStore = defineStore('modalStore', {
     return {
       isShowMob: false,
       isShowOrder: false,
-      isShowPhoto: false,
-      src: '',
       isSubscription: false,
     };
   },
@@ -15,12 +13,6 @@ export const useModalStore = defineStore('modalStore', {
     },
     getIsShowOrder(state) {
       return state.isShowOrder;
-    },
-    getIsShowPhoto(state) {
-      return state.isShowPhoto;
-    },
-    getSrcFoto(state) {
-      return state.src;
     },
     getIsSubscription(state) {
       return state.isSubscription;
@@ -37,10 +29,6 @@ export const useModalStore = defineStore('modalStore', {
       this.isShowMob = false;
       this.isShowOrder = data;
       this.isShowPhoto = false;
-    },
-    SET_IS_SHOW_PHOTO(data, src) {
-      this.isShowPhoto = data;
-      this.src = src;
     },
     SET_IS_SUBSCRIPTION(data) {
       this.isSubscription = data;
@@ -60,12 +48,6 @@ export const useModalStore = defineStore('modalStore', {
     closeMobMenu() {
       this.SET_IS_SHOW_MOB_MENU(false);
       document.querySelector('html').style.overflowY = 'scroll';
-    },
-    showPhoto(src) {
-      this.SET_IS_SHOW_PHOTO(true, src);
-    },
-    closePhoto() {
-      this.SET_IS_SHOW_PHOTO(false);
     },
   },
 });

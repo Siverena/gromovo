@@ -9,7 +9,6 @@
   <GrMobMenu v-if="getIsShowMob" />
   <div class="gr-view-photo"></div>
   <GrOrder v-if="getIsShowOrder" />
-  <GrViewFoto v-if="getIsShowPhoto" />
 </template>
 <script>
 import { mapActions, mapState } from 'pinia';
@@ -22,7 +21,6 @@ export default {
     ...mapState(useModalStore, [
       'getIsShowOrder',
       'getIsSubscription',
-      'getIsShowPhoto',
       'getIsShowMob',
     ]),
     html() {

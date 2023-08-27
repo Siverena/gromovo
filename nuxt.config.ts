@@ -21,10 +21,17 @@ export default defineNuxtConfig({
     {
       path: '~/components',
       pathPrefix: false,
+      extensions: ['.vue'],
     },
     {
       path: '~/elements',
       pathPrefix: false,
+      extensions: ['.vue'],
+    },
+    {
+      path: '~/icons',
+      pathPrefix: false,
+      extensions: ['.vue'],
     },
   ],
   build: {
@@ -48,4 +55,7 @@ export default defineNuxtConfig({
     'primevue/resources/themes/lara-light-indigo/theme.css',
     'primevue/resources/primevue.min.css',
   ],
+  router: {
+    options: {},
+  },
 });
