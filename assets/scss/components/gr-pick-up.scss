@@ -88,6 +88,16 @@
     }
     &__select-open {
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        svg {
+            width: 13px;
+            fill: #010101;
+            height: 8px;
+        }
     }
     &__btn {
         height: 72px;

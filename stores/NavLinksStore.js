@@ -20,7 +20,7 @@ export const useNavLinksStore = defineStore('NavLinksStore', {
             },
             {
               name: 'Галерея',
-              link: '/galleries',
+              link: '/gallery',
               visibleInMenu: true,
             },
           ],

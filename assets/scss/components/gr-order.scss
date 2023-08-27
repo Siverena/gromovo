@@ -30,6 +30,13 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        svg {
+            width: 16px;
+            height: 16px;
+            path {
+                fill: $text_primary;
+            }
+        }
     }
     &__title {
         font-size: 19px;

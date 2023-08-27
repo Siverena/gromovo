@@ -22,13 +22,11 @@
 
 /**********
 /* ELEMENTS */
-@import "./elements/gr-logo.scss";
+
 @import "./elements/gr-btn.scss";
 @import "./elements/gr-btn-slides.scss";
 @import "./elements/gr-link.scss";
-@import "./elements/gr-page-titles.scss";
 @import "./elements/gr-page-up.scss";
-@import "./elements/gr-calendar.scss";
 
 /**********
 /* PLUGINS */
@@ -54,8 +52,7 @@
 @import "./components/gr-partners.scss";
 @import "./components/gr-offer.scss";
 @import "./components/gr-special.scss";
-@import "./components/gr-services.scss";
-@import "./components/gr-service-slider.scss";
+@import "./components/gr-service.scss";
 @import "./components/gr-breadcrumbs.scss";
 @import "./components/gr-prices-info.scss";
 @import "./components/gr-prices.scss";
@@ -64,16 +61,19 @@
 @import "./components/gr-general.scss";
 @import "./components/gr-way.scss";
 @import "./components/gr-order.scss";
-@import "./components/gr-view-foto.scss";
 @import "./components/gr-booking-check-data.scss";
 @import "./components/gr-booking-payment.scss";
+@import "./components/gr-date-picker.scss";
+@import "./components/gr-page-titles.scss";
+@import "./components/gr-logo.scss";
+@import "./components/gr-slider.scss";
 
 /**********
 /* PAGES */
-@import "./pages/rules.scss";
-@import "./pages/uslov.scss";
-@import "./pages/gallery.scss";
-@import "./pages/cottages.scss";
-@import "./pages/404.scss";
+@import "./pages/gr-rules.scss";
+@import "./pages/gr-uslov.scss";
+@import "./pages/gr-gallery.scss";
+@import "./pages/gr-cottages.scss";
+@import "./pages/gr-404.scss";
 @import "./pages/gr-booking-1.scss";
-@import "./pages/agree.scss";
+@import "./pages/gr-agree.scss";
