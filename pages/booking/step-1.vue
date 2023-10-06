@@ -786,43 +786,43 @@ export default {
         this.$router.push('/booking/step-2');
       }
     },
-    // fillTestData() {
-    //   if (this.getBookingInformation.name) {
-    //     this.fields[0].value = this.getBookingInformation.name;
-    //     this.fields[1].value = this.getBookingInformation.phone;
-    //     this.fields[2].value = this.getBookingInformation.email;
-    //     this.fields[3].value = this.getBookingInformation.seria;
-    //     this.fields[4].value = this.getBookingInformation.issued;
-    //     this.fields[5].value = this.getBookingInformation.whenIssued;
-    //     this.fields[6].value = this.getBookingInformation.address;
-    //     this.fields[7].value = this.getBookingInformation.birth;
-    //     this.agrees.withoutAnimals = this.getBookingInformation.withoutAnimals;
-    //     this.agrees.rulesAndPrices = this.getBookingInformation.rulesAndPrices;
-    //     this.agrees.personalInformation =
-    //       this.getBookingInformation.personalInformation;
-    //     this.numbersOfPersons.numberOfAdults =
-    //       this.getBookingInformation.numberOfAdults;
-    //     this.numbersOfPersons.numberOfTeenagers =
-    //       this.getBookingInformation.numberOfTeenagers;
-    //     this.numbersOfPersons.numberOfchildren =
-    //       this.getBookingInformation.numberOfchildren;
-    //     this.numbersOfPersons.placesWithoutAccommodation =
-    //       this.getBookingInformation.placesWithoutAccommodation;
-    //   }
-    // },
     fillTestData() {
-      this.fields[0].value = 'Иванов';
-      this.fields[1].value = '9111110011';
-      this.fields[2].value = 'wertwe@wertw.ru';
-      this.fields[3].value = '400 011223';
-      this.fields[4].value = 'Кем выдан';
-      this.fields[5].value = '20.12.2000';
-      this.fields[6].value = 'Адрес регистрации';
-      this.fields[7].value = '20.12.2000';
-      this.agrees.withoutAnimals = true;
-      this.agrees.rulesAndPrices = true;
-      this.agrees.personalInformation = true;
+      if (this.getBookingInformation.name) {
+        this.fields[0].value = this.getBookingInformation.name;
+        this.fields[1].value = this.getBookingInformation.phone;
+        this.fields[2].value = this.getBookingInformation.email;
+        this.fields[3].value = this.getBookingInformation.seria;
+        this.fields[4].value = this.getBookingInformation.issued;
+        this.fields[5].value = this.getBookingInformation.whenIssued;
+        this.fields[6].value = this.getBookingInformation.address;
+        this.fields[7].value = this.getBookingInformation.birth;
+        this.agrees.withoutAnimals = this.getBookingInformation.withoutAnimals;
+        this.agrees.rulesAndPrices = this.getBookingInformation.rulesAndPrices;
+        this.agrees.personalInformation =
+          this.getBookingInformation.personalInformation;
+        this.numbersOfPersons.numberOfAdults =
+          this.getBookingInformation.numberOfAdults;
+        this.numbersOfPersons.numberOfTeenagers =
+          this.getBookingInformation.numberOfTeenagers;
+        this.numbersOfPersons.numberOfchildren =
+          this.getBookingInformation.numberOfchildren;
+        this.numbersOfPersons.placesWithoutAccommodation =
+          this.getBookingInformation.placesWithoutAccommodation;
+      }
     },
+    // fillTestData() {
+    //   this.fields[0].value = 'Иванов';
+    //   this.fields[1].value = '9111110011';
+    //   this.fields[2].value = 'wertwe@wertw.ru';
+    //   this.fields[3].value = '400 011223';
+    //   this.fields[4].value = 'Кем выдан';
+    //   this.fields[5].value = '20.12.2000';
+    //   this.fields[6].value = 'Адрес регистрации';
+    //   this.fields[7].value = '20.12.2000';
+    //   this.agrees.withoutAnimals = true;
+    //   this.agrees.rulesAndPrices = true;
+    //   this.agrees.personalInformation = true;
+    // },
   },
   mounted() {
     this.fillTestData();
